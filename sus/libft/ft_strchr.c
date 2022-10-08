@@ -13,12 +13,12 @@
 char *ft_strchr(const char *str, int c)
 {
     while(*str != '\0')
-    { 
-        if(*str == c)
+    {
+        if(*str == (char)(c))
         {
             return(char *)(str);
         }
         str++;
     }
-    return("null");
+    return(0);
 }
