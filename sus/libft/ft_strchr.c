@@ -22,3 +22,11 @@ char *ft_strchr(const char *str, int c)
     }
     return(0);
 }
+/*#include <stdio.h>
+#include <string.h>
+int main()
+{
+    char needle[] = "";
+    printf("%s\n", ft_strchr(needle, ));
+    printf("%s", strchr(needle, ));
+}*/
