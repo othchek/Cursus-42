@@ -6,13 +6,13 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 15:39:20 by otchekai          #+#    #+#             */
-/*   Updated: 2022/10/08 10:55:27 by otchekai         ###   ########.fr       */
+/*   Updated: 2022/10/10 07:30:21 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_toupper(int c)
+int	ft_toupper(int c)
 {
-    if(c >= 'a' && c <= 'z')
-        c -=32;
-    return(c);
+	if (c >= 'a' && c <= 'z')
+		c -= 32;
+	return (c);
 }

@@ -6,14 +6,14 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 15:39:29 by otchekai          #+#    #+#             */
-/*   Updated: 2022/10/08 10:55:15 by otchekai         ###   ########.fr       */
+/*   Updated: 2022/10/10 07:19:43 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_isprint(int c)
+int	ft_isprint(int c)
 {
-    if(c >= '32' && c <= '127')
-        return(1);
-    else
-        return(0);
+	if (c >= '32' && c <= '127')
+		return (1);
+	else
+		return (0);
 }

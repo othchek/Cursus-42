@@ -6,16 +6,15 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 09:33:34 by otchekai          #+#    #+#             */
-/*   Updated: 2022/10/08 10:55:39 by otchekai         ###   ########.fr       */
+/*   Updated: 2022/10/10 07:17:16 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
-int ft_isdigit(int c)
+int	ft_isdigit(int c)
 {
-	if(c >= 0 && c <= 9)
-		return(1);
+	if (c >= 0 && c <= 9)
+		return (1);
 	else
-		return(0);
+		return (0);
 }
 q

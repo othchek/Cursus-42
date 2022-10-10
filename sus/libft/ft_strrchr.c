@@ -1,27 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/08 09:55:47 by otchekai          #+#    #+#             */
-/*   Updated: 2022/10/10 07:29:11 by otchekai         ###   ########.fr       */
+/*   Created: 2022/10/09 08:25:50 by otchekai          #+#    #+#             */
+/*   Updated: 2022/10/09 11:25:10 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
-{
-	int	i;
 
-	i = 0;
-	while ((s1[i] != '\0') || (s2[i] != '\0' && i < n))
-	{
-		if (s1[i] - s2[i] > 0)
-			return (s1[i] - s2[i]);
-		else if (s1[i] - s2[i] < 0)
-			return (s1[i] - s2[i]);
-		i++;
-	}
-	return (0);
-}
+
+/*#include <stdio.h>
+#include <string.h>
+int main()
+{
+	char name[] = "papay";
+	printf("%d\n", ft_strlen(name));
+	printf("%s\n", ft_strrev(name));
+	printf("%s\n", ft_strrchr(name, 112));
+	printf("%s\n", strrchr(name, 112));
+}*/
