@@ -6,9 +6,11 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 15:39:29 by otchekai          #+#    #+#             */
-/*   Updated: 2022/10/10 07:19:43 by otchekai         ###   ########.fr       */
+/*   Updated: 2022/10/10 10:20:21 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int	ft_isprint(int c)
 {

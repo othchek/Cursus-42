@@ -6,9 +6,11 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 09:33:34 by otchekai          #+#    #+#             */
-/*   Updated: 2022/10/10 07:17:16 by otchekai         ###   ########.fr       */
+/*   Updated: 2022/10/10 10:20:16 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int	ft_isdigit(int c)
 {

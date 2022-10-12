@@ -6,9 +6,11 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 10:21:06 by otchekai          #+#    #+#             */
-/*   Updated: 2022/10/10 07:29:44 by otchekai         ###   ########.fr       */
+/*   Updated: 2022/10/10 10:20:44 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int	ft_tolower(int c)
 {

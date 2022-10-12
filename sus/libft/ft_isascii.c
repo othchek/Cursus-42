@@ -6,11 +6,11 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 12:04:28 by otchekai          #+#    #+#             */
-/*   Updated: 2022/10/10 07:16:46 by otchekai         ###   ########.fr       */
+/*   Updated: 2022/10/10 10:20:10 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include 'libft.h'
+#include "libft.h"
 
 int	ft_isascii(int c)
 {

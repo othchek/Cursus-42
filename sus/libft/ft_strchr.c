@@ -6,9 +6,11 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 07:20:52 by otchekai          #+#    #+#             */
-/*   Updated: 2022/10/10 07:25:05 by otchekai         ###   ########.fr       */
+/*   Updated: 2022/10/10 10:20:26 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 char	*ft_strchr(const char *str, int c)
 {

@@ -6,23 +6,11 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 08:25:50 by otchekai          #+#    #+#             */
-/*   Updated: 2022/10/10 09:15:43 by otchekai         ###   ########.fr       */
+/*   Updated: 2022/10/12 11:07:49 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-
-size_t	ft_strlen(const char *s)
-{
-	int	i;
-
-	i = 0;
-	while (s[i] != '\0')
-	{
-		i++;
-	}
-	return (i);
-}
+#include "libft.h"
 
 char	*ft_strrchr(const char *s, int c)
 {
@@ -37,11 +25,3 @@ char	*ft_strrchr(const char *s, int c)
 	}
 	return (0);
 }
-
-/*#include <string.h>
-int main()
-{
-	char name[] = "papay";
-	printf("%s\n", ft_strrchr(name, 112));
-	printf("%s\n", strrchr(name, 112));
-}*/

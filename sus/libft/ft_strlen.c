@@ -6,9 +6,11 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 15:39:10 by otchekai          #+#    #+#             */
-/*   Updated: 2022/10/10 07:26:26 by otchekai         ###   ########.fr       */
+/*   Updated: 2022/10/10 10:20:30 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 size_t	ft_strlen(const char *s)
 {
