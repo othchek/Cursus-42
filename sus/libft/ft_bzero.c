@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 02:25:53 by otchekai          #+#    #+#             */
-/*   Updated: 2022/10/13 02:33:34 by otchekai         ###   ########.fr       */
+/*   Updated: 2022/10/13 03:46:25 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,25 @@
 #include <string.h>
 #include "libft.h"
 
-void bzero(void *s, size_t n)
+void ft_bzero(void *s, size_t n)
 {
-    ft_memset();
+    int i;
+    char *str;
+    str = (char *)s;
+
+    i = 0;
+    while (str[i] != '\0')
+    {
+        str[i] = '\0';
+        i++;
+    }
 }
+
+/*int main()
+{
+    char name[] = "papay";
+    ft_bzero(name, 5);
+    printf("%s\n", name);
+    bzero(name, 5);
+    printf("%s\n", name);
+}*/
