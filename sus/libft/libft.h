@@ -6,15 +6,14 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/16 11:00:17 by otchekai          #+#    #+#             */
-/*   Updated: 2022/10/16 11:03:43 by otchekai         ###   ########.fr       */
+/*   Updated: 2022/10/16 13:00:47 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <stdio.h>
-
 #ifndef LIBFT_H
-#define LIBFT_H
+# define LIBFT_H
+# include <unistd.h>
+# include <stdio.h>
 
 int		ft_isalnum(int c);
 int		ft_atoi(const char *str);
