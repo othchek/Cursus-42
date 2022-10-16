@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 02:25:53 by otchekai          #+#    #+#             */
-/*   Updated: 2022/10/13 03:46:25 by otchekai         ###   ########.fr       */
+/*   Updated: 2022/10/16 13:06:02 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,18 @@
 #include <string.h>
 #include "libft.h"
 
-void ft_bzero(void *s, size_t n)
+void	ft_bzero(void *s, size_t n)
 {
-    int i;
-    char *str;
-    str = (char *)s;
+	int		i;
+	char	*str;
 
-    i = 0;
-    while (str[i] != '\0')
-    {
-        str[i] = '\0';
-        i++;
-    }
+	str = (char *)s;
+	i = 0;
+	while (str[i] != '\0')
+	{
+		str[i] = '\0';
+		i++;
+	}
 }
 
 /*int main()
