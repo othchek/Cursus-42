@@ -1,35 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/10 10:18:08 by otchekai          #+#    #+#             */
-/*   Updated: 2022/10/16 10:30:24 by otchekai         ###   ########.fr       */
+/*   Created: 2022/10/16 10:06:54 by otchekai          #+#    #+#             */
+/*   Updated: 2022/10/16 10:58:18 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include <string.h>
 #include <stdio.h>
 
-char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
+void	*ft_memcpy(void *restrict dst, const void *restrict src, size_t n)
 {
 	int	i;
 	int	j;
 
-	i = 0;
 	j = 0;
-	if (needle[j] == '\0')
-		return ((char *)haystack);
-	while (haystack[i] >= len)
+	i = 0;
+	while ((src[i] != '\0' && dst[j] < n))
 	{
-		if (haystack[i] == needle[j])
-			return ((char *)&haystack[i]);
-			i++;
+        if()
 	}
-	if (haystack[i] != needle[j])
-		return (0);
-	return (0);
+
 }
