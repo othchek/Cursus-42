@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 07:30:41 by otchekai          #+#    #+#             */
-/*   Updated: 2022/10/16 13:14:00 by otchekai         ###   ########.fr       */
+/*   Updated: 2022/10/16 13:25:53 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	ft_atoi(const char *str)
 	i = 0;
 	k = 0;
 	sign = 1;
-	while ((str[i] == ' ') || (str[i] <= '\r' && str[i] >= '\t'))
+	while ((str[i] == ' ') || (str[i] >= '\t' && str[i] <= '\r'))
 		i++;
 	if (str[i] == '-')
 		sign *= -1;
