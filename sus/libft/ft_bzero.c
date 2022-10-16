@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 02:25:53 by otchekai          #+#    #+#             */
-/*   Updated: 2022/10/16 13:06:02 by otchekai         ###   ########.fr       */
+/*   Updated: 2022/10/16 15:34:39 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,3 @@ void	ft_bzero(void *s, size_t n)
 		i++;
 	}
 }
-
-/*int main()
-{
-    char name[] = "papay";
-    ft_bzero(name, 5);
-    printf("%s\n", name);
-    bzero(name, 5);
-    printf("%s\n", name);
-}*/
