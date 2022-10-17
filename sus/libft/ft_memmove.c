@@ -6,13 +6,11 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 10:22:56 by otchekai          #+#    #+#             */
-/*   Updated: 2022/10/17 11:50:26 by otchekai         ###   ########.fr       */
+/*   Updated: 2022/10/17 11:52:00 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
-#include <string.h>
 
 void	*ft_memmove(void *dst, const void *src, size_t n)
 {
