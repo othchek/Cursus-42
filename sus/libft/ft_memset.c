@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 13:10:27 by otchekai          #+#    #+#             */
-/*   Updated: 2022/10/17 15:19:32 by otchekai         ###   ########.fr       */
+/*   Updated: 2022/10/17 15:59:21 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	*ft_memset(void *b, int c, size_t len)
 {
 	size_t				i;
-	unsigned char	*str;
+	unsigned char		*str;
 
 	str = (unsigned char *)b;
 	i = 0;
