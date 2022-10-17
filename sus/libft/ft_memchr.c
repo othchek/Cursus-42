@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 03:24:22 by otchekai          #+#    #+#             */
-/*   Updated: 2022/10/16 10:59:51 by otchekai         ###   ########.fr       */
+/*   Updated: 2022/10/17 15:19:46 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {
-	int				i;
+	size_t			i;
 	unsigned char	*str;
 
 	str = (unsigned char *)s;

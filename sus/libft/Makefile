@@ -6,7 +6,7 @@
 #    By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/12 10:09:01 by otchekai          #+#    #+#              #
-#    Updated: 2022/10/17 15:04:09 by otchekai         ###   ########.fr        #
+#    Updated: 2022/10/17 15:19:11 by otchekai         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,10 @@ SRC = ft_atoi.c \
         ft_toupper.c \
         ft_bzero.c \
         ft_strnstr.c \
-        ft_memcpy.c
+        ft_memcpy.c \
+		ft_memmove.c \
+		ft_memset.c \
+		ft_memchr.c
 
 OBJ = $(SRC:.c=.o)
 
