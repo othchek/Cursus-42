@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 10:22:56 by otchekai          #+#    #+#             */
-/*   Updated: 2022/10/17 16:15:15 by otchekai         ###   ########.fr       */
+/*   Updated: 2022/10/18 13:36:59 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,11 @@ void	*ft_memmove(void *dst, const void *src, size_t n)
 	res = (char *)dst;
 	str = (char *)src;
 	i = 0;
-	while (str[i] != '\0' && i < n)
-	{
-		res[i] = str[i];
-		i++;
-	}
+	if (str == 0 && res == 0)
+		return (0);
 	while (i < n)
 	{
-		res[i] = '\0';
+		res[i] = str[i];
 		i++;
 	}
 	return (res);
