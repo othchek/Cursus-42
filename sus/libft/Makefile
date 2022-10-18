@@ -6,7 +6,7 @@
 #    By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/12 10:09:01 by otchekai          #+#    #+#              #
-#    Updated: 2022/10/17 15:46:52 by otchekai         ###   ########.fr        #
+#    Updated: 2022/10/18 18:37:45 by otchekai         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,9 @@ SRC = ft_atoi.c \
 		ft_memmove.c \
 		ft_memset.c \
 		ft_memchr.c \
-		ft_memcmp.c
+		ft_memcmp.c \
+        ft_strlcpy.c \
+        ft_strlcat.c
 
 OBJ = $(SRC:.c=.o)
 
@@ -44,11 +46,12 @@ $(NAME) : $(OBJ)
 %.o : %.c
 	$(CC) -o $@ -c $< $(CFLAGS)
 
-clean :
-	rm -fr $(OBJ)
+clean:
+	rm -f $(OBJ)
 
-fclean : 
-	rm -fr $(NAME)
+fclean: clean
+	rm -f $(NAME)
 
-re :
-	rm -fr $(NAME) $(OBJ)
+re: fclean all
+
+.PHONY: all bonus clean fclean re
