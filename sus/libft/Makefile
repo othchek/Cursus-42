@@ -6,7 +6,7 @@
 #    By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/12 10:09:01 by otchekai          #+#    #+#              #
-#    Updated: 2022/10/21 10:53:16 by otchekai         ###   ########.fr        #
+#    Updated: 2022/10/21 16:06:22 by otchekai         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,7 @@ SRC = ft_atoi.c \
         ft_strncmp.c \
         ft_strrchr.c \
         ft_tolower.c \
+        ft_strjoin.c \
         ft_toupper.c \
         ft_bzero.c \
         ft_strnstr.c \
