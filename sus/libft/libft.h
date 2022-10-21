@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/16 11:00:17 by otchekai          #+#    #+#             */
-/*   Updated: 2022/10/21 16:06:13 by otchekai         ###   ########.fr       */
+/*   Updated: 2022/10/21 18:51:00 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define LIBFT_H
 # include <unistd.h>
 # include <stdio.h>
+# include <stdlib.h>
 
 int		ft_isalnum(int c);
 int		ft_atoi(const char *str);

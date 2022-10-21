@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 11:51:46 by otchekai          #+#    #+#             */
-/*   Updated: 2022/10/21 17:54:25 by otchekai         ###   ########.fr       */
+/*   Updated: 2022/10/21 18:51:28 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,11 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 	str = (char *)s1;
 	strr = (char *)s2;
-	len = ft_strlen(str) + ft_strlen(strr);
+	len = (ft_strlen(str) + ft_strlen(strr) + 1);
 	ptr = malloc((len + 1) * sizeof(char));
-	
+	if (!ptr)
+		return (0);
+	ft_strlcpy(ptr, str, len);
+	ft_strlcat(ptr, strr, len);
+	return (ptr);
 }
-
-// int main()
-// {
-// 	char s1[] = "bachar";
-// 	char s2[] = "zamel";
-
-// 	printf("%s", ft_strjoin(s1, s2));
-// }
