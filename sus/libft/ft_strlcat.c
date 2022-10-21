@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 11:36:03 by otchekai          #+#    #+#             */
-/*   Updated: 2022/10/21 15:31:53 by otchekai         ###   ########.fr       */
+/*   Updated: 2022/10/21 16:09:05 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 	srclen = ft_strlen(src);
 	dstlen = ft_strlen(dst);
 	if (srclen > dstlen)
-		return(srclen + dstsize);
+		return (srclen + dstsize);
 	while (dst[j] != '\0')
 		j++;
 	while (src[i] != '\0' && i < dstsize - 1)
