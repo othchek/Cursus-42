@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 16:17:44 by otchekai          #+#    #+#             */
-/*   Updated: 2022/10/22 15:04:44 by otchekai         ###   ########.fr       */
+/*   Updated: 2022/10/22 16:04:11 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	ft_finder(char str, const char *c)
 	while (c[i] != '\0')
 	{
 		if (str == c[i])
-			return(1);
+			return (1);
 		i++;
 	}
 	return (0);
@@ -32,7 +32,10 @@ char	*ft_strtrim(char const *s1, char const *set)
 {
 	int		i;
 	int		j;
-	char *l;
+	char	*l;
+
+	if (!s1)
+		return (0);
 	j = ft_strlen(s1) - 1;
 	i = 0;
 	while (s1[i] != '\0' && ft_finder((char)s1[i], set))

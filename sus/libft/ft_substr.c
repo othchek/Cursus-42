@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 08:51:14 by otchekai          #+#    #+#             */
-/*   Updated: 2022/10/22 13:35:02 by otchekai         ###   ########.fr       */
+/*   Updated: 2022/10/22 16:03:12 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	size_t	j;
 	char	*ptr;
 
+	if (!s)
+		return (NULL);
 	i = ft_strlen(s);
 	j = 0;
 	ptr = malloc(len * sizeof(char) + 1);
