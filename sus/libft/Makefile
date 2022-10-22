@@ -6,7 +6,7 @@
 #    By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/12 10:09:01 by otchekai          #+#    #+#              #
-#    Updated: 2022/10/21 16:06:22 by otchekai         ###   ########.fr        #
+#    Updated: 2022/10/22 12:51:44 by otchekai         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,7 +37,8 @@ SRC = ft_atoi.c \
         ft_calloc.c \
         ft_strdup.c \
         ft_strlcat.c \
-        ft_strlcpy.c
+        ft_strlcpy.c \
+        ft_substr.c
 
 OBJ = $(SRC:.c=.o)
 
