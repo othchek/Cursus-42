@@ -6,12 +6,11 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 07:30:41 by otchekai          #+#    #+#             */
-/*   Updated: 2022/10/20 07:40:40 by otchekai         ###   ########.fr       */
+/*   Updated: 2022/10/22 17:29:49 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
 int	ft_atoi(const char *str)
 {

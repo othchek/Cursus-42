@@ -6,15 +6,13 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 16:17:44 by otchekai          #+#    #+#             */
-/*   Updated: 2022/10/22 16:04:11 by otchekai         ###   ########.fr       */
+/*   Updated: 2022/10/22 17:28:15 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
-#include <stdlib.h>
 
-int	ft_finder(char str, const char *c)
+int	findr(char str, const char *c)
 {
 	int	i;
 
@@ -38,9 +36,9 @@ char	*ft_strtrim(char const *s1, char const *set)
 		return (0);
 	j = ft_strlen(s1) - 1;
 	i = 0;
-	while (s1[i] != '\0' && ft_finder((char)s1[i], set))
+	while (s1[i] != '\0' && findr((char)s1[i], set))
 		i++;
-	while (j >= 0 && ft_finder((char)s1[j], set))
+	while (j >= 0 && findr((char)s1[j], set))
 		j--;
 	l = ft_substr(s1, i, j - i + 1);
 	return (l);
