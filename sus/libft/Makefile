@@ -6,7 +6,7 @@
 #    By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/12 10:09:01 by otchekai          #+#    #+#              #
-#    Updated: 2022/10/23 10:35:46 by otchekai         ###   ########.fr        #
+#    Updated: 2022/10/23 11:02:27 by otchekai         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,7 +40,11 @@ SRC = ft_atoi.c \
         ft_substr.c \
         ft_strtrim.c \
         ft_strjoin.c \
-        ft_strmapi.c
+        ft_strmapi.c \
+        ft_putchar_fd.c \
+        ft_putendl_fd.c \
+        ft_putnbr_fd.c \
+        ft_putstr_fd.c
 
 OBJ = $(SRC:.c=.o)
 
