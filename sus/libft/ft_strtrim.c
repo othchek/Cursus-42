@@ -6,11 +6,12 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 16:17:44 by otchekai          #+#    #+#             */
-/*   Updated: 2022/10/22 17:28:15 by otchekai         ###   ########.fr       */
+/*   Updated: 2022/10/22 17:59:28 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
 int	findr(char str, const char *c)
 {
@@ -46,7 +47,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 
 // int main()
 // {
-//     char name[] = "ABCCCCDSFRABBCCAAA";
+//     char name[] = "ABCCCCDSABCCFRABBCCAAA";
 //     char namee[] = "ABC";
 //     printf("%s", ft_strtrim(name, namee));
 // }
