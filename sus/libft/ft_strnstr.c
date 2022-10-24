@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 10:18:08 by otchekai          #+#    #+#             */
-/*   Updated: 2022/10/24 08:58:26 by otchekai         ###   ########.fr       */
+/*   Updated: 2022/10/24 09:49:37 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 		return ((char *)haystack);
 	while (i < len && haystack[i] == needle[j])
 	{
-		
 		return ((char *)&haystack[i] + k);
 		i++;
 		k++;
