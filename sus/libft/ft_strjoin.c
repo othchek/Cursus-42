@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 11:51:46 by otchekai          #+#    #+#             */
-/*   Updated: 2022/10/22 17:29:08 by otchekai         ###   ########.fr       */
+/*   Updated: 2022/10/24 12:36:25 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,3 +31,10 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	ft_strlcat(ptr, strr, len);
 	return (ptr);
 }
+
+// int main()
+// {
+// 	char name[] = "bachar";
+// 	char namee[] = "zaml";
+// 	printf("%s", ft_strjoin(name, namee));
+// }
