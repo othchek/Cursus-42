@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 16:17:44 by otchekai          #+#    #+#             */
-/*   Updated: 2022/10/24 14:09:26 by otchekai         ###   ########.fr       */
+/*   Updated: 2022/10/24 14:27:47 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,22 +27,22 @@ int	findr(char str, const char *c)
 	return (0);
 }
 
-char    *ft_strtrim(char const *s1, char const *set)
+char	*ft_strtrim(char const *s1, char const *set)
 {
-    int        i;
-    int        j;
+	int	i;
+	int	j;
 
-    if (!s1)
-        return (0);
-    j = ft_strlen(s1) - 1;
-    i = 0;
-    while (s1[i] != '\0' && findr((char)s1[i], set))
-        i++;
-    while (j >= 0 && findr((char)s1[j], set))
-        j--;
-    if(j == -1)
-      return ft_substr(s1, j, 0);  
-    return ft_substr(s1, i, j - i + 1);
+	if (!s1)
+		return (0);
+	j = ft_strlen(s1) - 1;
+	i = 0;
+	while (s1[i] != '\0' && findr((char)s1[i], set))
+		i++;
+	while (j >= 0 && findr((char)s1[j], set))
+		j--;
+	if (j == -1)
+		return (ft_substr(s1, j, 0));
+	return (ft_substr(s1, i, j - i + 1));
 }
 
 // int main()
