@@ -6,14 +6,14 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 16:17:44 by otchekai          #+#    #+#             */
-/*   Updated: 2022/10/24 14:27:47 by otchekai         ###   ########.fr       */
+/*   Updated: 2022/10/26 11:05:12 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
 
-int	findr(char str, const char *c)
+static int	findr(char str, const char *c)
 {
 	int	i;
 
