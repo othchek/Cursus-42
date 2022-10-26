@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 10:52:44 by otchekai          #+#    #+#             */
-/*   Updated: 2022/10/26 16:28:07 by otchekai         ###   ########.fr       */
+/*   Updated: 2022/10/26 17:57:08 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,5 +58,5 @@ char	*ft_itoa(int n)
 
 // int main()
 // {
-//     printf("%s", ft_itoa(-59489489));
+//     printf("%s", ft_itoa(0));
 // }   
