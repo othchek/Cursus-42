@@ -6,7 +6,7 @@
 #    By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/12 10:09:01 by otchekai          #+#    #+#              #
-#    Updated: 2022/10/27 08:53:16 by otchekai         ###   ########.fr        #
+#    Updated: 2022/10/28 08:49:10 by otchekai         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,7 +46,8 @@ SRC = ft_atoi.c \
         ft_putnbr_fd.c \
         ft_putstr_fd.c \
         ft_striteri.c \
-        ft_itoa.c
+        ft_itoa.c \
+        # ft_split.c
 
 OBJ = $(SRC:.c=.o)
 
