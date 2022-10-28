@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 10:18:08 by otchekai          #+#    #+#             */
-/*   Updated: 2022/10/28 11:33:01 by otchekai         ###   ########.fr       */
+/*   Updated: 2022/10/28 14:07:45 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
 	size_t	i;
 	size_t	j;
-	size_t	pos;
+	size_t	k;
 
 	i = 0;
 	j = 0;
-	pos = 0;
-	if (!haystack && len == 0)
+	k = 0;
+	if (!haystack && !len)
 		return (NULL);
 	if (needle[j] == '\0')
 		return ((char *)haystack);
@@ -32,11 +32,17 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 			j++;
 			i++;
 			if (needle[j] == '\0')
-				return ((char *)haystack + pos);
+				return ((char *)haystack + k);
 		}
 		j = 0;
 		i++;
-		pos++;
+		k++;
 	}
 	return (0);
 }
+
+// int main()
+// {
+// 	char hay [] = "lorem ipsum lodorr";
+// 	char ned [] = "lodorr"
+// }

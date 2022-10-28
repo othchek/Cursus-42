@@ -6,13 +6,11 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 11:36:03 by otchekai          #+#    #+#             */
-/*   Updated: 2022/10/21 18:51:47 by otchekai         ###   ########.fr       */
+/*   Updated: 2022/10/28 12:47:18 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
-#include <string.h>
 
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {

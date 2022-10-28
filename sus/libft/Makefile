@@ -6,11 +6,11 @@
 #    By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/12 10:09:01 by otchekai          #+#    #+#              #
-#    Updated: 2022/10/28 08:49:10 by otchekai         ###   ########.fr        #
+#    Updated: 2022/10/28 13:21:39 by otchekai         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC = gcc
+CC = cc
 CFLAGS = -Wall -Wextra -Werror
 AR = ar
 NAME = libft.a
@@ -47,7 +47,7 @@ SRC = ft_atoi.c \
         ft_putstr_fd.c \
         ft_striteri.c \
         ft_itoa.c \
-        # ft_split.c
+        ft_split.c
 
 OBJ = $(SRC:.c=.o)
 
