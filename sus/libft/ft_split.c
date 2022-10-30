@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 13:29:56 by otchekai          #+#    #+#             */
-/*   Updated: 2022/10/30 10:35:43 by otchekai         ###   ########.fr       */
+/*   Updated: 2022/10/30 10:55:31 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,10 @@ char	**ft_split(char const *s, char c)
 
 	k = 0;
 	i = 0;
-	ptr = (char **)malloc(sizeof(char *) * (countWords((char *)s, c) + 1));
+	ptr = (char **)malloc(sizeof(char *) * (countwords((char *)s, c) + 1));
 	if (!ptr)
 		return (NULL);
-	while (k < countWords((char *)s, c))
+	while (k < countwords((char *)s, c))
 	{
 		k++;
 		while (s[i] == c && s[i] != '\0')
