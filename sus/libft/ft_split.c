@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 13:29:56 by otchekai          #+#    #+#             */
-/*   Updated: 2022/10/30 10:55:31 by otchekai         ###   ########.fr       */
+/*   Updated: 2022/10/30 11:37:32 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-int	countwords(char *str, char c)
+static int	countwords(char *str, char c)
 {
 	int	i;
 	int	wc;
@@ -33,6 +33,16 @@ int	countwords(char *str, char c)
 	return (wc);
 }
 
+static void	allfree(char **str, int k)
+{
+	while (k)
+	{
+		free(str[k]);
+		k--;
+	}
+	free(str);
+}
+
 char	**ft_split(char const *s, char c)
 {
 	char	**ptr;
@@ -42,6 +52,8 @@ char	**ft_split(char const *s, char c)
 
 	k = 0;
 	i = 0;
+	if (!s)
+		return (NULL);
 	ptr = (char **)malloc(sizeof(char *) * (countwords((char *)s, c) + 1));
 	if (!ptr)
 		return (NULL);
@@ -54,12 +66,14 @@ char	**ft_split(char const *s, char c)
 		while (s[i] != c && s[i] != '\0')
 			i++;
 		ptr[k] = ft_substr(s, j, i - j);
+		if (!ptr[k])
+			return (allfree(ptr, k), NULL);
 	}
 	return (ptr[k] = NULL, ptr);
 }
 
-// int main(void)
+// int	main(void)
 // {
-//     char str[] = "..hhhh....hhhh......hhhh...";
-//     printf("%d", ft_split(str, '.'));
+// 	char str[] = "..hhhh....hhhh......hhhh...";
+// 	printf("%d", ft_split(str, '.'));
 // }
