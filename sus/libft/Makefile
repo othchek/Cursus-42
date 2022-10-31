@@ -6,7 +6,7 @@
 #    By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/12 10:09:01 by otchekai          #+#    #+#              #
-#    Updated: 2022/10/28 13:21:39 by otchekai         ###   ########.fr        #
+#    Updated: 2022/10/31 11:14:10 by otchekai         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -67,5 +67,3 @@ fclean: clean
 	rm -f $(OBJ)
 
 re: fclean all
-
-.PHONY: all bonus clean fclean re

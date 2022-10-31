@@ -6,13 +6,11 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 13:29:56 by otchekai          #+#    #+#             */
-/*   Updated: 2022/10/30 11:37:32 by otchekai         ###   ########.fr       */
+/*   Updated: 2022/10/31 13:29:20 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
-#include <stdio.h>
 
 static int	countwords(char *str, char c)
 {
