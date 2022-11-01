@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 13:29:56 by otchekai          #+#    #+#             */
-/*   Updated: 2022/10/31 13:29:20 by otchekai         ###   ########.fr       */
+/*   Updated: 2022/11/01 09:54:24 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,12 +52,11 @@ char	**ft_split(char const *s, char c)
 	i = 0;
 	if (!s)
 		return (NULL);
-	ptr = (char **)malloc(sizeof(char *) * (countwords((char *)s, c) + 1));
+	ptr = (char **)malloc((countwords(s, c) + 1) * sizeof(char *));
 	if (!ptr)
 		return (NULL);
 	while (k < countwords((char *)s, c))
 	{
-		k++;
 		while (s[i] == c && s[i] != '\0')
 			i++;
 		j = i;
@@ -66,12 +65,12 @@ char	**ft_split(char const *s, char c)
 		ptr[k] = ft_substr(s, j, i - j);
 		if (!ptr[k])
 			return (allfree(ptr, k), NULL);
+		k++;
 	}
 	return (ptr[k] = NULL, ptr);
 }
 
 // int	main(void)
 // {
-// 	char str[] = "..hhhh....hhhh......hhhh...";
-// 	printf("%d", ft_split(str, '.'));
+// 	printf("%s", *ft_split("  PAPAY  PAPAYA", ' '));
 // }
