@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/23 08:35:20 by otchekai          #+#    #+#             */
-/*   Updated: 2022/10/31 12:20:04 by otchekai         ###   ########.fr       */
+/*   Updated: 2022/11/02 13:01:58 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	char	*ptr;
 
 	if (!s)
-		return (0);
+		return (NULL);
 	i = 0;
 	len = ft_strlen(s) + 1;
 	ptr = malloc(len * sizeof(char));

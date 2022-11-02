@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 08:25:50 by otchekai          #+#    #+#             */
-/*   Updated: 2022/10/20 07:39:41 by otchekai         ###   ########.fr       */
+/*   Updated: 2022/11/02 13:02:20 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,5 @@ char	*ft_strrchr(const char *s, int c)
 			return ((char *)s + i);
 		i--;
 	}
-	return (0);
+	return (NULL);
 }
