@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 13:29:56 by otchekai          #+#    #+#             */
-/*   Updated: 2022/11/02 15:12:42 by otchekai         ###   ########.fr       */
+/*   Updated: 2022/11/03 09:59:05 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,8 +69,3 @@ char	**ft_split(char const *s, char c)
 	}
 	return (ptr[k] = NULL, ptr);
 }
-
-// int	main(void)
-// {
-// 	printf("%c\n", ft_split("  PAPAY  PAPAYA", ' ')[1][0]);
-// }

@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/23 08:35:20 by otchekai          #+#    #+#             */
-/*   Updated: 2022/11/02 13:01:58 by otchekai         ###   ########.fr       */
+/*   Updated: 2022/11/03 09:58:31 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,3 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	ptr[i] = '\0';
 	return (ptr);
 }
-
-// int main()
-// {
-// 	char *re = "PAPAY";
-// 	char *s = ft_strmapi(re, f); 
-// 	printf("%s", s);
-// }

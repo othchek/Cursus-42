@@ -6,7 +6,7 @@
 #    By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/12 10:09:01 by otchekai          #+#    #+#              #
-#    Updated: 2022/11/02 15:13:26 by otchekai         ###   ########.fr        #
+#    Updated: 2022/11/03 08:43:59 by otchekai         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,7 +56,7 @@ all : $(NAME)
 $(NAME) : $(OBJ)
 	$(AR) r $(NAME) $(OBJ)
 
-%.o : %.c
+%.o : %.c libft.h
 	$(CC) -o $@ -c $< $(CFLAGS)
 
 clean:

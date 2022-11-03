@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 16:17:44 by otchekai          #+#    #+#             */
-/*   Updated: 2022/11/02 13:04:34 by otchekai         ###   ########.fr       */
+/*   Updated: 2022/11/03 09:58:45 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,3 @@ char	*ft_strtrim(char const *s1, char const *set)
 		return (ft_substr(s1, j, 0));
 	return (ft_substr(s1, i, j - i + 1));
 }
-
-// int main()
-// {
-//     char *s1 = "          ";
-//     char *set = " ";
-//     printf("%s", ft_strtrim(s1, set));
-// }
