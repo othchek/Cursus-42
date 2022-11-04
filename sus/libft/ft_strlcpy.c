@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 09:33:06 by otchekai          #+#    #+#             */
-/*   Updated: 2022/10/26 15:04:13 by otchekai         ###   ########.fr       */
+/*   Updated: 2022/11/03 12:28:12 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
 	size_t	i;
-	int		srclen;
+	size_t	srclen;
 
 	i = 0;
 	srclen = ft_strlen(src);
