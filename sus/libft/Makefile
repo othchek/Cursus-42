@@ -6,7 +6,7 @@
 #    By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/12 10:09:01 by otchekai          #+#    #+#              #
-#    Updated: 2022/11/08 10:42:33 by otchekai         ###   ########.fr        #
+#    Updated: 2022/11/08 21:09:54 by otchekai         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -67,4 +67,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: clean re fclean
+.PHONY: clean re fclean all
