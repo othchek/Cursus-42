@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 11:04:58 by otchekai          #+#    #+#             */
-/*   Updated: 2022/10/22 17:29:13 by otchekai         ###   ########.fr       */
+/*   Updated: 2022/11/11 21:11:01 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 char	*ft_strdup(const char *s1)
 {
 	char	*str;
-	int		len;
+	size_t	len;
 
 	len = ft_strlen(s1);
 	str = malloc(len * sizeof(char) + 1);

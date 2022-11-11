@@ -6,7 +6,7 @@
 #    By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/12 10:09:01 by otchekai          #+#    #+#              #
-#    Updated: 2022/11/08 21:09:54 by otchekai         ###   ########.fr        #
+#    Updated: 2022/11/10 01:29:41 by otchekai         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,11 +53,8 @@ OBJ = $(SRC:.c=.o)
 
 all : $(NAME)
 
-$(NAME) : $(OBJ)
+$(NAME) : $(OBJ) libft.h
 	$(AR) -r $@ $?
-
-%.o : %.c libft.h
-	$(CC) -c $(CFLAGS) $?
 
 clean:
 	rm -f $(OBJ)

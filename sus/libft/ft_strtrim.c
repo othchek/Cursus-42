@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 16:17:44 by otchekai          #+#    #+#             */
-/*   Updated: 2022/11/03 09:58:45 by otchekai         ###   ########.fr       */
+/*   Updated: 2022/11/11 21:07:38 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	int	i;
 	int	j;
 
-	if (!s1)
+	if (!s1 || !set)
 		return (NULL);
 	j = ft_strlen(s1) - 1;
 	i = 0;

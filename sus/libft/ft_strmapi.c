@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/23 08:35:20 by otchekai          #+#    #+#             */
-/*   Updated: 2022/11/05 10:52:07 by otchekai         ###   ########.fr       */
+/*   Updated: 2022/11/10 01:13:28 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	int		len;
 	char	*ptr;
 
-	if (!s)
+	if (!s || !f)
 		return (NULL);
 	i = 0;
 	len = ft_strlen(s) + 1;

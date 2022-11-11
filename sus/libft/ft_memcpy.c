@@ -6,13 +6,11 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/16 10:06:54 by otchekai          #+#    #+#             */
-/*   Updated: 2022/11/05 10:00:58 by otchekai         ###   ########.fr       */
+/*   Updated: 2022/11/11 21:08:43 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
-#include <string.h>
 
 void	*ft_memcpy(void *dst, const void *src, size_t n)
 {

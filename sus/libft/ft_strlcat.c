@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 11:36:03 by otchekai          #+#    #+#             */
-/*   Updated: 2022/10/28 12:47:18 by otchekai         ###   ########.fr       */
+/*   Updated: 2022/11/11 04:03:01 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 
 	j = 0;
 	i = 0;
-	if (dst == 0 && dstsize == 0)
-		return (0);
 	srclen = ft_strlen(src);
+	if (dst == 0 && dstsize == 0)
+		return (srclen);
 	dstlen = ft_strlen(dst);
 	if (dstsize <= dstlen)
 		return (srclen + dstsize);
