@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 13:10:27 by otchekai          #+#    #+#             */
-/*   Updated: 2022/11/10 22:17:53 by otchekai         ###   ########.fr       */
+/*   Updated: 2022/11/17 20:09:27 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	*ft_memset(void *b, int c, size_t len)
 	i = 0;
 	while (i < len)
 	{
-		str[i] = (char)c;
+		str[i] = (unsigned char)c;
 		i++;
 	}
 	return (str);

@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 13:29:56 by otchekai          #+#    #+#             */
-/*   Updated: 2022/11/10 04:14:50 by otchekai         ###   ########.fr       */
+/*   Updated: 2022/11/15 01:36:04 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static int	countwords(char *str, char c)
 
 static void	allfree(char **str, int k)
 {
-	while (k)
+	while (k >= 0)
 	{
 		free(str[k]);
 		k--;

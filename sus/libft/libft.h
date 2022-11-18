@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/16 11:00:17 by otchekai          #+#    #+#             */
-/*   Updated: 2022/11/08 22:53:38 by otchekai         ###   ########.fr       */
+/*   Updated: 2022/11/16 03:13:59 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <string.h>
-# include <fcntl.h>
 
 int		ft_isalnum(int c);
 int		ft_atoi(const char *str);

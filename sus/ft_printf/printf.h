@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   printf.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/19 11:04:58 by otchekai          #+#    #+#             */
-/*   Updated: 2022/11/17 19:52:14 by otchekai         ###   ########.fr       */
+/*   Created: 2022/11/18 11:03:50 by otchekai          #+#    #+#             */
+/*   Updated: 2022/11/18 12:30:50 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef PRINTF_H
+# define PRINTF_H
 
-char	*ft_strdup(const char *s1)
-{
-	char	*str;
-	size_t	len;
+# include <stdarg.h>
+# include <stdio.h>
+# include <unistd.h>
 
-	len = ft_strlen(s1);
-	str = malloc(len * sizeof(char) + 1);
-	if (!str)
-		return (0);
-	ft_memcpy(str, s1, len);
-	str[len] = '\0';
-	return (str);
-}
+int		ft_printf(const char *str, ...);
+size_t	ft_strlen(const char *s);
+char	ft_putstr(char *s);
+int		ft_putnbr(int n);
+char	ft_putchar(char c);
+
+#endif
