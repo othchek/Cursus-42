@@ -1,27 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printf.h                                           :+:      :+:    :+:   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/18 11:03:50 by otchekai          #+#    #+#             */
-/*   Updated: 2022/11/18 13:14:21 by otchekai         ###   ########.fr       */
+/*   Created: 2022/11/19 21:44:05 by otchekai          #+#    #+#             */
+/*   Updated: 2022/11/19 21:44:17 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PRINTF_H
-# define PRINTF_H
+#include "printf.h"
 
-# include <stdarg.h>
-# include <stdio.h>
-# include <unistd.h>
-
-int		ft_printf(const char *str, ...);
-size_t	ft_strlen(const char *s);
-char	ft_putstr(char *s);
-int		ft_putnbr(int n);
-char	ft_putchar(char c);
-int		count(long int nmb);
-
-#endif
+char	ft_putchar(char c)
+{
+	write(1, &c, 1);
+}

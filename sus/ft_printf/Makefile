@@ -6,7 +6,7 @@
 #    By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/18 10:57:40 by otchekai          #+#    #+#              #
-#    Updated: 2022/11/18 10:59:00 by otchekai         ###   ########.fr        #
+#    Updated: 2022/11/18 12:32:55 by otchekai         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,4 +14,4 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror
 AR = ar
 NAME = libftprintf.a
-SRC =
+SRC =	ft_printf.c
