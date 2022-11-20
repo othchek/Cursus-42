@@ -1,18 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   countlen.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/19 21:44:05 by otchekai          #+#    #+#             */
-/*   Updated: 2022/11/20 19:44:39 by otchekai         ###   ########.fr       */
+/*   Created: 2022/11/20 20:35:37 by otchekai          #+#    #+#             */
+/*   Updated: 2022/11/20 20:43:00 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-int	ft_putchar(char c)
+int	ft_countlen(long int nmb)
 {
-	return (write(1, &c, 1));
+	int	i;
+
+	i = 0;
+	if (nmb < 0 || nmb == 0)
+		i++;
+	while (nmb != 0)
+	{
+		nmb /= 10;
+		i++;
+	}
+	return (i);
 }

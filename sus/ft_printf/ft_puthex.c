@@ -1,18 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_putheX.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/19 21:44:05 by otchekai          #+#    #+#             */
-/*   Updated: 2022/11/20 19:44:39 by otchekai         ###   ########.fr       */
+/*   Created: 2022/11/20 20:52:00 by otchekai          #+#    #+#             */
+/*   Updated: 2022/11/20 20:53:32 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-int	ft_putchar(char c)
+int ft_putnbrx(size_t i)
 {
-	return (write(1, &c, 1));
+    char    *h;
+
+    h = "0123456789abcdef";
+    if (i < 16)
+        ft_putchar(h[i]);
+    if (i >= 16)
+    {
+        ft_putnbrx(i / 16);
+        ft_putchar(h[i % 16]);
+    }
+    return (countlen(i));
 }

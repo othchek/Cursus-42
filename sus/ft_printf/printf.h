@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 11:03:50 by otchekai          #+#    #+#             */
-/*   Updated: 2022/11/18 13:14:21 by otchekai         ###   ########.fr       */
+/*   Updated: 2022/11/20 20:51:25 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,12 @@
 # include <unistd.h>
 
 int		ft_printf(const char *str, ...);
-size_t	ft_strlen(const char *s);
-char	ft_putstr(char *s);
+int     ft_putstr(char *s);
 int		ft_putnbr(int n);
-char	ft_putchar(char c);
-int		count(long int nmb);
+int     ft_putchar(char c);
+int		ft_countlen(long int nmb);
+int     ft_unsigned(unsigned int i);
+int     ft_putnbrx(size_t i);
+int     ft_putadd(size_t i);
 
 #endif
