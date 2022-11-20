@@ -6,13 +6,13 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 21:44:05 by otchekai          #+#    #+#             */
-/*   Updated: 2022/11/19 21:44:17 by otchekai         ###   ########.fr       */
+/*   Updated: 2022/11/19 22:21:46 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-char	ft_putchar(char c)
+int	ft_putchar(char c)
 {
-	write(1, &c, 1);
+	return(write(1, &c, 1));
 }
