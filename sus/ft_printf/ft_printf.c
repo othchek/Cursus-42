@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 11:00:02 by otchekai          #+#    #+#             */
-/*   Updated: 2022/11/21 14:46:12 by otchekai         ###   ########.fr       */
+/*   Updated: 2022/11/21 14:55:04 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,29 +29,36 @@ char ft_conditions(va_list ap, char c)
 		i += ft_puthexup(va_arg(ap, unsigned int));
 	if (c == 'p')
 	{
-		write(1, "0x", 2);
+		i += write(1, "0x", 2);
 		i += ft_putadd(va_arg(ap, unsigned long long));
 	}	
 	if (c == 'u')
-		i += (va_arg(ap, unsigned int));
+		i += ft_print_unsigned(va_arg(ap, unsigned int));
+	if (c == '%')
+		i += ft_putchar('%');
+	return (i);
 }
 
 int	ft_printf(const char *str, ...)
 {
 	va_list ap;
 	int i;
+	int j;
 	
+	j = 0;
 	i = 0;
 	va_start(ap, str);
 	while(str[i])
 	{
 		if(str[i] == '%')
 		{
-			ft_conditions(ap, str[i + 1]);
+			j += ft_conditions(ap, str[i + 1]);
 			i++;
 		}
 		else
-			ft_putchar(str[i]);
+			j += ft_putchar(str[i]);
 		i++;
 	}
+	va_end(ap);
+	return (j);
 }

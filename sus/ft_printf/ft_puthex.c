@@ -6,13 +6,13 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 20:52:00 by otchekai          #+#    #+#             */
-/*   Updated: 2022/11/21 13:16:08 by otchekai         ###   ########.fr       */
+/*   Updated: 2022/11/21 14:50:41 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-int	ft_countlen_x(long int nmb)
+int	ft_countlen_x(unsigned long nmb)
 {
 	int	i;
 

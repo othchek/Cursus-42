@@ -6,7 +6,7 @@
 #    By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/18 10:57:40 by otchekai          #+#    #+#              #
-#    Updated: 2022/11/21 13:56:42 by otchekai         ###   ########.fr        #
+#    Updated: 2022/11/21 14:59:29 by otchekai         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,8 @@ SRC =	ft_printf.c \
 		ft_putchar.c \
 		ft_putstr.c \
 		ft_putnbr.c \
-		ft_putnbrx.c \
+		ft_puthex.c \
+		ft_puthexup.c \
 		ft_putadd.c \
 		ft_countlen.c \
 		ft_print_unsigned.c

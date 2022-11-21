@@ -6,13 +6,13 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 22:45:31 by otchekai          #+#    #+#             */
-/*   Updated: 2022/11/21 13:15:44 by otchekai         ###   ########.fr       */
+/*   Updated: 2022/11/21 15:00:14 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-int  ft_countlen_x(long int nmb)
+int  ft_countlen_x(unsigned long nmb)
 {
 	int	i;
 
@@ -42,8 +42,8 @@ int ft_puthexup(size_t i)
     return (ft_countlen_x(i));
 }
 
-int main()
-{
-    printf("\t%d\n", ft_puthexup(255));
-    printf("\t%d\n", printf("%X", 255));
-}
+// int main()
+// {
+//     printf("\t%d\n", ft_puthexup(255));
+//     printf("\t%d\n", printf("%X", 255));
+// }
