@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 21:43:01 by otchekai          #+#    #+#             */
-/*   Updated: 2022/11/20 20:40:08 by otchekai         ###   ########.fr       */
+/*   Updated: 2022/11/20 21:09:42 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 
 int	ft_putnbr(int n)
 {
+	int i;
+
+	i = ft_countlen(n);
 	if (n == -2147483648)
 		write(1, "-2147483648", 11);
 	else if (n < 0)
@@ -28,5 +31,5 @@ int	ft_putnbr(int n)
 	}
 	if (n >= 0 && n < 10)
 		ft_putchar(n + '0');
-	return (ft_countlen(n));
+	return (i);
 }

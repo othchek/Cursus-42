@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 11:03:50 by otchekai          #+#    #+#             */
-/*   Updated: 2022/11/20 20:51:25 by otchekai         ###   ########.fr       */
+/*   Updated: 2022/11/20 21:02:36 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,11 @@
 # include <stdarg.h>
 # include <stdio.h>
 # include <unistd.h>
+
+
+
+
+
 
 int		ft_printf(const char *str, ...);
 int     ft_putstr(char *s);

@@ -6,7 +6,7 @@
 #    By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/18 10:57:40 by otchekai          #+#    #+#              #
-#    Updated: 2022/11/20 20:53:09 by otchekai         ###   ########.fr        #
+#    Updated: 2022/11/21 13:56:42 by otchekai         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,8 +27,11 @@ OBJ = $(SRC:.c=.o)
 
 all : $(NAME)
 
-$(NAME) : $(OBJ) printf.h
+$(NAME) : $(OBJ)
 	$(AR) -r $@ $(OBJ)
+
+%.o: %.c printf.h
+	$(CC) $(CFLAGS) -c $<
 
 clean:
 	rm -rf $(OBJ)

@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 11:00:02 by otchekai          #+#    #+#             */
-/*   Updated: 2022/11/20 19:44:39 by otchekai         ###   ########.fr       */
+/*   Updated: 2022/11/21 14:46:12 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,26 @@
 
 char ft_conditions(va_list ap, char c)
 {
+	int i;
+
+	i = 0;
 	if (c == 's')
-		ft_putstr(va_arg(ap, char *));
+		i += ft_putstr(va_arg(ap, char *));
 	if (c == 'c')
-		ft_putchar(va_arg(ap, int));
+		i += ft_putchar(va_arg(ap, int));
 	if (c == 'd' || c == 'i')
-		ft_putnbr(va_arg(ap, int));
+		i += ft_putnbr(va_arg(ap, int));
 	if (c == 'x')
-		ft_putnbrx(va_arg(ap, unsigned int));
+		i += ft_puthex(va_arg(ap, unsigned int));
 	if (c == 'X')
-		ft_putnbrx(va_arg(ap, unsigned int));
+		i += ft_puthexup(va_arg(ap, unsigned int));
 	if (c == 'p')
-		ft_putadd(va_arg(ap, unsigned long long));
+	{
+		write(1, "0x", 2);
+		i += ft_putadd(va_arg(ap, unsigned long long));
+	}	
 	if (c == 'u')
-		(va_arg(ap, unsigned int));
+		i += (va_arg(ap, unsigned int));
 }
 
 int	ft_printf(const char *str, ...)
