@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 21:40:12 by otchekai          #+#    #+#             */
-/*   Updated: 2022/11/22 09:47:05 by otchekai         ###   ########.fr       */
+/*   Updated: 2022/11/22 12:09:18 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ int	ft_putstr(char *s)
 
 	i = 0;
 	if (!s)
-		return (write(1, "(null)", 6), 6);
+		return (write(1, "(null)", 6));
 	while (s[i])
 	{
-		write(1, &s[i], 1);
+		ft_putchar(s[i]);
 		i++;
 	}
 	return (i);

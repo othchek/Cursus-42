@@ -6,13 +6,13 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 11:00:02 by otchekai          #+#    #+#             */
-/*   Updated: 2022/11/22 09:48:14 by otchekai         ###   ########.fr       */
+/*   Updated: 2022/11/22 12:05:01 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	ft_conditions(va_list ap, char c)
+int	ft_conditions(va_list ap, char c)
 {
 	int	i;
 
