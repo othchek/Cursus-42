@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 21:43:01 by otchekai          #+#    #+#             */
-/*   Updated: 2022/11/22 09:28:22 by otchekai         ###   ########.fr       */
+/*   Updated: 2022/11/22 18:58:01 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,3 @@ int	ft_putnbr(int n)
 		ft_putchar(n + '0');
 	return (i);
 }
-
-// int main()
-// {
-// 	printf("%d\n",ft_putnbr(15656));
-// 	printf("%d\n", printf("%d\n", 15656));
-// }

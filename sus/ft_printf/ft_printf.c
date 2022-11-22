@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 11:00:02 by otchekai          #+#    #+#             */
-/*   Updated: 2022/11/22 12:05:01 by otchekai         ###   ########.fr       */
+/*   Updated: 2022/11/22 18:50:34 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,9 +62,3 @@ int	ft_printf(const char *str, ...)
 	va_end(ap);
 	return (j);
 }
-
-// int main()
-// {
-// 	char s2[] = "Mussum Ipsum, cacilds vidis litro abertis. Posuere libero varius. Nullam a nisl ut ante blandit hendrerit. Aenean sit amet nisi. Atirei o pau no gatis, per gatis num morreus.";
-// 	printf("%d\n", ft_printf(" %s\n %s\n %s\n %s\n %s\n", " - ", "", "4", "", s2));
-// }
