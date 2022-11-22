@@ -6,7 +6,7 @@
 #    By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/18 10:57:40 by otchekai          #+#    #+#              #
-#    Updated: 2022/11/21 14:59:29 by otchekai         ###   ########.fr        #
+#    Updated: 2022/11/22 09:46:42 by otchekai         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,7 @@ SRC =	ft_printf.c \
 		ft_putnbr.c \
 		ft_puthex.c \
 		ft_puthexup.c \
+		ft_countlen_x.c \
 		ft_putadd.c \
 		ft_countlen.c \
 		ft_print_unsigned.c
@@ -29,9 +30,9 @@ OBJ = $(SRC:.c=.o)
 all : $(NAME)
 
 $(NAME) : $(OBJ)
-	$(AR) -r $@ $(OBJ)
+	$(AR) -rc $@ $(OBJ)
 
-%.o: %.c printf.h
+%.o: %.c ft_printf.h
 	$(CC) $(CFLAGS) -c $<
 
 clean:

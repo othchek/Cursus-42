@@ -6,30 +6,15 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 01:38:04 by otchekai          #+#    #+#             */
-/*   Updated: 2022/11/21 15:00:33 by otchekai         ###   ########.fr       */
+/*   Updated: 2022/11/22 09:16:27 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
-int	ft_countlen_x(unsigned long nmb)
+int	ft_putadd(unsigned long long i)
 {
-	int	i;
-
-	i = 0;
-	if (nmb < 0 || nmb == 0)
-		i++;
-	while (nmb != 0)
-	{
-		nmb /= 16;
-		i++;
-	}
-	return (i);
-}
-
-int  ft_putadd(unsigned long long i)
-{
-	char    *h;
+	char	*h;
 
 	h = "0123456789abcdef";
 	if (i < 16)

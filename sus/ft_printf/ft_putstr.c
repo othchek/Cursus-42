@@ -6,20 +6,20 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 21:40:12 by otchekai          #+#    #+#             */
-/*   Updated: 2022/11/21 14:00:28 by otchekai         ###   ########.fr       */
+/*   Updated: 2022/11/22 09:47:05 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 int	ft_putstr(char *s)
 {
 	int	i;
 
-	if (!s)
-		return (write(1, "(null)", 6));
 	i = 0;
-	while (s[i] != '\0')
+	if (!s)
+		return (write(1, "(null)", 6), 6);
+	while (s[i])
 	{
 		write(1, &s[i], 1);
 		i++;

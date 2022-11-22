@@ -6,17 +6,17 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 03:35:51 by otchekai          #+#    #+#             */
-/*   Updated: 2022/11/20 20:58:09 by otchekai         ###   ########.fr       */
+/*   Updated: 2022/11/22 09:14:20 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
-int ft_unsigned(unsigned int n)
+int	ft_print_unsigned(unsigned int n)
 {
-    int i;
+	int	i;
 
-    i = ft_countlen(n);
+	i = ft_countlen(n);
 	if (n >= 10)
 	{
 		ft_putnbr(n / 10);

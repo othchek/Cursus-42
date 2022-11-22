@@ -6,19 +6,19 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 21:43:01 by otchekai          #+#    #+#             */
-/*   Updated: 2022/11/20 21:09:42 by otchekai         ###   ########.fr       */
+/*   Updated: 2022/11/22 09:28:22 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 int	ft_putnbr(int n)
 {
-	int i;
+	int	i;
 
 	i = ft_countlen(n);
 	if (n == -2147483648)
-		write(1, "-2147483648", 11);
+		return (write(1, "-2147483648", 11), 11);
 	else if (n < 0)
 	{
 		write(1, "-", 1);
@@ -29,7 +29,13 @@ int	ft_putnbr(int n)
 		ft_putnbr(n / 10);
 		ft_putnbr(n % 10);
 	}
-	if (n >= 0 && n < 10)
+	else
 		ft_putchar(n + '0');
 	return (i);
 }
+
+// int main()
+// {
+// 	printf("%d\n",ft_putnbr(15656));
+// 	printf("%d\n", printf("%d\n", 15656));
+// }

@@ -6,15 +6,15 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 11:00:02 by otchekai          #+#    #+#             */
-/*   Updated: 2022/11/21 14:55:04 by otchekai         ###   ########.fr       */
+/*   Updated: 2022/11/22 09:48:14 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
-char ft_conditions(va_list ap, char c)
+char	ft_conditions(va_list ap, char c)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (c == 's')
@@ -41,16 +41,16 @@ char ft_conditions(va_list ap, char c)
 
 int	ft_printf(const char *str, ...)
 {
-	va_list ap;
-	int i;
-	int j;
-	
+	va_list	ap;
+	int		i;
+	int		j;
+
 	j = 0;
 	i = 0;
 	va_start(ap, str);
-	while(str[i])
+	while (str[i])
 	{
-		if(str[i] == '%')
+		if (str[i] == '%')
 		{
 			j += ft_conditions(ap, str[i + 1]);
 			i++;
@@ -62,3 +62,9 @@ int	ft_printf(const char *str, ...)
 	va_end(ap);
 	return (j);
 }
+
+// int main()
+// {
+// 	char s2[] = "Mussum Ipsum, cacilds vidis litro abertis. Posuere libero varius. Nullam a nisl ut ante blandit hendrerit. Aenean sit amet nisi. Atirei o pau no gatis, per gatis num morreus.";
+// 	printf("%d\n", ft_printf(" %s\n %s\n %s\n %s\n %s\n", " - ", "", "4", "", s2));
+// }

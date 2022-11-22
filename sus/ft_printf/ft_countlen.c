@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   countlen.c                                         :+:      :+:    :+:   */
+/*   ft_countlen.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 20:35:37 by otchekai          #+#    #+#             */
-/*   Updated: 2022/11/20 20:43:00 by otchekai         ###   ########.fr       */
+/*   Updated: 2022/11/22 09:11:43 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 int	ft_countlen(long int nmb)
 {
 	int	i;
 
 	i = 0;
-	if (nmb < 0 || nmb == 0)
+	if (nmb <= 0)
 		i++;
 	while (nmb != 0)
 	{

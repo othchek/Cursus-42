@@ -6,11 +6,11 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 21:44:05 by otchekai          #+#    #+#             */
-/*   Updated: 2022/11/20 19:44:39 by otchekai         ###   ########.fr       */
+/*   Updated: 2022/11/22 09:12:08 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 int	ft_putchar(char c)
 {
