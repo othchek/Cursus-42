@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 11:33:38 by otchekai          #+#    #+#             */
-/*   Updated: 2022/11/26 16:58:26 by otchekai         ###   ########.fr       */
+/*   Updated: 2022/11/26 18:11:26 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	*ft_strchr(const char *str, int c)
 	while (*str != '\0')
 	{
 		if (*str == (char)(c))
-			return ((char *)str);
+			return (1);
 		str++;
 	}
 	if (*str == '\0' && *str == (char)c)
