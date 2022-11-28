@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 11:33:38 by otchekai          #+#    #+#             */
-/*   Updated: 2022/11/26 18:11:26 by otchekai         ###   ########.fr       */
+/*   Updated: 2022/11/28 14:26:07 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,10 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	char		*strr;
 	int			len;
 
-	if (!s1 || !s2)
+	if (!s2)
 		return (NULL);
+	if (!s1)
+		return (ft_strdup(""));
 	str = (char *)s1;
 	strr = (char *)s2;
 	len = (ft_strlen(str) + ft_strlen(strr) + 1);
@@ -88,4 +90,18 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 	}
 	dst[i] = '\0';
 	return (srclen);
+}
+
+char	*ft_strdup(const char *s1)
+{
+	char	*str;
+	size_t	len;
+
+	len = ft_strlen(s1);
+	str = malloc(len * sizeof(char) + 1);
+	if (!str)
+		return (0);
+	ft_memcpy(str, s1, len);
+	str[len] = '\0';
+	return (str);
 }
