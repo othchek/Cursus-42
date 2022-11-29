@@ -6,14 +6,16 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 11:33:44 by otchekai          #+#    #+#             */
-/*   Updated: 2022/11/26 16:58:35 by otchekai         ###   ########.fr       */
+/*   Updated: 2022/11/29 17:16:26 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 
-# define BUFFSIZE 10
+# ifndef BUFFSIZE
+#  define BUFFSIZE 3
+# endif
 
 # include <stdio.h>
 # include <fcntl.h>
@@ -21,15 +23,9 @@
 # include <unistd.h>
 
 char	*get_next_line(int fd);
-char	*ft_strchr(const char *str, int c);
-char	*ft_strjoin(char const *s1, char const *s2);
-size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
-size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
-
-
-
-
-
-
+int		ft_strchr(char *str, int c);
+char	*ft_strjoin(char *s1, char *s2);
+char	*ft_strdup(char *s1);
+int		ft_strlen(char *s);
 
 #endif
