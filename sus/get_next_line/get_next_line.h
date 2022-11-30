@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 11:33:44 by otchekai          #+#    #+#             */
-/*   Updated: 2022/11/29 17:16:26 by otchekai         ###   ########.fr       */
+/*   Updated: 2022/11/30 14:47:19 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define GET_NEXT_LINE_H
 
 # ifndef BUFFSIZE
-#  define BUFFSIZE 3
+#  define BUFFSIZE 10
 # endif
 
 # include <stdio.h>

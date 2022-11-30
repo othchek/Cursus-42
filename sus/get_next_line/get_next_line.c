@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 11:33:34 by otchekai          #+#    #+#             */
-/*   Updated: 2022/11/29 17:33:01 by otchekai         ###   ########.fr       */
+/*   Updated: 2022/11/30 23:28:20 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,19 @@
 
 char	*ft_read(int fd, char *buffer)
 {
-	int		i;
+	int		main;
 	char	*ptr;
 
-	i = 1;
+	main = 1;
 	ptr = malloc(BUFFSIZE + 1);
 	if (!ptr)
 		return (NULL);
-	while(i > 0 && !ft_strchr(ptr, '\n'))
+	while (main > 0 && !ft_strchr(ptr, '\n'))
 	{
-		i = read(fd, ptr, BUFFSIZE);
-		if (i == -1 || (i == 0 && !ptr))
+		main = read(fd, ptr, BUFFSIZE);
+		if (main == -1 || (main == 0 && !ptr))
 			return (free(ptr), free(buffer), NULL);
-		ptr[i] = '\0';
+		ptr[main] = '\0';
 		buffer = ft_strjoin(buffer, ptr);
 	}
 	free(ptr);
@@ -35,60 +35,76 @@ char	*ft_read(int fd, char *buffer)
 
 char	*ft_morow(char *str)
 {
-	int i;
-	char *ptr;
-
-	i = 0;
-	while (str[i] && str[i] != '\n')
-		i++;
-	ptr = malloc(i * sizeof(char) + 1);
-	if (!ptr)
-		return (NULL);
-	ptr[i--] = '\0';
-	while (str[i])
-	{
-		ptr[i] = str[i];
-		i--;
-	}
-	return (ptr);
-}
-
-char	*ft_morew(char *buff)
-{
-	int		i;
+	int		main;
 	char	*ptr;
+	int		sec;
 
-	i = 0;
-	while (buff[i] && buff != '\n')
-		i++;
-	ptr = malloc(i + 1);
+	main = 0;
+	sec = 0;
+	while (str[main] != '\n' && str[main])
+		main++;
+	ptr = malloc(main + 2);
 	if (!ptr)
-		return (NULL);
-	if (buff[i] == '\n')
-		i++;
-	while (ptr[i])
+		return (free(str), NULL);
+	if (str[main] == '\n')
+		main++;
+	while (str[sec] && main > sec)
 	{
-		ptr[i] = buff[i]
-		i++;
+		ptr[sec] = str[sec];
+		sec++;
 	}
-	ptr[i] = '\0';
+	ptr[main] = '\0';
 	return (ptr);
 }
 
-char *get_next_line(int fd)
+char	*ft_morew(char *str)
 {
-	char		*str;
-	static char	*zeb;
+	int		main;
+	char	*ptr;
+	int		size;
+	int		sec;
 
-	zeb = ft_read(fd, zeb);
-	str = ft_morow(zeb);
-	return (str);
+	main = 0;
+	sec = 0;
+	while (str[main] && str[main] != '\n')
+		main++;
+	size = ft_strlen(str);
+	if (size == main)
+		return (free(str), NULL);
+	ptr = malloc((size - main) + 1);
+	if (!ptr)
+		return (free(str), free(ptr), NULL);
+	main++;
+	while (str[main])
+		ptr[sec++] = str[main++];
+	ptr[sec] = '\0';
+	free(str);
+	return (ptr);
+}
+
+char	*get_next_line(int fd)
+{
+	static char		*stats;
+	char			*notsta;
+
+	stats = ft_read(fd, stats);
+	if (!*stats)
+		return (free(stats), NULL);
+	notsta = ft_morow(stats);
+	stats = ft_morew(stats);
+	return (notsta);
 }
 
 // int main()
 // {
-	
+// 	int i;
+
+// 	i = 0;
 // 	int fd = open("wowo", O_RDONLY);
 // 	char *s = get_next_line(fd);
-// 	printf("%s", s);
+// 	while(s)
+// 	{
+// 		printf("%s", s);
+// 		s = get_next_line(fd);
+// 	}
 // }
