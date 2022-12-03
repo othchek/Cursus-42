@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 11:33:34 by otchekai          #+#    #+#             */
-/*   Updated: 2022/12/03 13:54:25 by otchekai         ###   ########.fr       */
+/*   Updated: 2022/12/03 17:55:13 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,20 @@
 
 char	*ft_read(int fd, char *buffer)
 {
-	int		main;
+	int		index;
 	char	*ptr;
 
-	main = 1;
+	index = 1;
 	ptr = malloc(BUFFSIZE + 1);
 	if (!ptr)
 		return (NULL);
-	while (main > 0 && !ft_strchr(ptr, '\n'))
+	while (index > 0 && !ft_strchr(ptr, '\n'))
 	{
-		main = read(fd, ptr, BUFFSIZE);
-		if (main < 0 || (main == 0 && !buffer)
-			|| (main == 0 && buffer[0] == 0))
+		index = read(fd, ptr, BUFFSIZE);
+		if (index < 0 || (index == 0 && !buffer)
+			|| (index == 0 && buffer[0] == 0))
 			return (free(ptr), free(buffer), NULL);
-		ptr[main] = '\0';
+		ptr[index] = '\0';
 		buffer = ft_strjoin(buffer, ptr);
 	}
 	free(ptr);
@@ -36,49 +36,49 @@ char	*ft_read(int fd, char *buffer)
 
 char	*ft_morow(char *str)
 {
-	int		main;
+	int		index;
 	char	*ptr;
-	int		sec;
+	int		secindex;
 
-	main = 0;
-	sec = 0;
-	while (str[main] != '\n' && str[main])
-		main++;
-	ptr = malloc(main + 2);
+	index = 0;
+	secindex = 0;
+	while (str[index] != '\n' && str[index])
+		index++;
+	ptr = malloc(index + 2);
 	if (!ptr)
 		return (free(str), NULL);
-	if (str[main] == '\n')
-		main++;
-	while (str[sec] && main > sec)
+	if (str[index] == '\n')
+		index++;
+	while (str[secindex] && index > secindex)
 	{
-		ptr[sec] = str[sec];
-		sec++;
+		ptr[secindex] = str[secindex];
+		secindex++;
 	}
-	ptr[sec] = '\0';
+	ptr[secindex] = '\0';
 	return (ptr);
 }
 
 char	*ft_morew(char *str)
 {
-	int		main;
+	int		index;
 	char	*ptr;
 	int		size;
-	int		sec;
+	int		secindex;
 
-	main = 0;
-	sec = 0;
-	while (str[main] && str[main] != '\n')
-		main++;
+	index = 0;
+	secindex = 0;
+	while (str[index] && str[index] != '\n')
+		index++;
 	size = ft_strlen(str);
-	if (size == main)
+	if (size == index)
 		return (free(str), NULL);
-	ptr = malloc((size - main) + 1);
+	ptr = malloc((size - index) + 1);
 	if (!ptr)
 		return (free(str), NULL);
-	main++;
-	while (str[main])
-		ptr[sec++] = str[main++];
-	ptr[sec] = '\0';
+	index++;
+	while (str[index])
+		ptr[secindex++] = str[index++];
+	ptr[secindex] = '\0';
 	free(str);
 	return (ptr);
 }
