@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 17:16:52 by otchekai          #+#    #+#             */
-/*   Updated: 2022/12/04 17:26:58 by otchekai         ###   ########.fr       */
+/*   Updated: 2022/12/04 18:52:01 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,8 +93,6 @@ char	*get_next_line(int fd)
 	stats[fd] = ft_read_bonus(fd, stats[fd]);
 	if (!stats[fd])
 		return (NULL);
-	if (!*stats[fd])
-		return (free(stats), NULL);
 	stock = ft_stash_bonus(stats[fd]);
 	stats[fd] = ft_beyondthestash_bonus(stats[fd]);
 	return (stock);

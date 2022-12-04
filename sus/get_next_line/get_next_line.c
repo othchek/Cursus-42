@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 11:33:34 by otchekai          #+#    #+#             */
-/*   Updated: 2022/12/04 16:27:21 by otchekai         ###   ########.fr       */
+/*   Updated: 2022/12/04 18:51:55 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ char	*ft_read(int fd, char *buffer)
 	return (buffer);
 }
 
-char	*ft_stash(char *str)
+char	*ft_stock(char *str)
 {
 	int		index;
 	char	*ptr;
@@ -58,7 +58,7 @@ char	*ft_stash(char *str)
 	return (ptr);
 }
 
-char	*ft_beyondthestash(char *str)
+char	*ft_beyondstock(char *str)
 {
 	int		index;
 	char	*ptr;
@@ -93,17 +93,7 @@ char	*get_next_line(int fd)
 	stats = ft_read(fd, stats);
 	if (!stats)
 		return (NULL);
-	if (!*stats)
-		return (free(stats), NULL);
-	notsta = ft_stash(stats);
-	stats = ft_beyondthestash(stats);
+	notsta = ft_stock(stats);
+	stats = ft_beyondstock(stats);
 	return (notsta);
 }
-
-// #include <stdio.h>
-// int main(){
-// 	int fd = open("wowo", O_RDONLY);
-// 	printf("%s", get_next_line(fd));
-// 	printf("%s", get_next_line(fd));
-// 	printf("%s", get_next_line(fd));
-// }
