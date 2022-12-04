@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 11:33:34 by otchekai          #+#    #+#             */
-/*   Updated: 2022/12/03 18:05:13 by otchekai         ###   ########.fr       */
+/*   Updated: 2022/12/04 13:57:51 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*ft_read(int fd, char *buffer)
 	ptr = malloc(BUFFSIZE + 1);
 	if (!ptr)
 		return (NULL);
-	while (index > 0 && !ft_strchr(ptr, '\n'))
+	while (index > 0 && !ft_strchr(buffer, '\n'))
 	{
 		index = read(fd, ptr, BUFFSIZE);
 		if (index < 0 || (index == 0 && !buffer)
@@ -107,6 +107,9 @@ char	*get_next_line(int fd)
 // 	i = 0;
 // 	int fd = open("wowo", O_RDONLY);
 // 	char *s = get_next_line(fd);
+// 	while(s)
+// 	{
 // 		printf("%s", s);
 // 		s = get_next_line(fd);
+// 	}
 // }

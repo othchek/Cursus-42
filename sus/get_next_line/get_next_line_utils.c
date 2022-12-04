@@ -6,19 +6,36 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 11:33:38 by otchekai          #+#    #+#             */
-/*   Updated: 2022/12/03 17:49:04 by otchekai         ###   ########.fr       */
+/*   Updated: 2022/12/04 13:57:16 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-int	ft_strchr(char *str, int c)
+size_t	ft_strlen(char *s)
 {
-	while (*str != '\0')
+	size_t		i;
+
+	i = 0;
+	if (!s)
+		return (0);
+	while (s[i])
+		i++;
+	return (i);
+}
+
+int	ft_strchr(char *s, int c)
+{
+	int		i;
+
+	if (!s)
+		return (0);
+	i = 0;
+	while (s[i])
 	{
-		if (*str == (char)(c))
+		if (s[i] == c)
 			return (1);
-		str++;
+		i++;
 	}
 	return (0);
 }
@@ -52,32 +69,23 @@ char	*ft_strjoin(char *s1, char *s2)
 	return (l);
 }
 
-int	ft_strlen(char *s)
-{
-	int		i;
-
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
-}
-
 char	*ft_strdup(char *s1)
 {
-	char	*str;
 	int		i;
+	char	*gnl;
+	int		pr;
+	int		sec;
 
-	i = 0;
-	while (s1[i])
-		i++;
-	str = malloc(i + 1);
-	if (!str)
+	if (!s1)
 		return (NULL);
-	str[i--] = '\0';
-	while (s1[i])
-	{
-		str[i] = s1[i];
-		i--;
-	}
-	return (str);
+	sec = 0;
+	i = ft_strlen(s1);
+	gnl = malloc(i + 1);
+	if (!gnl)
+		return (NULL);
+	pr = 0;
+	while (s1[sec])
+		gnl[pr++] = s1[sec++];
+	gnl[pr] = '\0';
+	return (gnl);
 }
