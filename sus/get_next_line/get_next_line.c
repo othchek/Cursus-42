@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 11:33:34 by otchekai          #+#    #+#             */
-/*   Updated: 2022/12/04 14:15:30 by otchekai         ###   ########.fr       */
+/*   Updated: 2022/12/04 16:13:44 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ char	*ft_stash(char *str)
 	return (ptr);
 }
 
-char	*ft_overstash(char *str)
+char	*ft_beyondthestash(char *str)
 {
 	int		index;
 	char	*ptr;
@@ -96,6 +96,6 @@ char	*get_next_line(int fd)
 	if (!*stats)
 		return (free(stats), NULL);
 	notsta = ft_stash(stats);
-	stats = ft_overstash(stats);
+	stats = ft_beyondthestash(stats);
 	return (notsta);
 }
