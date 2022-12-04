@@ -6,11 +6,28 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 11:33:34 by otchekai          #+#    #+#             */
-/*   Updated: 2022/12/04 13:57:51 by otchekai         ###   ########.fr       */
+/*   Updated: 2022/12/04 14:14:14 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+
+void	*alloc(size_t size)
+{
+	unsigned char	*pt;
+	size_t			i;
+
+	i = 0;
+	pt = malloc(size);
+	if (pt == NULL)
+		return (NULL);
+	while (i < size)
+	{
+		pt[i] = 0;
+		i++;
+	}
+	return (pt);
+}
 
 char	*ft_read(int fd, char *buffer)
 {
@@ -18,12 +35,12 @@ char	*ft_read(int fd, char *buffer)
 	char	*ptr;
 
 	index = 1;
-	ptr = malloc(BUFFSIZE + 1);
+	ptr = malloc(BUFFER_SIZE + 1);
 	if (!ptr)
 		return (NULL);
 	while (index > 0 && !ft_strchr(buffer, '\n'))
 	{
-		index = read(fd, ptr, BUFFSIZE);
+		index = read(fd, ptr, BUFFER_SIZE);
 		if (index < 0 || (index == 0 && !buffer)
 			|| (index == 0 && buffer[0] == 0))
 			return (free(ptr), free(buffer), NULL);
@@ -42,9 +59,9 @@ char	*ft_stash(char *str)
 
 	index = 0;
 	secindex = 0;
-	while (str[index] != '\n' && str[index])
+	while (str[index] && str[index] != '\n')
 		index++;
-	ptr = malloc(index + 2);
+	ptr = alloc(index + 2);
 	if (!ptr)
 		return (free(str), NULL);
 	if (str[index] == '\n')
@@ -88,7 +105,7 @@ char	*get_next_line(int fd)
 	static char		*stats;
 	char			*notsta;
 
-	if (fd < 0 || BUFFSIZE <= 0)
+	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
 	stats = ft_read(fd, stats);
 	if (!stats)
@@ -99,17 +116,3 @@ char	*get_next_line(int fd)
 	stats = ft_overstash(stats);
 	return (notsta);
 }
-
-// int main()
-// {
-// 	int i;
-
-// 	i = 0;
-// 	int fd = open("wowo", O_RDONLY);
-// 	char *s = get_next_line(fd);
-// 	while(s)
-// 	{
-// 		printf("%s", s);
-// 		s = get_next_line(fd);
-// 	}
-// }

@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 11:33:38 by otchekai          #+#    #+#             */
-/*   Updated: 2022/12/04 13:57:16 by otchekai         ###   ########.fr       */
+/*   Updated: 2022/12/04 14:08:05 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ char	*ft_strjoin(char *s1, char *s2)
 		l[u] = s1[u];
 		u++;
 	}
-	while (s2[j] != '\0')
+	while (s2[j])
 		l[u++] = s2[j++];
 	l[u] = '\0';
 	free(s1);
