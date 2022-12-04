@@ -6,28 +6,11 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 11:33:34 by otchekai          #+#    #+#             */
-/*   Updated: 2022/12/04 14:14:14 by otchekai         ###   ########.fr       */
+/*   Updated: 2022/12/04 14:15:30 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-
-void	*alloc(size_t size)
-{
-	unsigned char	*pt;
-	size_t			i;
-
-	i = 0;
-	pt = malloc(size);
-	if (pt == NULL)
-		return (NULL);
-	while (i < size)
-	{
-		pt[i] = 0;
-		i++;
-	}
-	return (pt);
-}
 
 char	*ft_read(int fd, char *buffer)
 {
@@ -61,7 +44,7 @@ char	*ft_stash(char *str)
 	secindex = 0;
 	while (str[index] && str[index] != '\n')
 		index++;
-	ptr = alloc(index + 2);
+	ptr = malloc(index + 2);
 	if (!ptr)
 		return (free(str), NULL);
 	if (str[index] == '\n')
