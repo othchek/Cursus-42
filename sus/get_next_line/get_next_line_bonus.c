@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/26 11:33:34 by otchekai          #+#    #+#             */
-/*   Updated: 2022/12/04 16:27:21 by otchekai         ###   ########.fr       */
+/*   Created: 2022/12/04 17:16:52 by otchekai          #+#    #+#             */
+/*   Updated: 2022/12/04 17:24:40 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
-char	*ft_read(int fd, char *buffer)
+char	*ft_read_bonus(int fd, char *buffer)
 {
 	int		index;
 	char	*ptr;
@@ -34,7 +34,7 @@ char	*ft_read(int fd, char *buffer)
 	return (buffer);
 }
 
-char	*ft_stash(char *str)
+char	*ft_stash_bonus(char *str)
 {
 	int		index;
 	char	*ptr;
@@ -58,7 +58,7 @@ char	*ft_stash(char *str)
 	return (ptr);
 }
 
-char	*ft_beyondthestash(char *str)
+char	*ft_beyondthestash_bonus(char *str)
 {
 	int		index;
 	char	*ptr;
@@ -85,25 +85,17 @@ char	*ft_beyondthestash(char *str)
 
 char	*get_next_line(int fd)
 {
-	static char		*stats;
-	char			*notsta;
+	static char		*stats[OPEN_MAX];
+	char			*stock;
 
-	if (fd < 0 || BUFFER_SIZE <= 0)
+	if (fd < 0 || BUFFER_SIZE <= 0 || fd > OPEN_MAX)
 		return (NULL);
-	stats = ft_read(fd, stats);
-	if (!stats)
+	stats[fd] = ft_read_bonus(fd, stats[fd]);
+	if (!stats[fd])
 		return (NULL);
-	if (!*stats)
+	if (!*stats[fd])
 		return (free(stats), NULL);
-	notsta = ft_stash(stats);
-	stats = ft_beyondthestash(stats);
-	return (notsta);
+	stock = ft_stash_bonus(stats[fd]);
+	stats[fd] = ft_beyondthestash_bonus(stats[fd]);
+	return (stock);
 }
-
-// #include <stdio.h>
-// int main(){
-// 	int fd = open("wowo", O_RDONLY);
-// 	printf("%s", get_next_line(fd));
-// 	printf("%s", get_next_line(fd));
-// 	printf("%s", get_next_line(fd));
-// }
