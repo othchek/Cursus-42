@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 10:59:38 by otchekai          #+#    #+#             */
-/*   Updated: 2022/12/26 16:50:46 by otchekai         ###   ########.fr       */
+/*   Updated: 2022/12/28 09:36:31 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 void	handler_sigusr1(int signum)
 {
-   printf("signal %d received.\n", signum);
+   (void)signum;
+   
 }
 
 int	main(void)
