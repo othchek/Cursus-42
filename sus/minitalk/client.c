@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 10:59:35 by otchekai          #+#    #+#             */
-/*   Updated: 2022/12/28 09:41:05 by otchekai         ###   ########.fr       */
+/*   Updated: 2022/12/28 11:34:59 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,25 @@
 
 void	send_signal(char *str, int pid)
 {
-	int index;
-	int shifter;
+   int	index;
+   int	shifter;
 
-	index = 1;
-	shifter = 1;
-	while(str[index])
-	{
-		while (shifter < 8)
-		{
-			if (str[index] & 0x80)
-			kill(pid, SIGUSR1);
-			else
-			kill(pid, SIGUSR2);
-			str[index] = str[index] >> 1;
+   shifter = 0;
+   index = 0;
+   while (str[index])
+   {
+   		while (shifter < 8)
+   		{
+   			if (str[index] & 0x80 >>shifter)
+   				kill(pid, SIGUSR2);
+   			else
+   				kill(pid, SIGUSR1);
+   			usleep(3);
 			shifter++;
-			usleep(200);
-		}
-		index++;
-	}
+   		}
+   		index++;
+   }
+   
 }
 
 int	main(int argc, char *argv[])
