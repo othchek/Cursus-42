@@ -1,4 +1,9 @@
+sus/ft_printf/a.out
 sus/libft/a.out
-
-.DS_Store
-sus/libft/libftTester
+.gitignore
+sus/get_next_line/wowo
+sus/get_next_line/wowooo
+.gitignore
+sus/get_next_line/wowoo
+sus/minitalk/libft/
+sus/minitalk/ft_printf/
