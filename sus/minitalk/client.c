@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 10:59:35 by otchekai          #+#    #+#             */
-/*   Updated: 2023/01/04 11:42:39 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/01/04 12:09:30 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int main(int ac, char **av)
 	
 	if (ac != 3)
 	{	ft_putstr_fd("Invalid argument: ./client <pid> (message)\n", 1);
-			return (0);
+			exit(0);
 	}
 	pid = ft_atoi(av[1]);
 	signal(SIGUSR2, receive_message);

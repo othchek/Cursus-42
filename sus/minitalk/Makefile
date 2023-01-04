@@ -6,12 +6,13 @@
 #    By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/26 12:09:19 by otchekai          #+#    #+#              #
-#    Updated: 2023/01/04 11:14:15 by otchekai         ###   ########.fr        #
+#    Updated: 2023/01/04 12:04:15 by otchekai         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CLIENT = client
 SERVER = server
+MAKEFLAGS += -s
 
 SRC_C = client.c
 SRC_S = server.c
@@ -31,7 +32,7 @@ $(CLIENT): $(LIBFT) $(OBJ_C)
 	@printf "client ready.\n"
 
 $(SERVER): $(LIBFT) $(OBJ_S)
-	@$(CC) $(CFLAGS) $(SRC_S) $(LIBFT) -o $(SERVER)
+	@ $(CC) $(CFLAGS) $(SRC_S) $(LIBFT) -o $(SERVER)
 	@printf "server ready.\n"
 
 $(LIBFT):
