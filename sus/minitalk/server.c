@@ -6,31 +6,49 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 10:59:38 by otchekai          #+#    #+#             */
-/*   Updated: 2022/12/28 11:28:26 by otchekai         ###   ########.fr       */
+/*   Updated: 2022/12/31 14:42:36 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-void	handler_sigusr1(int signum)
+void	ft_print_pid(int pid)
 {
-	(void)signum;
-	ft_printf("1");
+	ft_putstr_fd("Server PID: ", 1);
+	ft_putnbr_fd(pid, 1);
+	ft_putchar_fd('\n', 1);
 }
-void	handler_sigusr2(int signum)
+
+void  ft_catch_signal(int sig_id, siginfo_t *info, void *context)
 {
-	(void)signum;
-	ft_printf("0");
+	static unsigned char	c;
+	static int				i;
+
+	(void) context;
+	i += 1;
+	c |= sig_id == SIGUSR2;
+	if (i < 8)
+		c <<= 1;
+	if (i == 8)
+	{
+		write(1, &c, 1);
+		i = 0;
+		c = 0;
+	}
+	usleep(200);
+	kill(info->si_pid, SIGUSR2);
 }
 
 int	main(void)
 {
-   pid_t	pid;
+	struct sigaction	sa;
 
-   pid = getpid();
-   printf("Server PID: %d\n", pid);
-   signal(SIGUSR1, handler_sigusr1);
-   signal(SIGUSR2, handler_sigusr2);
-   while (1)
-   	pause();
+	sa.sa_flags = SA_SIGINFO;
+	sa.sa_sigaction = ft_catch_signal;
+	ft_print_pid(getpid());
+	sigaction(SIGUSR1, &sa, NULL);
+	sigaction(SIGUSR2, &sa, NULL);
+	while (1)
+		pause();
+	return (0);
 }

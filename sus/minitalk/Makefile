@@ -6,7 +6,7 @@
 #    By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/26 12:09:19 by otchekai          #+#    #+#              #
-#    Updated: 2022/12/28 09:43:36 by otchekai         ###   ########.fr        #
+#    Updated: 2023/01/02 22:35:19 by otchekai         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,10 +38,10 @@ $(SERVER): $(LIBFT) $(FT_PRINTF) $(OBJ_S)
 	@printf "server ready.\n"
 
 $(FT_PRINTF):
-	@$(MAKE) -C ./ft_printf
+	@ $(MAKE) -C ./ft_printf
 
 $(LIBFT):
-	@$(MAKE) -C ./libft
+	@ $(MAKE) -C ./libft
 
 clean:
 	@ $(RM) $(CLIENT) $(SERVER)
