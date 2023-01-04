@@ -6,20 +6,20 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 10:59:38 by otchekai          #+#    #+#             */
-/*   Updated: 2022/12/31 14:42:36 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/01/04 11:42:21 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-void	ft_print_pid(int pid)
+static void	ft_print_pid(int pid)
 {
 	ft_putstr_fd("Server PID: ", 1);
 	ft_putnbr_fd(pid, 1);
 	ft_putchar_fd('\n', 1);
 }
 
-void  ft_catch_signal(int sig_id, siginfo_t *info, void *context)
+static void  ft_catch_signal(int sig_id, siginfo_t *info, void *context)
 {
 	static unsigned char	c;
 	static int				i;

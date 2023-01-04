@@ -6,18 +6,18 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 10:59:35 by otchekai          #+#    #+#             */
-/*   Updated: 2023/01/04 10:59:18 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/01/04 11:42:39 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-void receive_message(int sig_id)
+static void receive_message(int sig_id)
 {
     (void)sig_id;
 }
 
-void send_character(int pid, unsigned char c)
+static void send_character(int pid, unsigned char c)
 {
 	int index;
 
@@ -33,7 +33,7 @@ void send_character(int pid, unsigned char c)
 	}
 }
 
-void	send_message(int pid, char *str)
+static void	send_message(int pid, char *str)
 {
 	int index;
 
