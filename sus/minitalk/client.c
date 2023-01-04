@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 10:59:35 by otchekai          #+#    #+#             */
-/*   Updated: 2023/01/04 16:25:39 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/01/04 16:34:14 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,19 +17,20 @@ static void	receive_message(int sig_id)
 	(void)sig_id;
 }
 
-static void	send_character(int pid, unsigned char c)
+void	send_character(int pid, unsigned char c)
 {
-	int	index;
+	int	shifter;
 
-	index = 8;
-	while (index--)
+	shifter = 128;
+	while (shifter)
 	{
-		if (c >> index & 1)
+		if (c & shifter)
 			kill(pid, SIGUSR2);
 		else
 			kill(pid, SIGUSR1);
 		pause();
 		usleep(100);
+		shifter >>= 1;
 	}
 }
 

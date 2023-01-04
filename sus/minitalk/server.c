@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 10:59:38 by otchekai          #+#    #+#             */
-/*   Updated: 2023/01/04 16:25:55 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/01/04 16:38:20 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,14 @@ static void	ft_print_pid(int pid)
 	ft_putchar_fd('\n', 1);
 }
 
-static void	ft_catch_signal(int sig_id, siginfo_t *info, void *context)
+static void	ft_catch_signal(int id, siginfo_t *info, void *context)
 {
 	static unsigned char	c;
 	static int				i;
 
 	(void) context;
 	i += 1;
-	c |= sig_id == SIGUSR2;
+	c |= id == SIGUSR2;
 	if (i < 8)
 		c <<= 1;
 	if (i == 8)
@@ -41,13 +41,13 @@ static void	ft_catch_signal(int sig_id, siginfo_t *info, void *context)
 
 int	main(void)
 {
-	struct sigaction	sa;
+	struct sigaction	signals;
 
-	sa.sa_flags = SA_SIGINFO;
-	sa.sa_sigaction = ft_catch_signal;
+	signals.sa_flags = SA_SIGINFO;
+	signals.sa_sigaction = ft_catch_signal;
 	ft_print_pid(getpid());
-	sigaction(SIGUSR1, &sa, NULL);
-	sigaction(SIGUSR2, &sa, NULL);
+	sigaction(SIGUSR1, &signals, NULL);
+	sigaction(SIGUSR2, &signals, NULL);
 	while (1)
 		pause();
 	return (0);
