@@ -6,7 +6,7 @@
 #    By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/26 12:09:19 by otchekai          #+#    #+#              #
-#    Updated: 2023/01/04 10:49:47 by otchekai         ###   ########.fr        #
+#    Updated: 2023/01/04 11:14:15 by otchekai         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,12 +26,12 @@ RM = rm -f
 
 all : $(CLIENT) $(SERVER)
 
-$(CLIENT): $(LIBFT)
-	@$(CC) $(CFLAGS) $(SRC_C) $(FT_PRINTF) $(LIBFT) -o $(CLIENT)
+$(CLIENT): $(LIBFT) $(OBJ_C)
+	@$(CC) $(CFLAGS) $(SRC_C) $(LIBFT) -o $(CLIENT)
 	@printf "client ready.\n"
 
-$(SERVER): $(LIBFT)
-	@$(CC) $(CFLAGS) $(SRC_S) $(FT_PRINTF) $(LIBFT) -o $(SERVER)
+$(SERVER): $(LIBFT) $(OBJ_S)
+	@$(CC) $(CFLAGS) $(SRC_S) $(LIBFT) -o $(SERVER)
 	@printf "server ready.\n"
 
 $(LIBFT):

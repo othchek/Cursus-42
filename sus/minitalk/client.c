@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 10:59:35 by otchekai          #+#    #+#             */
-/*   Updated: 2023/01/04 08:10:38 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/01/04 10:59:18 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ void	send_message(int pid, char *str)
 		send_character(pid, str[index]);
 		index++;
 	}
+	send_character(pid, '\n');
+	send_character(pid, '\0');
 }
 
 int main(int ac, char **av)
