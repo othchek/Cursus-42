@@ -6,23 +6,23 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 10:59:35 by otchekai          #+#    #+#             */
-/*   Updated: 2023/01/04 12:09:30 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/01/04 16:25:39 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-static void receive_message(int sig_id)
+static void	receive_message(int sig_id)
 {
-    (void)sig_id;
+	(void)sig_id;
 }
 
-static void send_character(int pid, unsigned char c)
+static void	send_character(int pid, unsigned char c)
 {
-	int index;
+	int	index;
 
 	index = 8;
-	while(index--)
+	while (index--)
 	{
 		if (c >> index & 1)
 			kill(pid, SIGUSR2);
@@ -35,10 +35,10 @@ static void send_character(int pid, unsigned char c)
 
 static void	send_message(int pid, char *str)
 {
-	int index;
+	int	index;
 
 	index = 0;
-	while(str[index])
+	while (str[index])
 	{
 		send_character(pid, str[index]);
 		index++;
@@ -47,13 +47,14 @@ static void	send_message(int pid, char *str)
 	send_character(pid, '\0');
 }
 
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
 	int	pid;
-	
+
 	if (ac != 3)
-	{	ft_putstr_fd("Invalid argument: ./client <pid> (message)\n", 1);
-			exit(0);
+	{	
+		ft_putstr_fd("Invalid argument: ./client <pid> (message)\n", 1);
+		exit(0);
 	}
 	pid = ft_atoi(av[1]);
 	signal(SIGUSR2, receive_message);
