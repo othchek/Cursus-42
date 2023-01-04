@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   server.c                                           :+:      :+:    :+:   */
+/*   server_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/26 10:59:38 by otchekai          #+#    #+#             */
-/*   Updated: 2023/01/04 18:08:22 by otchekai         ###   ########.fr       */
+/*   Created: 2023/01/04 16:50:22 by otchekai          #+#    #+#             */
+/*   Updated: 2023/01/04 18:06:09 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minitalk.h"
+#include "minitalk_bonus.h"
 
 static void	pid(int pid)
 {
@@ -19,12 +19,12 @@ static void	pid(int pid)
 	ft_putchar_fd('\n', 1);
 }
 
-static void	ft_catch_signal(int id, siginfo_t *info, void *nothingness)
+static void	ft_catch_signal(int id, siginfo_t *info, void *context)
 {
 	static unsigned char	c;
 	static int				i;
 
-	(void) nothingness;
+	(void) context;
 	i += 1;
 	c |= id == SIGUSR2;
 	if (i < 8)
@@ -41,13 +41,13 @@ static void	ft_catch_signal(int id, siginfo_t *info, void *nothingness)
 
 int	main(void)
 {
-	struct sigaction	signals;
+	struct sigaction	signal;
 
-	signals.sa_flags = SA_SIGINFO;
-	signals.sa_sigaction = ft_catch_signal;
+	signal.sa_flags = SA_SIGINFO;
+	signal.sa_sigaction = ft_catch_signal;
 	pid(getpid());
-	sigaction(SIGUSR1, &signals, NULL);
-	sigaction(SIGUSR2, &signals, NULL);
+	sigaction(SIGUSR1, &signal, NULL);
+	sigaction(SIGUSR2, &signal, NULL);
 	while (1)
 		pause();
 	return (0);
