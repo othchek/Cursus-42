@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 16:50:22 by otchekai          #+#    #+#             */
-/*   Updated: 2023/01/04 18:06:09 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/01/06 10:32:16 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,19 @@ static void	pid(int pid)
 	ft_putchar_fd('\n', 1);
 }
 
-static void	ft_catch_signal(int id, siginfo_t *info, void *context)
+static void	ft_catch_signal(int id, siginfo_t *info, void *nothingness)
 {
 	static unsigned char	c;
 	static int				i;
+	static int				pid;
 
-	(void) context;
+	if (pid != info->si_pid)
+	{
+		pid = info->si_pid;
+		i = 0;
+		c = 0;
+	}
+	(void) nothingness;
 	i += 1;
 	c |= id == SIGUSR2;
 	if (i < 8)
