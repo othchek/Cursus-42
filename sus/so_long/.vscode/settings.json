@@ -1,8 +1,0 @@
-{
-    "files.associations": {
-        "*.excalidraw": "json",
-        "*.excalidrawlib": "json",
-        "__config": "c",
-        "so_long": "c"
-    }
-}
