@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 09:49:39 by otchekai          #+#    #+#             */
-/*   Updated: 2023/02/01 11:07:22 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/02/04 15:14:57 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ char	**read_map(t_ping *so_long, char *av)
 	int		index;
 	char	**ptr;
 	int		fd;
-
 	index = 0;
 	fd = open(av, O_RDONLY);
 	if (fd == -1)
@@ -58,28 +57,64 @@ char	**read_map(t_ping *so_long, char *av)
 	return (ptr);
 }
 
-// void    copy(t_ping *oth)
-// {
-//     int     i;
-//     int     x;
-//     int     y;
-//     int     j;
+void	xpmlikexpf(t_ping *oth)
+{
+	int x;
+	int y;
+	oth->background = mlx_xpm_file_to_image(oth->mlx_ptr, "./pixels/background.xpm",&x ,&y);
+	if (!oth->background)
+		ft_error("Error");
+	oth->wall = mlx_xpm_file_to_image(oth->mlx_ptr, "./pixels/wall.xpm", &x, &y);
+	if (!oth->wall)
+		ft_error("Error");
+	oth->exitgate = mlx_xpm_file_to_image(oth->mlx_ptr, "./pixels/exitgate.xpm", &x, &y);
+	if (!oth->exitgate)
+		ft_error("Error");
+	oth->collectible = mlx_xpm_file_to_image(oth->mlx_ptr, "./pixels/collectible.xpm", &x, &y);
+	if (!oth->collectible)
+		ft_error("Error");
+	oth->frisk = mlx_xpm_file_to_image(oth->mlx_ptr, "./pixels/frisk_lgodam.xpm", &x, &y);
+	if (!oth->frisk)
+		ft_error("Error");
+}
 
-//     i = 0;
-//     y = 0;
-//     while (oth->map[i])
-//     {
-//         j = 0;
-//         x = 0;
-//         while (oth->map[i][j] && oth->map[i][j] != '\n')
-//         {
-//             if (oth->map[i][j] == '0')
-//                 mlx_put_image_to_window(oth->mlx_ptr, oth->win_ptr,
-//							 oth->img_ptr, x, y);
-// 			x += 32;
-// 			j++;
-// 		}
-// 		y += 32;
-//         i++;
-// 	}
-// }
+void	copy(t_ping	*oth)
+{
+    int		i;
+	int		j;
+
+	i = 0;
+	while (oth->map[i])
+	{
+		j = 0;
+		while (oth->map[i][j] && oth->map[i][j] != '\n')
+		{
+			what_to_print(oth,j,i);
+			j++;
+		}
+		i++;
+	}
+}
+
+void	what_to_print(t_ping *oth, int j,int i)
+{
+	if (oth->map[i][j] == '0')
+		mlx_put_image_to_window(oth->mlx_ptr, oth->win_ptr, oth->background, j*64, i*64);
+	else if (oth->map[i][j] == '1')
+		mlx_put_image_to_window(oth->mlx_ptr, oth->win_ptr, oth->wall, j*64, i*64);
+	else if (oth->map[i][j] == 'E')
+	{
+		mlx_put_image_to_window(oth->mlx_ptr, oth->win_ptr, oth->background, j*64, i*64);
+		mlx_put_image_to_window(oth->mlx_ptr, oth->win_ptr, oth->exitgate, j*64, i*64);
+	}
+	else if (oth->map[i][j] == 'C')
+	{
+		mlx_put_image_to_window(oth->mlx_ptr, oth->win_ptr, oth->background, j*64, i*64);
+		mlx_put_image_to_window(oth->mlx_ptr, oth->win_ptr, oth->collectible, j*64, i*64);
+	}
+	else if (oth->map[i][j] == 'P')
+	{
+		mlx_put_image_to_window(oth->mlx_ptr, oth->win_ptr, oth->background, j*64, i*64);
+		mlx_put_image_to_window(oth->mlx_ptr, oth->win_ptr, oth->frisk, j*64, i*64);
+	}
+}
