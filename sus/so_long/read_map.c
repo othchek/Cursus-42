@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 09:49:39 by otchekai          #+#    #+#             */
-/*   Updated: 2023/02/04 15:20:06 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/02/09 23:19:48 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ char	**read_map(t_ping *so_long, char *av)
 	int		index;
 	char	**ptr;
 	int		fd;
+
 	index = 0;
 	fd = open(av, O_RDONLY);
 	if (fd == -1)
@@ -59,28 +60,34 @@ char	**read_map(t_ping *so_long, char *av)
 
 void	xpmlikexpf(t_ping *oth)
 {
-	int x;
-	int y;
-	oth->background = mlx_xpm_file_to_image(oth->mlx_ptr, "./pixels/background.xpm",&x ,&y);
+	int	x;
+	int	y;
+
+	oth->background = mlx_xpm_file_to_image(oth->mlx_ptr,
+			"./pixels/background.xpm", &x, &y);
 	if (!oth->background)
 		ft_error("Error");
-	oth->wall = mlx_xpm_file_to_image(oth->mlx_ptr, "./pixels/wall.xpm", &x, &y);
+	oth->wall = mlx_xpm_file_to_image(oth->mlx_ptr,
+			"./pixels/wall.xpm", &x, &y);
 	if (!oth->wall)
 		ft_error("Error");
-	oth->exitgate = mlx_xpm_file_to_image(oth->mlx_ptr, "./pixels/exitgate.xpm", &x, &y);
+	oth->exitgate = mlx_xpm_file_to_image(oth->mlx_ptr,
+			"./pixels/exitgate.xpm", &x, &y);
 	if (!oth->exitgate)
 		ft_error("Error");
-	oth->collectible = mlx_xpm_file_to_image(oth->mlx_ptr, "./pixels/collectible.xpm", &x, &y);
+	oth->collectible = mlx_xpm_file_to_image(oth->mlx_ptr,
+			"./pixels/collectible.xpm", &x, &y);
 	if (!oth->collectible)
 		ft_error("Error");
-	oth->frisk = mlx_xpm_file_to_image(oth->mlx_ptr, "./pixels/frisk_lgodam.xpm", &x, &y);
+	oth->frisk = mlx_xpm_file_to_image(oth->mlx_ptr,
+			"./pixels/frisk.xpm", &x, &y);
 	if (!oth->frisk)
 		ft_error("Error");
 }
 
 void	copy(t_ping	*oth)
 {
-    int		i;
+	int		i;
 	int		j;
 
 	i = 0;
@@ -89,14 +96,14 @@ void	copy(t_ping	*oth)
 		j = 0;
 		while (oth->map[i][j] && oth->map[i][j] != '\n')
 		{
-			what_to_print(oth,j,i);
+			what_to_print(oth, j, i);
 			j++;
 		}
 		i++;
 	}
 }
 
-void	what_to_print(t_ping *oth, int j,int i)
+void	what_to_print(t_ping *oth, int j, int i)
 {
 	if (oth->map[i][j] == '0')
 		mlx_put_image_to_window(oth->mlx_ptr, oth->win_ptr, oth->background, j*64, i*64);

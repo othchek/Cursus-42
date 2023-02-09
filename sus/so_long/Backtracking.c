@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 10:46:33 by otchekai          #+#    #+#             */
-/*   Updated: 2023/02/04 15:19:31 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/02/09 23:20:52 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ void	playerposition(t_ping *oth)
 			j++;
 			if (oth->map[index][j] == 'P')
 			{
-				oth->playerY = index;
-				oth->playerX = j;
+				oth->player_y = index;
+				oth->player_x = j;
 				break ;
 			}
 		}
