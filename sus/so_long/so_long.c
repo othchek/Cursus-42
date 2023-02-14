@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 16:37:35 by otchekai          #+#    #+#             */
-/*   Updated: 2023/02/14 13:44:21 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/02/14 14:27:14 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,12 @@ void	ini(t_ping *oth)
 	oth->win_ptr = mlx_new_window(oth->mlx_ptr, y *= 64, x *= 64, "Morow");
 }
 
+int	fireexit(void)
+{
+	exit(0);
+	return (0);
+}
+
 int	main(int ac, char **av)
 {
 	t_ping	oth;
@@ -53,6 +59,7 @@ int	main(int ac, char **av)
 		xpmlikexpf(&oth);
 		copy(&oth);
 		mlx_hook(oth.win_ptr, 2, 1L << 0, key, &oth);
+		mlx_hook(oth.win_ptr, 17, 1L << 0, fireexit, &oth);
 		mlx_loop(oth.mlx_ptr);
 		destroyleaks(&oth);
 	}
