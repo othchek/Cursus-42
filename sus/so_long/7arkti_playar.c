@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   7arkti_playar_al3ayl.c                             :+:      :+:    :+:   */
+/*   7arkti_playar.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 15:17:54 by otchekai          #+#    #+#             */
-/*   Updated: 2023/02/09 23:19:24 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/02/14 12:37:04 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ void	keyleft(t_ping *oth)
 
 int	key(int keycode, t_ping *oth)
 {
+	printmove(oth, keycode);
 	if (keycode == 53)
 		exit (0);
 	if (keycode == 13)

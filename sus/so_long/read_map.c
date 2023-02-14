@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 09:49:39 by otchekai          #+#    #+#             */
-/*   Updated: 2023/02/09 23:19:48 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/02/14 13:40:23 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,19 @@ void	checkmapextension(char *filename)
 
 void	map_height(t_ping *so_long, char *name)
 {
-	int	fd;
+	int		fd;
+	char	*str;
 
 	fd = open(name, O_RDONLY);
 	if (fd == -1)
 		ft_error("Error\nfile error");
-	while (get_next_line(fd))
+	str = get_next_line(fd);
+	while (str)
+	{
 		so_long->map_height++;
+		free (str);
+		str = get_next_line(fd);
+	}
 	close(fd);
 }
 
@@ -55,6 +61,7 @@ char	**read_map(t_ping *so_long, char *av)
 		str = get_next_line(fd);
 	}
 	ptr[index] = NULL;
+	free(str);
 	return (ptr);
 }
 
@@ -97,31 +104,9 @@ void	copy(t_ping	*oth)
 		while (oth->map[i][j] && oth->map[i][j] != '\n')
 		{
 			what_to_print(oth, j, i);
+			what_to_print2(oth, j, i);
 			j++;
 		}
 		i++;
-	}
-}
-
-void	what_to_print(t_ping *oth, int j, int i)
-{
-	if (oth->map[i][j] == '0')
-		mlx_put_image_to_window(oth->mlx_ptr, oth->win_ptr, oth->background, j*64, i*64);
-	else if (oth->map[i][j] == '1')
-		mlx_put_image_to_window(oth->mlx_ptr, oth->win_ptr, oth->wall, j*64, i*64);
-	else if (oth->map[i][j] == 'E')
-	{
-		mlx_put_image_to_window(oth->mlx_ptr, oth->win_ptr, oth->background, j*64, i*64);
-		mlx_put_image_to_window(oth->mlx_ptr, oth->win_ptr, oth->exitgate, j*64, i*64);
-	}
-	else if (oth->map[i][j] == 'C')
-	{
-		mlx_put_image_to_window(oth->mlx_ptr, oth->win_ptr, oth->background, j*64, i*64);
-		mlx_put_image_to_window(oth->mlx_ptr, oth->win_ptr, oth->collectible, j*64, i*64);
-	}
-	else if (oth->map[i][j] == 'P')
-	{
-		mlx_put_image_to_window(oth->mlx_ptr, oth->win_ptr, oth->background, j*64, i*64);
-		mlx_put_image_to_window(oth->mlx_ptr, oth->win_ptr, oth->frisk, j*64, i*64);
 	}
 }

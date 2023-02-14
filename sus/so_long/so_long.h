@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 16:38:31 by otchekai          #+#    #+#             */
-/*   Updated: 2023/02/09 23:19:39 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/02/14 13:47:05 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,5 +56,11 @@ void	playerposition(t_ping *oth);
 int		floodfill(char **ptr, int x, int y);
 void	xpmlikexpf(t_ping *oth);
 int		key(int keycode, t_ping *oth);
+void	destroyleaks(t_ping *oth);
+void	allfree(char **str);
+void	check(t_ping *oth);
+void	printmove(t_ping *oth, int keycode);
+void	what_to_print(t_ping *oth, int j, int i);
+void	what_to_print2(t_ping *oth, int j, int i);
 
 #endif
