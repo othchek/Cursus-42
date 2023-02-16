@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 11:08:15 by otchekai          #+#    #+#             */
-/*   Updated: 2023/02/14 11:00:48 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/02/16 14:16:19 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,11 @@ void	check_walls(t_ping *oth)
 	index = 0;
 	j = 0;
 	width_check(oth);
+	if (!oth->map[oth->map_height - 1])
+		ft_error("Error\n map width should be equal\n");
 	while (oth->map[0][j] && oth->map[oth->map_height - 1][j])
 	{
-		if (oth->map[0][j] != '1' ||
-		oth->map[oth->map_height - 1][j] != '1')
+		if (oth->map[0][j] != '1' || oth->map[oth->map_height - 1][j] != '1')
 			ft_error("Error\nThe map isnt surrounded by walls");
 		j++;
 	}

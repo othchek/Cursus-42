@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 15:17:54 by otchekai          #+#    #+#             */
-/*   Updated: 2023/02/14 14:21:11 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/02/16 14:20:17 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	keyup(t_ping *oth)
 		oth->collectibles--;
 	if (oth->map[oth->player_y - 1][oth->player_x] == 'E'
 		&& oth->collectibles == 0)
-		ft_error(":bigbrother:");
+		ft_error("HOORAY!");
 	if (oth->map[oth->player_y - 1][oth->player_x] != 'E' &&
 			oth->map[oth->player_y - 1][oth->player_x] != '1')
 	{
@@ -36,7 +36,7 @@ void	keydown(t_ping *oth)
 		oth->collectibles--;
 	if (oth->map[oth->player_y + 1][oth->player_x] == 'E'
 		&& oth->collectibles == 0)
-		ft_error(":bigbrother:");
+		ft_error("HOORAY!");
 	if (oth->map[oth->player_y + 1][oth->player_x] != 'E' &&
 			oth->map[oth->player_y + 1][oth->player_x] != '1')
 	{
@@ -51,7 +51,7 @@ void	keyright(t_ping *oth)
 		oth->collectibles--;
 	if (oth->map[oth->player_y][oth->player_x + 1] == 'E'
 		&& oth->collectibles == 0)
-		ft_error(":bigbrother:");
+		ft_error("HOORAY!");
 	if (oth->map[oth->player_y][oth->player_x + 1] != 'E' &&
 			oth->map[oth->player_y][oth->player_x + 1] != '1')
 	{
@@ -66,7 +66,7 @@ void	keyleft(t_ping *oth)
 		oth->collectibles--;
 	if (oth->map[oth->player_y][oth->player_x - 1] == 'E'
 		&& oth->collectibles == 0)
-		ft_error(":bigbrother:");
+		ft_error("HOORAY!");
 	if (oth->map[oth->player_y][oth->player_x - 1] != 'E' &&
 			oth->map[oth->player_y][oth->player_x - 1] != '1')
 	{

@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 09:49:39 by otchekai          #+#    #+#             */
-/*   Updated: 2023/02/14 13:40:23 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/02/16 14:16:52 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,25 +23,27 @@ void	checkmapextension(char *filename)
 		ft_error("Error\nextension error");
 }
 
-void	map_height(t_ping *so_long, char *name)
+void	map_height(t_ping *oth, char *name)
 {
 	int		fd;
-	char	*str;
+	char	str;
 
 	fd = open(name, O_RDONLY);
 	if (fd == -1)
 		ft_error("Error\nfile error");
-	str = get_next_line(fd);
-	while (str)
+	oth->map_height = 0;
+	while (read(fd, &str, 1))
 	{
-		so_long->map_height++;
-		free (str);
-		str = get_next_line(fd);
+		if (str == '\n')
+			oth->map_height++;
 	}
+	if (oth->map_height == 0)
+		ft_error("Error\nEmpty Map");
+	oth->map_height++;
 	close(fd);
 }
 
-char	**read_map(t_ping *so_long, char *av)
+char	**read_map(t_ping *oth, char *av)
 {
 	char	*str;
 	int		index;
@@ -52,7 +54,7 @@ char	**read_map(t_ping *so_long, char *av)
 	fd = open(av, O_RDONLY);
 	if (fd == -1)
 		ft_error("Error\nFile error");
-	ptr = (char **)malloc((so_long->map_height + 1) * sizeof(char *));
+	ptr = (char **)malloc((oth->map_height + 1) * sizeof(char *));
 	str = get_next_line(fd);
 	while (str)
 	{
