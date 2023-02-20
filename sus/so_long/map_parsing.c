@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 11:08:15 by otchekai          #+#    #+#             */
-/*   Updated: 2023/02/16 14:16:19 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/02/20 15:12:47 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	check_walls(t_ping *oth)
 	j = 0;
 	width_check(oth);
 	if (!oth->map[oth->map_height - 1])
-		ft_error("Error\n map width should be equal\n");
+		ft_error("Error\nmap width should be equal");
 	while (oth->map[0][j] && oth->map[oth->map_height - 1][j])
 	{
 		if (oth->map[0][j] != '1' || oth->map[oth->map_height - 1][j] != '1')
@@ -65,7 +65,6 @@ void	check_content(t_ping *oth)
 
 	index = 0;
 	j = 0;
-	oth->ground = 0;
 	oth->player = 0;
 	while (oth->map[index])
 	{
@@ -78,8 +77,6 @@ void	check_content(t_ping *oth)
 				ft_error("Error\ninvalid character !");
 			if (oth->map[index][j] == 'P')
 				oth->player++;
-			if (oth->map[index][j] == '0')
-				oth->ground++;
 			j++;
 		}
 		index++;
@@ -114,8 +111,6 @@ void	butts_ifs_and_maybes(t_ping *oth)
 {
 	if (oth->player != 1)
 		ft_error("Error\nMultiple or missing players !");
-	else if (oth->ground < 1)
-		ft_error("Error\nMissing ground texture !");
 	else if (oth->collectibles <= 0)
 		ft_error("Error\nMissing collectibles !");
 	else if (oth->exits != 1)

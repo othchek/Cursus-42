@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 16:38:31 by otchekai          #+#    #+#             */
-/*   Updated: 2023/02/14 13:47:05 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/02/20 15:40:41 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ typedef struct l_ping
 	int		player;
 	int		collectibles;
 	int		exits;
-	int		ground;
 	int		player_y;
 	int		player_x;
 }				t_ping;
@@ -57,9 +56,9 @@ int		floodfill(char **ptr, int x, int y);
 void	xpmlikexpf(t_ping *oth);
 int		key(int keycode, t_ping *oth);
 void	destroyleaks(t_ping *oth);
-void	allfree(char **str);
 void	check(t_ping *oth);
 void	printmove(t_ping *oth, int keycode);
+void	printmove2(t_ping *oth, int keycode);
 void	what_to_print(t_ping *oth, int j, int i);
 void	what_to_print2(t_ping *oth, int j, int i);
 
