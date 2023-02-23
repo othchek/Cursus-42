@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 09:49:39 by otchekai          #+#    #+#             */
-/*   Updated: 2023/02/18 14:01:48 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/02/21 16:38:15 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,8 @@ char	**read_map(t_ping *oth, char *av)
 	if (fd == -1)
 		ft_error("Error\nFile error");
 	ptr = (char **)malloc((oth->map_height + 1) * sizeof(char *));
+	if (!ptr)
+		return(NULL);
 	str = get_next_line(fd);
 	while (str)
 	{

@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 16:38:31 by otchekai          #+#    #+#             */
-/*   Updated: 2023/02/20 15:40:41 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/02/22 16:10:50 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ typedef struct l_ping
 	void	*collectible;
 	void	*frisk;
 	int		map_height;
+	int		var;
 	int		map_width;
 	int		player;
 	int		collectibles;

@@ -6,7 +6,7 @@
 #    By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/07 16:38:26 by otchekai          #+#    #+#              #
-#    Updated: 2023/02/14 12:36:21 by otchekai         ###   ########.fr        #
+#    Updated: 2023/02/22 16:24:04 by otchekai         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME = so_long
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror 
-SRC = so_long.c get_next_line.c get_next_line_utils.c read_map.c ft_error.c map_parsing.c Backtracking.c 7arkti_playar.c \
+SRC = so_long.c get_next_line.c get_next_line_utils.c read_map.c ft_error.c map_parsing.c Backtracking.c harkti_playar.c \
 	destroymap.c printmove.c
  OBJ = $(SRC:.c=.o)
 

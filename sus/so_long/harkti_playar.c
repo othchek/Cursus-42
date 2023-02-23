@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 15:17:54 by otchekai          #+#    #+#             */
-/*   Updated: 2023/02/16 14:20:17 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/02/22 16:11:05 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,7 @@ void	keyleft(t_ping *oth)
 int	key(int keycode, t_ping *oth)
 {
 	printmove(oth, keycode);
+	printmove2(oth, keycode);
 	if (keycode == 53)
 		exit (0);
 	if (keycode == 13)
