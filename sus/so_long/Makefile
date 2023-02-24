@@ -6,7 +6,7 @@
 #    By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/07 16:38:26 by otchekai          #+#    #+#              #
-#    Updated: 2023/02/22 16:24:04 by otchekai         ###   ########.fr        #
+#    Updated: 2023/02/24 12:08:03 by otchekai         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,5 +33,7 @@ clean :
 
 fclean : clean
 	rm -rf $(NAME)
+
+re : fclean all
 
 .PHONY: re clean fclean

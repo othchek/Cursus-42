@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 12:32:12 by otchekai          #+#    #+#             */
-/*   Updated: 2023/02/22 16:23:22 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/02/24 15:56:03 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,14 @@ void	printmove(t_ping *oth, int keycode)
 		&& oth->map[oth->player_y - 1][oth->player_x] != 'E')
 		&& keycode == 13)
 	{
-		ft_putnbr_fd(oth->var++, 1);
+		ft_putnbr_fd(++oth->var, 1);
 		ft_putstr_fd("\n", 1);
 	}
 	if ((oth->map[oth->player_y + 1][oth->player_x] != '1'
 		&& oth->map[oth->player_y + 1][oth->player_x] != 'E')
 		&& keycode == 1)
 	{
-		ft_putnbr_fd(oth->var++, 1);
+		ft_putnbr_fd(++oth->var, 1);
 		ft_putstr_fd("\n", 1);
 	}
 }
@@ -38,14 +38,14 @@ void	printmove2(t_ping *oth, int keycode)
 		&& oth->map[oth->player_y][oth->player_x - 1] != 'E')
 		&& keycode == 0)
 	{
-		ft_putnbr_fd(oth->var++, 1);
+		ft_putnbr_fd(++oth->var, 1);
 		ft_putstr_fd("\n", 1);
 	}
 	if ((oth->map[oth->player_y][oth->player_x + 1] != '1'
 		&& oth->map[oth->player_y][oth->player_x + 1] != 'E')
 		&& keycode == 2)
 	{
-		ft_putnbr_fd(oth->var++, 1);
+		ft_putnbr_fd(++oth->var, 1);
 		ft_putstr_fd("\n", 1);
 	}
 }

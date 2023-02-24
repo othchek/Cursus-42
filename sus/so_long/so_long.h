@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 16:38:31 by otchekai          #+#    #+#             */
-/*   Updated: 2023/02/22 16:10:50 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/02/24 18:35:30 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,9 @@ typedef struct l_ping
 	int		exits;
 	int		player_y;
 	int		player_x;
+	int		col_y;
+	int		col_x;
+	int		col;
 }				t_ping;
 
 char	**read_map(t_ping *so_long, char *av);
@@ -54,6 +57,7 @@ void	check_content2(t_ping *oth);
 void	butts_ifs_and_maybes(t_ping *oth);
 void	playerposition(t_ping *oth);
 int		floodfill(char **ptr, int x, int y);
+int		fillflood(char **ptr, int x, int y);
 void	xpmlikexpf(t_ping *oth);
 int		key(int keycode, t_ping *oth);
 void	destroyleaks(t_ping *oth);
@@ -62,5 +66,5 @@ void	printmove(t_ping *oth, int keycode);
 void	printmove2(t_ping *oth, int keycode);
 void	what_to_print(t_ping *oth, int j, int i);
 void	what_to_print2(t_ping *oth, int j, int i);
-
+int		fireexit(void);
 #endif
