@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 16:37:35 by otchekai          #+#    #+#             */
-/*   Updated: 2023/02/24 18:37:54 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/02/25 14:40:06 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,12 +62,11 @@ int	main(int ac, char **av)
 		oth.map = read_map(&oth, av[1]);
 		oth.pam = read_map(&oth, av[1]);
 		check(&oth);
-		if (floodfill(oth.pam, oth.player_x, oth.player_y) == 0)
-			ft_error("Error\nexit gate is not reachable!");
-		oth.pam = NULL;
-		oth.pam = read_map(&oth, av[1]);
 		if (fillflood(oth.pam, oth.player_x, oth.player_y) == 0)
 			ft_error("Error\nplayer can't win!");
+		oth.apm = read_map(&oth, av[1]);
+		if (floodfill(oth.apm, oth.player_x, oth.player_y) == 0)
+			ft_error("Error\nexit gate is not reachable!");
 		ini(&oth);
 		xpmlikexpf(&oth);
 		copy(&oth);

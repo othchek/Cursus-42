@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 16:38:31 by otchekai          #+#    #+#             */
-/*   Updated: 2023/02/24 18:35:30 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/02/25 14:31:11 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ typedef struct l_ping
 {
 	char	**map;
 	char	**pam;
+	char	**apm;
 	void	*mlx_ptr;
 	void	*win_ptr;
 	void	*img_ptr;
