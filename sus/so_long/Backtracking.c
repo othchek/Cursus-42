@@ -6,12 +6,11 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 10:46:33 by otchekai          #+#    #+#             */
-/*   Updated: 2023/02/24 15:38:45 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/02/26 19:28:24 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-#include "libft/libft.h"
 #include "get_next_line.h"
 
 void	playerposition(t_ping *oth)

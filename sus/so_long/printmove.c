@@ -6,13 +6,12 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 12:32:12 by otchekai          #+#    #+#             */
-/*   Updated: 2023/02/24 15:56:03 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/02/26 19:28:39 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mlx.h"
 #include "so_long.h"
-#include "libft/libft.h"
 
 void	printmove(t_ping *oth, int keycode)
 {

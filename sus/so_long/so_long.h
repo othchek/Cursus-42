@@ -6,13 +6,14 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 16:38:31 by otchekai          #+#    #+#             */
-/*   Updated: 2023/02/26 12:12:33 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/02/28 20:34:30 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
+# include <unistd.h>
 # include <fcntl.h>
 # include <stdlib.h>
 # include <stdio.h>
@@ -63,9 +64,14 @@ void	xpmlikexpf(t_ping *oth);
 int		key(int keycode, t_ping *oth);
 void	destroyleaks(t_ping *oth);
 void	check(t_ping *oth);
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
+void	ft_putnbr_fd(int n, int fd);
 void	printmove(t_ping *oth, int keycode);
 void	printmove2(t_ping *oth, int keycode);
+void	ft_putstr_fd(char *s, int fd);
+int		ft_strlen(const char *str);
 void	what_to_print(t_ping *oth, int j, int i);
+void	ft_putchar_fd(char c, int fd);
 void	what_to_print2(t_ping *oth, int j, int i);
 int		fireexit(void);
 #endif

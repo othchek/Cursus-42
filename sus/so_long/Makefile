@@ -6,25 +6,24 @@
 #    By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/07 16:38:26 by otchekai          #+#    #+#              #
-#    Updated: 2023/02/26 12:12:06 by otchekai         ###   ########.fr        #
+#    Updated: 2023/02/28 20:36:28 by otchekai         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
-# MAKEFLAGS = -s
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror 
 INC = so_long.h get_next_line.h
-SRC = so_long.c get_next_line.c get_next_line_utils.c read_map.c ft_error.c map_parsing.c Backtracking.c harkti_playar.c \
-	destroymap.c printmove.c
- OBJ = $(SRC:.c=.o)
+SRC = 	so_long.c get_next_line.c get_next_line_utils.c read_map.c ft_error.c map_parsing.c Backtracking.c harkti_playar.c \
+		destroymap.c printmove.c so_long_utils.c
 
+OBJ = $(SRC:.c=.o)
+ 
 all : $(NAME)
 
-
 $(NAME) : $(OBJ) $(INC)
-	$(CC) $(CFLAGS) $(OBJ) -lmlx -framework OpenGL -framework AppKit -o $(NAME) libft.a
+	$(CC) $(CFLAGS) $(OBJ) -lmlx -framework OpenGL -framework AppKit -o $(NAME)
 
 %.o : %.c
 	$(CC) $(CFLAGS) -Imlx -c $< -o $@

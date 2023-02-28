@@ -6,12 +6,11 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 11:08:15 by otchekai          #+#    #+#             */
-/*   Updated: 2023/02/20 15:12:47 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/02/28 20:32:30 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-#include "libft/libft.h"
 #include "get_next_line.h"
 
 void	width_check(t_ping *oth)

@@ -6,12 +6,11 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 09:49:39 by otchekai          #+#    #+#             */
-/*   Updated: 2023/02/24 18:31:02 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/02/26 19:27:49 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-#include "libft/libft.h"
 #include "get_next_line.h"
 #include <mlx.h>
 

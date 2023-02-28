@@ -6,12 +6,11 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 11:43:37 by otchekai          #+#    #+#             */
-/*   Updated: 2023/02/04 15:19:35 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/02/26 19:27:54 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-#include "libft/libft.h"
 
 void	ft_error(char *s)
 {

@@ -6,13 +6,13 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 11:33:38 by otchekai          #+#    #+#             */
-/*   Updated: 2023/02/04 15:19:38 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/02/26 16:55:03 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-size_t	ft_strlen(char *s)
+int	ft_strlen(const	char *s)
 {
 	size_t		i;
 

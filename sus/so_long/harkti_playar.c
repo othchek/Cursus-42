@@ -1,18 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   7arkti_playar.c                                    :+:      :+:    :+:   */
+/*   harkti_playar.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 15:17:54 by otchekai          #+#    #+#             */
-/*   Updated: 2023/02/22 16:11:05 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/02/26 19:28:32 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mlx.h"
 #include "so_long.h"
-#include "libft/libft.h"
 #include "get_next_line.h"
 
 void	keyup(t_ping *oth)
