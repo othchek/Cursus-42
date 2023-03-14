@@ -6,59 +6,54 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 10:59:35 by otchekai          #+#    #+#             */
-/*   Updated: 2023/01/04 18:06:18 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/03/13 11:19:01 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-static void	receive_message(int signal)
+void	HAHAHA_CHAMBOO(int *bits, char c)
 {
-	(void)signal;
+	int	i;
+
+	i = 7;
+	while (i >= 0)
+	{
+		bits[i] = c % 2;
+		c /= 2;
+		i--;
+	}
 }
 
-void	send_character(int pid, unsigned char c)
+void	send_characters(int pid, char c)
 {
-	int	shifter;
+	int i;
+	int nejma[8];
 
-	shifter = 0x80;
-	while (shifter)
+	i = 7;
+	HAHAHA_CHAMBOO(nejma, c);
+	while(i >= 0)
 	{
-		if (c & shifter)
+		if (nejma[i] == 1)
 			kill(pid, SIGUSR2);
-		else
+		else if (nejma[i] == 0)
 			kill(pid, SIGUSR1);
-		pause();
-		usleep(200);
-		shifter >>= 1;
+		i--;
 	}
-}
-
-static void	send_message(int pid, char *str)
-{
-	int	index;
-
-	index = 0;
-	while (str[index])
-	{
-		send_character(pid, str[index]);
-		index++;
-	}
-	send_character(pid, '\n');
-	send_character(pid, '\0');
+	usleep(800);
 }
 
 int	main(int ac, char **av)
 {
 	int	pid;
-
-	if (ac != 3)
-	{	
-		ft_putstr_fd("Arguments error: ./client <pid> (message)\n", 1);
-		exit(0);
+	int i;
+	(void)ac;
+	
+	i = 0;
+	pid = atoi(av[1]);
+	while (av[2][i])
+	{
+		send_characters(pid, av[2][i]);
+		i++;
 	}
-	pid = ft_atoi(av[1]);
-	signal(SIGUSR2, receive_message);
-	send_message(pid, av[2]);
-	return (0);
 }
