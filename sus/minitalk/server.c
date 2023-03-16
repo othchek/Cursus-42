@@ -6,40 +6,37 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 10:59:38 by otchekai          #+#    #+#             */
-/*   Updated: 2023/03/14 13:25:11 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/03/16 11:43:28 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-int power_to_the_worthy(int num, int bin)
-{
-	int i;
-	
-	i = 1;
-	if (bin > 0)
-	{
-		i *= num;
-		bin--;
-	}
-	return (i);
-}
-
 int	they_call_me_names(int *tabnaux)
 {
-	int fat;
-	int hard_r;
-	int obese;
+	int	fat;
+	int	hard_r;
+	int	obese;
+	int	power;
+	int	i;
 
+	i = 0;
 	fat = 7;
 	hard_r = 0;
 	obese = 0;
-	if (fat > 0)
+	while (fat >= 0)
 	{
-		obese += power_to_the_worthy(2, fat) * tabnaux[hard_r];
+		power = 1;
+		while (i < fat)
+		{
+			power *= 2;
+			i++;
+		}
+		obese += power * tabnaux[hard_r];
 		fat--;
 		hard_r++;
 	}
+	return (obese);
 }
 
 static void	power_to_the_people(int num, siginfo_t *info, void *nothingness)
@@ -55,6 +52,9 @@ static void	power_to_the_people(int num, siginfo_t *info, void *nothingness)
 		i = 0;
 		c = 0;
 	}
+	if (num == SIGUSR2)
+		c = c | 0x80 >> i;
+	i++;
 	if (i == 8)
 	{
 		write(1, &c, 1);
