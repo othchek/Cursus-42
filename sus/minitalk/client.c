@@ -6,54 +6,57 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 10:59:35 by otchekai          #+#    #+#             */
-/*   Updated: 2023/03/16 11:44:14 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/03/17 17:03:18 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-void	wladianayawladi(int *bits, char c)
+static void	send_characters(int pid, char c)
 {
 	int	i;
+	int shifter;
 
 	i = 7;
 	while (i >= 0)
 	{
-		bits[i] = c % 2;
-		c /= 2;
+		shifter = (c >> i & 1);
+		if (shifter == 1)
+			if (kill(pid, SIGUSR2) == -1)
+				exit(0);
+		if (shifter == 0)
+			if (kill(pid, SIGUSR1) == -1)
+				exit(0);
 		i--;
+		usleep(800);
 	}
 }
 
-void	send_characters(int pid, char c)
+static void write_characters(int pid, char *str)
 {
-	int	i;
-	int	nejma[8];
+	int index;
 
-	i = 7;
-	HAHAHA_CHAMBOO(nejma, c);
-	while (i >= 0)
+	index = 0;
+	while (str[index])
 	{
-		if (nejma[i] == 1)
-			kill(pid, SIGUSR2);
-		else if (nejma[i] == 0)
-			kill(pid, SIGUSR1);
-		i--;
+		send_characters(pid, str[index]);
+		index++;
 	}
-	usleep(800);
 }
 
 int	main(int ac, char **av)
 {
-	int	pid;
-	int	i;
+	int		pid;
+	int		i;
 
-	(void)ac;
 	i = 0;
-	pid = atoi(av[1]);
-	while (av[2][i])
+	if (ac == 3)
 	{
-		send_characters(pid, av[2][i]);
-		i++;
+		pid = atoi(av[1]);
+		if (pid <= 0)
+			exit(0);
+		write_characters(pid, av[2]);
 	}
+	else
+		ft_putstr_fd("Argument Error\n", 2);
 }

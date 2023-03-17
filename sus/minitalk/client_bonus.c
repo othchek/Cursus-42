@@ -6,59 +6,57 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 16:49:49 by otchekai          #+#    #+#             */
-/*   Updated: 2023/01/04 18:06:22 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/03/17 17:28:52 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk_bonus.h"
 
-static void	receive_message(int signal)
+static void	send_characters(int pid, char c)
 {
-	(void)signal;
-}
+	int	i;
+	int shifter;
 
-void	send_character(int pid, unsigned char c)
-{
-	int	shifter;
-
-	shifter = 0x80;
-	while (shifter)
+	i = 7;
+	while (i >= 0)
 	{
-		if (c & shifter)
-			kill(pid, SIGUSR2);
-		else
-			kill(pid, SIGUSR1);
-		pause();
-		usleep(200);
-		shifter >>= 1;
+		shifter = (c >> i & 1);
+		if (shifter == 1)
+			if (kill(pid, SIGUSR2) == -1)
+				exit(0);
+		if (shifter == 0)
+			if (kill(pid, SIGUSR1) == -1)
+				exit(0);
+		i--;
+		usleep(800);
 	}
 }
 
-static void	send_message(int pid, char *str)
+static void write_characters(int pid, char *str)
 {
-	int	index;
+	int index;
 
 	index = 0;
 	while (str[index])
 	{
-		send_character(pid, str[index]);
+		send_characters(pid, str[index]);
 		index++;
 	}
-	send_character(pid, '\n');
-	send_character(pid, '\0');
 }
 
 int	main(int ac, char **av)
 {
-	int	pid;
+	int		pid;
+	int		i;
 
-	if (ac != 3)
-	{	
-		ft_putstr_fd("Arguments error: ./client <pid> (message)\n", 1);
-		exit(0);
+	i = 0;
+	if (ac == 3)
+	{
+		pid = atoi(av[1]);
+		if (pid <= 0)
+			exit(0);
+		write_characters(pid, av[2]);
 	}
-	pid = ft_atoi(av[1]);
-	signal(SIGUSR2, receive_message);
-	send_message(pid, av[2]);
-	return (0);
+	else
+		ft_putstr_fd("Argument Error\n", 2);
 }
