@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 10:59:38 by otchekai          #+#    #+#             */
-/*   Updated: 2023/03/16 15:24:25 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/03/20 11:27:01 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static void	power_to_the_people(int num, siginfo_t *info, void *nothingness)
 		c = 0;
 	}
 	if (num == SIGUSR2)
-		c = c | 0x80 >> i;
+		c |= (0x80 >> i);
 	i++;
 	if (i == 8)
 	{
@@ -36,17 +36,17 @@ static void	power_to_the_people(int num, siginfo_t *info, void *nothingness)
 	}
 }
 
-int	main(void)
+int main(void) 
 {
-	struct sigaction	signals;
-
+    struct sigaction signals;
 	ft_putstr_fd("Server PID: ", 1);
 	ft_putnbr_fd(getpid(), 1);
 	ft_putchar_fd('\n', 1);
-	signals.sa_sigaction = power_to_the_people;
-	signals.sa_flags = SA_SIGINFO;
+    signals.sa_sigaction = power_to_the_people;
+    signals.sa_flags = SA_SIGINFO;
 	sigaction(SIGUSR1, &signals, NULL);
 	sigaction(SIGUSR2, &signals, NULL);
-	while (1)
-		pause();
+    ft_putstr_fd("Waiting for signals...\n", 1);
+    while (1) 
+        pause();
 }

@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 10:59:35 by otchekai          #+#    #+#             */
-/*   Updated: 2023/03/17 17:03:18 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/03/20 11:27:25 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static void	send_characters(int pid, char c)
 			if (kill(pid, SIGUSR1) == -1)
 				exit(0);
 		i--;
-		usleep(800);
+		usleep(1200);
 	}
 }
 
@@ -52,7 +52,7 @@ int	main(int ac, char **av)
 	i = 0;
 	if (ac == 3)
 	{
-		pid = atoi(av[1]);
+		pid = ft_atoi(av[1]);
 		if (pid <= 0)
 			exit(0);
 		write_characters(pid, av[2]);

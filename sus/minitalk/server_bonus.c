@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 16:50:22 by otchekai          #+#    #+#             */
-/*   Updated: 2023/03/17 17:29:03 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/03/20 11:26:31 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,14 @@ static void	power_to_the_people(int num, siginfo_t *info, void *nothingness)
 	i++;
 	if (i == 8)
 	{
-		write(1, &c, 1);
-		c = 0;
-		i = 0;
+		if ((int)c == 125)
+			kill(info->si_pid, SIGUSR1);
+		else
+		{
+			write(1, &c, 1);
+			c = 0;
+			i = 0;
+		}
 	}
 }
 
@@ -47,6 +52,7 @@ int	main(void)
 	signals.sa_flags = SA_SIGINFO;
 	sigaction(SIGUSR1, &signals, NULL);
 	sigaction(SIGUSR2, &signals, NULL);
+	ft_putstr_fd("Waiting for signals...\n", 1);
 	while (1)
 		pause();
 }

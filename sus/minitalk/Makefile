@@ -6,11 +6,11 @@
 #    By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/26 12:09:19 by otchekai          #+#    #+#              #
-#    Updated: 2023/01/04 17:00:19 by otchekai         ###   ########.fr        #
+#    Updated: 2023/03/20 10:42:42 by otchekai         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-MAKEFLAGS += -s
+# MAKEFLAGS += -s
 CLIENT = client
 SERVER = server
 CLIENTBONUS = clientbonus
@@ -35,11 +35,11 @@ all : $(CLIENT) $(SERVER)
 
 $(CLIENT): $(LIBFT) $(OBJ_C)
 	@$(CC) $(CFLAGS) $(SRC_C) $(LIBFT) -o $(CLIENT)
-	@printf "client ready.\n"
+	@printf "client is ready.\n"
 
 $(SERVER): $(LIBFT) $(OBJ_S)
 	@ $(CC) $(CFLAGS) $(SRC_S) $(LIBFT) -o $(SERVER)
-	@printf "server ready.\n"
+	@printf "server is on.\n"
 
 $(LIBFT):
 	@ $(MAKE) -C ./libft
@@ -48,11 +48,11 @@ bonus: $(CLIENTBONUS) $(SERVERBONUS)
 
 $(CLIENTBONUS):	$(LIBFT) $(OBJB_C)
 	@$(CC) $(CFLAGS) $(SRCB_C) $(LIBFT) -o $(CLIENTBONUS)
-	@printf "client_bonus ready.\n"
+	@printf "clientbonus ready.\n"
 
 $(SERVERBONUS):	$(LIBFT) $(OBJB_S)
 	@$(CC) $(CFLAGS) $(SRCB_S) $(LIBFT) -o $(SERVERBONUS)
-	@printf "client_bonus ready.\n"
+	@printf "serverbonus is on.\n"
 
 clean:
 	@$(RM) $(CLIENT) $(SERVER) $(CLIENTBONUS) $(SERVERBONUS)

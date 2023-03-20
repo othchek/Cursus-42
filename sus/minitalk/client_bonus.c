@@ -6,11 +6,17 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 16:49:49 by otchekai          #+#    #+#             */
-/*   Updated: 2023/03/17 17:28:52 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/03/20 11:27:30 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk_bonus.h"
+
+static void	receiver(int sig)
+{
+	if (sig == SIGUSR1)
+		ft_putstr_fd("Message sent succesfully\n", 1);
+}
 
 static void	send_characters(int pid, char c)
 {
@@ -28,7 +34,7 @@ static void	send_characters(int pid, char c)
 			if (kill(pid, SIGUSR1) == -1)
 				exit(0);
 		i--;
-		usleep(800);
+		usleep(1200);
 	}
 }
 
@@ -42,6 +48,7 @@ static void write_characters(int pid, char *str)
 		send_characters(pid, str[index]);
 		index++;
 	}
+	send_characters(pid, 125);
 }
 
 int	main(int ac, char **av)
@@ -50,6 +57,7 @@ int	main(int ac, char **av)
 	int		i;
 
 	i = 0;
+	signal(SIGUSR1, receiver);
 	if (ac == 3)
 	{
 		pid = atoi(av[1]);
