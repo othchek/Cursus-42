@@ -6,10 +6,11 @@
 #    By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/12 10:09:01 by otchekai          #+#    #+#              #
-#    Updated: 2023/03/24 22:00:19 by otchekai         ###   ########.fr        #
+#    Updated: 2023/03/31 14:51:54 by otchekai         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+MAKEFLAGS += -s
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 AR = ar

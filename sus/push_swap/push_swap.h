@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 14:39:50 by otchekai          #+#    #+#             */
-/*   Updated: 2023/03/31 14:45:43 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/03/31 14:47:54 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,4 +23,5 @@ int		check_if_valid(char **str);
 int		smoking_mirrors(char **str);
 void	kill_to_flourish(char **str);
 int		max_or_min(char *str);
+
 #endif
