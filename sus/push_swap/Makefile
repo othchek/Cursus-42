@@ -6,7 +6,7 @@
 #    By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/05 14:36:47 by mbachar           #+#    #+#              #
-#    Updated: 2023/04/05 15:06:00 by otchekai         ###   ########.fr        #
+#    Updated: 2023/04/07 14:51:04 by otchekai         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ CC = cc
 
 LIBFT = ./libft/libft.a
 
-SRC = push_swap.c parsing.c the_all_you_need.c
+SRC = push_swap.c parsing.c the_all_you_need.c instructions.c
 
 OBJ	= $(SRC:.c=.o)
 

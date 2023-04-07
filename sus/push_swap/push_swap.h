@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 14:39:50 by otchekai          #+#    #+#             */
-/*   Updated: 2023/04/05 21:27:20 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/04/07 16:49:37 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,9 @@ char	**kill_to_flourish(char **str);
 void	ft_lstadd_back(t_push **lst, t_push *new);
 void	ft_lstadd_front(t_push **lst, t_push *new);
 int		ft_lstsize(t_push *lst);
+void	inst_sb(t_push **lst, int i);
+void	inst_sa(t_push **lst, int i);
+void	inst_ra(t_push **lst, int i);
+void	inst_ss(t_push **lst, int i);
 
 #endif

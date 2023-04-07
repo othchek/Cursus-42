@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 12:29:20 by otchekai          #+#    #+#             */
-/*   Updated: 2023/04/05 21:27:50 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/04/07 15:36:05 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	ft_lstadd_back(t_push **lst, t_push *new)
 	node = (*lst);
 	head = (*lst);
 	while (node->next != head)
-		*lst = (*lst)->next;
+		node = (node)->next;
 	node->next = new;
 	new->next = head;
 	new->prev = node;
