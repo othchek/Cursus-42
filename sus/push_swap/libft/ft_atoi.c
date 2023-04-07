@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 07:30:41 by otchekai          #+#    #+#             */
-/*   Updated: 2023/03/24 22:02:54 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/04/05 21:28:23 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 long long	ft_atoi(const char *str)
 {
 	size_t			i;
-	long long	k;
-	long long	sign;
+	long long		k;
+	long long		sign;
 
 	i = 0;
 	k = 0;
@@ -24,7 +24,7 @@ long long	ft_atoi(const char *str)
 	while ((str[i] == ' ') || (str[i] >= '\t' && str[i] <= '\r'))
 		i++;
 	if (i == ft_strlen(str))
-		ft_error("Not Valid");
+		ft_error("Error\nNot Valid");
 	if (str[i] == '-')
 		sign *= -1;
 	if (str[i] == '+' || str[i] == '-')
@@ -32,8 +32,6 @@ long long	ft_atoi(const char *str)
 	while (str[i])
 	{
 		k = k * 10 + (str[i] - '0');
-		if (!ft_isdigit(str[i]))
-			ft_error("Not Valid");
 		i++;
 	}
 	return (k * sign);

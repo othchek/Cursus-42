@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 14:41:51 by otchekai          #+#    #+#             */
-/*   Updated: 2023/03/31 14:42:02 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/04/05 21:30:31 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,11 @@ int	check_if_valid(char **str)
 		while (str[index][j])
 		{
 			if (!ft_isdigit(str[index][j]) && str[index][j] != 32)
-				ft_error("Not Valid");
+				ft_error("Error\nNot Valid");
 			j++;
 		}
 		if (ft_strlen(str[index]) == 0)
-			ft_error("Not Valid");
+			ft_error("Error\nNot Valid");
 		ft_atoi(str[index]);
 		index++;
 	}
@@ -49,7 +49,7 @@ int	smoking_mirrors(char **str)
 		while (str[index])
 		{
 			if (ft_atoi(str[num]) == ft_atoi(str[index]))
-				ft_error("Duplicated Number");
+				ft_error("Error\nDuplicated Number");
 			index++;
 		}
 		num++;
@@ -57,7 +57,7 @@ int	smoking_mirrors(char **str)
 	return (0);
 }
 
-void	kill_to_flourish(char **str)
+char	**kill_to_flourish(char **str)
 {
 	char	*s;
 	char	**split;
@@ -74,8 +74,9 @@ void	kill_to_flourish(char **str)
 		index++;
 	}
 	split = ft_split(s, ' ');
-	check_if_valid(split); 
+	check_if_valid(split);
 	smoking_mirrors(split);
+	return (split);
 }
 
 int	max_or_min(char *str)
@@ -87,6 +88,6 @@ int	max_or_min(char *str)
 	result = ft_atoi(str);
 	if (result < INT_MIN
 		|| result > INT_MAX)
-		ft_error("Above the INT_MAX or Smaller than the INT_MIN");
+		ft_error("Error\nAbove the INT_MAX or Smaller than the INT_MIN");
 	return (0);
 }
