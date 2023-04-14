@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 12:29:20 by otchekai          #+#    #+#             */
-/*   Updated: 2023/04/07 15:36:05 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/04/14 18:26:29 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ t_push	*lst_new(int sata)
 	t_push	*node;
 
 	node = malloc(sizeof(t_push));
+	node->index = 0;
 	node->data = sata;
 	node->next = node;
 	node->prev = node;
