@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 14:39:50 by otchekai          #+#    #+#             */
-/*   Updated: 2023/04/07 16:49:37 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/04/14 11:56:26 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,10 @@ int		ft_lstsize(t_push *lst);
 void	inst_sb(t_push **lst, int i);
 void	inst_sa(t_push **lst, int i);
 void	inst_ra(t_push **lst, int i);
-void	inst_ss(t_push **lst, int i);
+void	inst_rb(t_push **lst, int i);
+void	inst_ss(t_push **lst, t_push **lst1 , int i);
+void	inst_rra(t_push **lst, int i);
+void	inst_rrb(t_push **lst, int i);
+void	inst_pa(t_push **heada, t_push **headb, int i);
 
 #endif
