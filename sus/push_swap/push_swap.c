@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 15:25:01 by otchekai          #+#    #+#             */
-/*   Updated: 2023/04/14 18:27:30 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/04/16 15:32:46 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	main(int ac, char **av)
 	t_push	*heada;
 	t_push	*headb;
 	t_push	*head;
-	
+
 	head = NULL;
 	i = 1;
 	heada = NULL;
@@ -35,11 +35,11 @@ int	main(int ac, char **av)
 			ft_lstadd_back(&heada, lst_new(ft_atoi(split[i])));
 			i++;
 		}
-		cookielolxx(&heada);
+		three_numbers(&heada);
 		head = heada;
 		while (head)
 		{
-			printf("Data = %d | Index = %d\n", head->data, head->index);
+			printf("Data = %d\n", head->data);
 			head = head->next;
 			if (head == heada)
 				break ;

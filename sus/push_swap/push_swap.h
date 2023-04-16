@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 14:39:50 by otchekai          #+#    #+#             */
-/*   Updated: 2023/04/14 17:46:48 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/04/16 15:32:39 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ typedef struct s_push {
 }	t_push;
 
 typedef struct l_ping {
-	int count;
-	int store;
+	int	count;
+	int	store;
 }	t_ping;
 
 int		check_if_valid(char **str);
@@ -43,12 +43,12 @@ void	inst_sb(t_push **lst, int i);
 void	inst_sa(t_push **lst, int i);
 void	inst_ra(t_push **lst, int i);
 void	inst_rb(t_push **lst, int i);
-void	inst_ss(t_push **lst, t_push **lst1 , int i);
+void	inst_ss(t_push **lst, t_push **lst1, int i);
 void	inst_rra(t_push **lst, int i);
 void	inst_rrb(t_push **lst, int i);
 void	inst_pa(t_push **heada, t_push **headb, int i);
-void    inst_pb(t_push **stack_a, t_push **stack_b, int i);
+void	inst_pb(t_push **stack_a, t_push **stack_b, int i);
+int		cookielolxx(t_push **Morow);
 void	three_numbers(t_push **Morow);
-void	cookielolxx(t_push **Morow);
 
 #endif
