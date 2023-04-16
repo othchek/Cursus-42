@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 14:39:50 by otchekai          #+#    #+#             */
-/*   Updated: 2023/04/16 15:32:39 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/04/16 15:57:14 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,5 +50,6 @@ void	inst_pa(t_push **heada, t_push **headb, int i);
 void	inst_pb(t_push **stack_a, t_push **stack_b, int i);
 int		cookielolxx(t_push **Morow);
 void	three_numbers(t_push **Morow);
+void	three_numbers1(t_push **Morow);
 
 #endif

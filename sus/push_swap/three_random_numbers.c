@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 14:42:09 by otchekai          #+#    #+#             */
-/*   Updated: 2023/04/16 15:55:14 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/04/16 16:44:45 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,20 @@ void	three_numbers(t_push **Morow)
 			inst_rra(Morow, 1);
 			break ;
 		}
-		else if (cookielolxx(&head->next) == 0 && head->data > head->prev->data)
+		if (head == *Morow)
+			break ;
+	}
+	three_numbers1(Morow);
+}
+
+void	three_numbers1(t_push **Morow)
+{
+	t_push	*head;
+
+	head = (*Morow);
+	while (head)
+	{
+		if (cookielolxx(&head->next) == 0 && head->data > head->prev->data)
 		{
 			inst_ra(Morow, 1);
 			break ;
@@ -73,25 +86,4 @@ void	three_numbers(t_push **Morow)
 		if (head == *Morow)
 			break ;
 	}
-}
-
-// void three_numbers1(t_push **Morow)
-// {
-// 	t_push 
-// 	if (cookielolxx(&head->next) == 0 && head->data > head->prev->data)
-// 	{
-// 		inst_ra(Morow, 1);
-// 		break ;
-// 	}
-// 	else if (cookielolxx(&head) == 0 && head->next->data > head->prev->data)
-// 	{
-// 		inst_sa(Morow, 1);
-// 		inst_ra(Morow, 1);
-// 		break ;
-// 	}
-// 	else if (cookielolxx(&head->prev) == 0 && head->data < head->next->data)
-// 	{
-// 		inst_rra(Morow, 1);
-// 		break ;
-// 	}
-// }
+} // 4 5 100 500
