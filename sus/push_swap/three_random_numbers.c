@@ -6,84 +6,82 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 14:42:09 by otchekai          #+#    #+#             */
-/*   Updated: 2023/04/16 16:44:45 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/04/19 17:18:52 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	cookielolxx(t_push **Morow)
-{
-	t_push	*head;
-	t_push	*head1;
-	t_push	*temp;
-
-	temp = (*Morow);
-	head1 = (*Morow);
-	while (head1)
-	{
-		head = *Morow;
-		while (head)
-		{
-			if (temp->data > head->data)
-				temp->index++;
-			head = head->next;
-			if (head == *Morow)
-				break ;
-		}
-		temp = (temp)->next;
-		head1 = head1->next;
-		if (head1 == *Morow)
-			return (temp->index);
-	}
-	return (0);
-}
+// void	three_numbers(t_push **Morow)
+// {
+// 	if ((*Morow)->data > (*Morow)->next->data)
+// 	{
+// 		if ((*Morow)->next->data < (*Morow)->next->next->data
+// 			&& (*Morow)->data < (*Morow)->next->next->data)
+// 			inst_sa(Morow, 1);
+// 		else if ((*Morow)->next->data > (*Morow)->next->next->data)
+// 			sa_ra_rra(Morow, 1);
+// 		else if ((*Morow)->next->data < (*Morow)->next->next->data
+// 			&& (*Morow)->data > (*Morow)->next->next->data)
+// 			inst_ra(Morow, 1);
+// 	}
+// 	else if ((*Morow)->data < (*Morow)->next->data)
+// 	{
+// 		if ((*Morow)->next->data > (*Morow)->next->next->data
+// 			&& (*Morow)->data < (*Morow)->next->next->data)
+// 			sa_ra_rra(Morow, 0);
+// 		else if ((*Morow)->next->data > (*Morow)->next->next->data
+// 			&& (*Morow)->data > (*Morow)->next->next->data)
+// 			inst_rra(Morow, 1);
+// 	}
+// }
+// void	sa_ra_rra(t_push **lst_a, int status)
+// {
+// 	if (status == 0)
+// 	{
+// 		inst_sa(lst_a, 1);
+// 		inst_ra(lst_a, 1);
+// 	}
+// 	else if (status == 1)
+// 	{
+// 		inst_sa(lst_a, 1);
+// 		inst_rra(lst_a, 1);
+// 	}
+// }
 
 void	three_numbers(t_push **Morow)
 {
 	t_push	*head;
 
 	head = (*Morow);
-	while (head)
+	cookielolxx(Morow);
+	if (head->next->index == 0 && head->data < head->prev->data)
+		inst_sa(Morow, 1);
+	else if (head->prev->index == 0 && head->data > head->next->data)
 	{
-		if (cookielolxx(&head->next) == 0 && head->data < head->prev->data)
-			inst_sa(Morow, 1);
-		else if (cookielolxx(&head->prev) == 0 && head->data > head->next->data)
-		{
-			inst_sa(Morow, 1);
-			inst_rra(Morow, 1);
-			break ;
-		}
-		if (head == *Morow)
-			break ;
+		inst_sa(Morow, 1);
+		inst_rra(Morow, 1);
 	}
-	three_numbers1(Morow);
+	else if (head->next->index == 0 && head->data > head->prev->data)
+		inst_ra(Morow, 1);
+	else if (head->index == 0 && head->next->data > head->prev->data)
+	{
+		inst_sa(Morow, 1);
+		inst_ra(Morow, 1);
+	}
+	else if (head->prev->index == 0 && head->data < head->next->data)
+		inst_rra(Morow, 1);
 }
 
-void	three_numbers1(t_push **Morow)
+void	sorted(t_push **Morow)
 {
 	t_push	*head;
 
 	head = (*Morow);
-	while (head)
-	{
-		if (cookielolxx(&head->next) == 0 && head->data > head->prev->data)
-		{
-			inst_ra(Morow, 1);
-			break ;
-		}
-		else if (cookielolxx(&head) == 0 && head->next->data > head->prev->data)
-		{
-			inst_sa(Morow, 1);
-			inst_ra(Morow, 1);
-			break ;
-		}
-		else if (cookielolxx(&head->prev) == 0 && head->data < head->next->data)
-		{
-			inst_rra(Morow, 1);
-			break ;
-		}
-		if (head == *Morow)
-			break ;
-	}
-} // 4 5 100 500
+	if (head->data < head->next->data && \
+		head->next->data < head->prev->prev->data && \
+		head->prev->prev->data < head->prev->data)
+		return ;
+	else
+		three_numbers(Morow);
+}

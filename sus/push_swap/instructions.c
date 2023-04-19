@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 13:40:05 by otchekai          #+#    #+#             */
-/*   Updated: 2023/04/07 17:24:10 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/04/17 16:22:58 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	inst_sb(t_push **lst, int i)
 	return ;
 }
 
-void	inst_ss(t_push **heada, t_push **headb , int i)
+void	inst_ss(t_push **heada, t_push **headb, int i)
 {
 	int	index;
 

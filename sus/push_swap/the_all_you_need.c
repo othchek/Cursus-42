@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 12:29:20 by otchekai          #+#    #+#             */
-/*   Updated: 2023/04/14 18:26:29 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/04/19 17:08:22 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,4 +73,30 @@ int	ft_lstsize(t_push *lst)
 			break ;
 	}
 	return (index);
+}
+
+void	cookielolxx(t_push **Morow)
+{
+	t_push	*head;
+	int		i;
+
+	i = 0;
+	(*Morow)->index = 0;
+	head = (*Morow);
+	while (i < ft_lstsize(*Morow))
+	{
+		if ((*Morow)->data > head->data)
+			(*Morow)->index++;
+		head = head->next;
+		if (head == *Morow)
+		{
+			if (i == ft_lstsize(*Morow) - 1)
+				break ;
+			(*Morow) = (*Morow)->next;
+			head = head->next;
+			(*Morow)->index = 0;
+			i++;
+		}
+	}
+	(*Morow) = (*Morow)->next;
 }

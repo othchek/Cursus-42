@@ -6,11 +6,26 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 15:25:01 by otchekai          #+#    #+#             */
-/*   Updated: 2023/04/16 15:32:46 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/04/19 16:53:41 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	sort_stack(t_push **heada, t_push **headb)
+{
+	if (ft_lstsize(*heada) == 2 && (*heada)->data > (*heada)->next->data)
+		inst_ra(heada, 1);
+	if (ft_lstsize(*heada) == 3)
+	{		
+		sorted(heada);
+		three_numbers(heada);
+	}
+	if (ft_lstsize(*heada) == 4)
+		flower_in_the_dawn(heada, headb);
+	else
+		return ;
+}
 
 int	main(int ac, char **av)
 {
@@ -18,9 +33,7 @@ int	main(int ac, char **av)
 	char	**split;
 	t_push	*heada;
 	t_push	*headb;
-	t_push	*head;
 
-	head = NULL;
 	i = 1;
 	heada = NULL;
 	headb = NULL;
@@ -35,15 +48,7 @@ int	main(int ac, char **av)
 			ft_lstadd_back(&heada, lst_new(ft_atoi(split[i])));
 			i++;
 		}
-		three_numbers(&heada);
-		head = heada;
-		while (head)
-		{
-			printf("Data = %d\n", head->data);
-			head = head->next;
-			if (head == heada)
-				break ;
-		}
+		sort_stack(&heada, &headb);
 	}
 	else
 		ft_error("Error\nArgument Error!");
