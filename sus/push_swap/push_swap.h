@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 14:39:50 by otchekai          #+#    #+#             */
-/*   Updated: 2023/04/19 16:28:30 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/04/19 23:04:59 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,16 +38,17 @@ void	inst_sb(t_push **lst, int i);
 void	inst_sa(t_push **lst, int i);
 void	inst_ra(t_push **lst, int i);
 void	inst_rb(t_push **lst, int i);
+void	inst_rr(t_push **heada, t_push **headb, int i);
 void	inst_ss(t_push **lst, t_push **lst1, int i);
 void	inst_rra(t_push **lst, int i);
 void	inst_rrb(t_push **lst, int i);
-void	inst_pa(t_push **lst_a, t_push **lst_b);
+void	inst_pa(t_push **lst_a, t_push **lst_b, int i);
 void	inst_pb(t_push **stack_a, t_push **stack_b, int i);
 void	cookielolxx(t_push **lst_a);
 void	three_numbers(t_push **Morow);
-void	sorted(t_push **Morow);
 void	flower_in_the_dawn(t_push **heada, t_push **headb);
 void	sort_stack(t_push **heada, t_push **headb);
-void	sa_ra_rra(t_push **lst_a, int status);
-
+void	reformed_five(t_push **heada, t_push **headb);
+void	pd(t_push **heada, t_push **headb);
+int		sorted(t_push **heada, t_push **headb);
 #endif

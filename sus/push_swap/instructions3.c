@@ -6,13 +6,13 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 15:32:40 by otchekai          #+#    #+#             */
-/*   Updated: 2023/04/19 17:18:00 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/04/19 22:06:28 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	inst_pa(t_push **lst_a, t_push **lst_b)
+void	inst_pa(t_push **lst_a, t_push **lst_b, int i)
 {
 	t_push	*tmp;
 	t_push	*last;
@@ -27,7 +27,8 @@ void	inst_pa(t_push **lst_a, t_push **lst_b)
 	tmp->next->prev = last;
 	(*lst_b) = tmp->next;
 	ft_lstadd_front(lst_a, lst_new(tmp->data));
-	printf("pa\n");
+	if (i)
+		write(1, "pa\n", 3);
 	free(tmp);
 }
 
