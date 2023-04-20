@@ -1,6 +1,5 @@
 ra
 pb
-ra
 pb
 pa
 pa

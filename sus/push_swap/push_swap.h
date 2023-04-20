@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 14:39:50 by otchekai          #+#    #+#             */
-/*   Updated: 2023/04/19 23:04:59 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/04/20 17:04:39 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 typedef struct s_push {
 	int				data;
 	int				index;
+	int				indexing;
 	struct s_push	*next;
 	struct s_push	*prev;
 }	t_push;
@@ -51,4 +52,7 @@ void	sort_stack(t_push **heada, t_push **headb);
 void	reformed_five(t_push **heada, t_push **headb);
 void	pd(t_push **heada, t_push **headb);
 int		sorted(t_push **heada, t_push **headb);
+void	khundred_numbers(t_push **heada, t_push **headb);
+void	push_the_khundred_numbers(t_push **heada, t_push **headb);
+
 #endif

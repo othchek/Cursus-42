@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 15:25:01 by otchekai          #+#    #+#             */
-/*   Updated: 2023/04/19 23:51:04 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/04/20 16:15:57 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ void	sort_stack(t_push **heada, t_push **headb)
 		flower_in_the_dawn(heada, headb);
 	if (ft_lstsize(*heada) == 5)
 		reformed_five(heada, headb);
+	if (ft_lstsize(*heada) == 100)
+		khundred_numbers(heada, headb);
 	else
 		return ;
 }
@@ -47,10 +49,18 @@ int	main(int ac, char **av)
 			ft_lstadd_back(&heada, lst_new(ft_atoi(split[i])));
 			i++;
 		}
-		if (!sorted(&heada, &headb))
-			sort_stack(&heada, &headb);
-		else
-			exit (0);
+		sort_stack(&heada, &headb);
+		// if (!sorted(&heada, &headb))
+		// else
+			// exit (0);
+		// t_push *head = headb;
+		// 	while (head)
+		// 	{
+		// 		printf("num == %d || index == %d\n", head->data, head->index);
+		// 		head = head->next;
+		// 		if (headb == head)
+		// 			break;
+		// 	}
 	}
 	else
 		ft_error("Error\nArgument Error!");
