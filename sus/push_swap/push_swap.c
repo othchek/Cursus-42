@@ -6,11 +6,27 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 15:25:01 by otchekai          #+#    #+#             */
-/*   Updated: 2023/04/20 16:15:57 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/04/23 16:41:46 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	sort_big(t_push **heada, t_push **headb)
+{
+	if (ft_lstsize(*heada) <= 100 && ft_lstsize(*heada) >= 6)
+	{
+		khundred_numbers(heada, headb);
+		cookielolxx(headb);
+		push_it_back(heada, headb);
+	}
+	if (ft_lstsize(*heada) <= 500 && ft_lstsize(*heada) >= 101)
+	{
+		five_khundred_numbers(heada, headb);
+		cookielolxx(headb);
+		push_it_back(heada, headb);
+	}
+}
 
 void	sort_stack(t_push **heada, t_push **headb)
 {
@@ -22,10 +38,6 @@ void	sort_stack(t_push **heada, t_push **headb)
 		flower_in_the_dawn(heada, headb);
 	if (ft_lstsize(*heada) == 5)
 		reformed_five(heada, headb);
-	if (ft_lstsize(*heada) == 100)
-		khundred_numbers(heada, headb);
-	else
-		return ;
 }
 
 int	main(int ac, char **av)
@@ -50,17 +62,7 @@ int	main(int ac, char **av)
 			i++;
 		}
 		sort_stack(&heada, &headb);
-		// if (!sorted(&heada, &headb))
-		// else
-			// exit (0);
-		// t_push *head = headb;
-		// 	while (head)
-		// 	{
-		// 		printf("num == %d || index == %d\n", head->data, head->index);
-		// 		head = head->next;
-		// 		if (headb == head)
-		// 			break;
-		// 	}
+		sort_big(&heada, &headb);
 	}
 	else
 		ft_error("Error\nArgument Error!");
