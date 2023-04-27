@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 14:41:51 by otchekai          #+#    #+#             */
-/*   Updated: 2023/04/23 15:53:51 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/04/25 14:30:44 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ char	**kill_to_flourish(char **str)
 		index++;
 	}
 	split = ft_split(s, ' ');
+	free(s);
 	check_if_valid(split);
 	smoking_mirrors(split);
 	return (split);

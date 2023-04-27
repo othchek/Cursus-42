@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 14:39:50 by otchekai          #+#    #+#             */
-/*   Updated: 2023/04/23 16:13:39 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/04/27 02:34:19 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,8 @@
 # include "./libft/libft.h"
 
 typedef struct s_push {
-	int				i;
 	int				data;
 	int				index;
-	int				indexing;
 	struct s_push	*next;
 	struct s_push	*prev;
 }	t_push;
@@ -52,10 +50,9 @@ void	flower_in_the_dawn(t_push **heada, t_push **headb);
 void	sort_stack(t_push **heada, t_push **headb);
 void	reformed_five(t_push **heada, t_push **headb);
 void	pd(t_push **heada, t_push **headb);
-int		sorted(t_push **heada, t_push **headb);
-void	khundred_numbers(t_push **heada, t_push **headb);
-void	five_khundred_numbers(t_push **heada, t_push **headb);
-void	kmala(t_push **heada, t_push **headb);
+void	khundred_numbers(t_push **heada, t_push **headb, int size);
+void	five_khundred_numbers(t_push **heada, t_push **headb, int size);
+void	ft_lstclear(t_push **lst);
 void	push_it_back(t_push **heada, t_push **headb);
 int		max(t_push **lst_b, int half_chunk, int index);
 void	sort_big(t_push **heada, t_push **headb);

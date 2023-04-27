@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/16 11:00:17 by otchekai          #+#    #+#             */
-/*   Updated: 2023/04/05 21:30:05 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/04/25 16:51:23 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 
 int				ft_isalnum(int c);
 long long		ft_atoi(const char *str);
+void			ft_error(char *str);
 int				ft_isalpha(int c);
 int				ft_isascii(int c);
 int				ft_isdigit(int c);
@@ -31,8 +32,7 @@ int				ft_tolower(int c);
 int				ft_toupper(int c);
 char			*ft_strrchr(const char *s, int c);
 void			*ft_memset(void *b, int c, size_t len);
-char			*ft_strnstr(const char *haystack,
-					const char *needle, size_t len);
+char			*ft_strnstr(const char *haystack, const char *needle, size_t len);
 void			ft_bzero(void *s, size_t n);
 void			*ft_memchr(const void *s, int c, size_t n);
 void			*ft_memcpy(void *dst, const void *src, size_t n);
@@ -54,6 +54,5 @@ void			ft_putnbr_fd(int n, int fd);
 void			ft_striteri(char *s, void (*f)(unsigned int, char*));
 char			*ft_itoa(int n);
 char			**ft_split(char const *s, char c);
-void			ft_error(char *str);
 
 #endif
