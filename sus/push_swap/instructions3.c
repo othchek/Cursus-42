@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 15:32:40 by otchekai          #+#    #+#             */
-/*   Updated: 2023/04/27 02:32:48 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/04/29 12:10:07 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,19 +52,21 @@ void	inst_pb(t_push **stack_a, t_push **stack_b, int i)
 	free(tmp);
 }
 
-int	max(t_push **lst_b, int half, int index)
+int	max(t_push **headb, int half, int index)
 {
 	t_push	*tmp;
 	int		counter;
 
-	tmp = *lst_b;
+	tmp = *headb;
 	counter = 0;
-	while ((tmp)->next != (*lst_b))
+	while ((*headb))
 	{
-		if ((tmp)->index == index)
+		if (tmp->index == index)
 			break ;
 		counter++;
-		(tmp) = (tmp)->next;
+		tmp = tmp->next;
+		if (tmp->next == (*headb))
+			break ;
 	}
 	if (counter <= half)
 		return (0);

@@ -6,13 +6,13 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 08:25:50 by otchekai          #+#    #+#             */
-/*   Updated: 2022/11/02 13:02:20 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/04/29 16:09:46 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+char	*ft_strrchr(char *s, int c)
 {
 	int	i;
 

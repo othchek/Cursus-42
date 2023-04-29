@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 14:39:50 by otchekai          #+#    #+#             */
-/*   Updated: 2023/04/27 02:34:19 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/04/29 15:55:48 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,10 @@
 # include <stdlib.h>
 # include <stdio.h>
 # include <limits.h>
+#include <readline/readline.h>
+#include <readline/history.h>
 # include "./libft/libft.h"
+# include "get_next_line.h"
 
 typedef struct s_push {
 	int				data;
@@ -42,7 +45,8 @@ void	inst_rr(t_push **heada, t_push **headb, int i);
 void	inst_ss(t_push **lst, t_push **lst1, int i);
 void	inst_rra(t_push **lst, int i);
 void	inst_rrb(t_push **lst, int i);
-void	inst_pa(t_push **lst_a, t_push **lst_b, int i);
+void	inst_rrr(t_push **heada, t_push **headb, int i);
+void	inst_pa(t_push **stack_a, t_push **stack_b, int i);
 void	inst_pb(t_push **stack_a, t_push **stack_b, int i);
 void	cookielolxx(t_push **lst_a);
 void	three_numbers(t_push **Morow);
@@ -56,5 +60,6 @@ void	ft_lstclear(t_push **lst);
 void	push_it_back(t_push **heada, t_push **headb);
 int		max(t_push **lst_b, int half_chunk, int index);
 void	sort_big(t_push **heada, t_push **headb);
+int		is_sorted(t_push **lst);
 
 #endif

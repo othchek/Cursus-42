@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 15:25:01 by otchekai          #+#    #+#             */
-/*   Updated: 2023/04/27 01:14:38 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/04/29 16:07:35 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,6 @@ void	funn(void)
 
 int	main(int ac, char **av)
 {
-	// atexit(funn);
 	int		i;
 	char	**split;
 	t_push	*heada;
@@ -82,8 +81,11 @@ int	main(int ac, char **av)
 			ft_lstadd_back(&heada, lst_new(ft_atoi(split[i])));
 			i++;
 		}
-		sort_stack(&heada, &headb);
-		sort_big(&heada, &headb);
+		if (is_sorted(&heada) == 1)
+		{
+			sort_stack(&heada, &headb);
+			sort_big(&heada, &headb);
+		}
 		allfree(split);
 		ft_lstclear(&heada);
 	}

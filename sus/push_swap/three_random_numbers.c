@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 14:42:09 by otchekai          #+#    #+#             */
-/*   Updated: 2023/04/27 02:33:41 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/04/29 16:08:07 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,21 @@ void	three_numbers(t_push **Morow)
 	}
 	else if (head->prev->index == 0 && head->data < head->next->data)
 		inst_rra(Morow, 1);
+}
+
+int	is_sorted(t_push **lst)
+{
+	t_push *head;
+
+	head = (*lst);
+	while (head)
+	{
+		if (head->data < head->next->data)
+			head = head->next;
+		else
+			return (0);
+		if (head->next == (*lst))
+			break ;
+	}
+	return (1);
 }

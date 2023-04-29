@@ -6,13 +6,13 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 07:30:41 by otchekai          #+#    #+#             */
-/*   Updated: 2023/04/25 16:37:26 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/04/29 16:09:22 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-long long	ft_atoi(const char *str)
+long long	ft_atoi(char *str)
 {
 	size_t			i;
 	long long		k;

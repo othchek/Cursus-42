@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 13:09:43 by otchekai          #+#    #+#             */
-/*   Updated: 2023/04/27 01:16:03 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/04/29 12:17:03 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	norm(t_push **heada, t_push **headb, int i)
 {
-	t_push *head;
+	t_push	*head;
 
 	head = (*heada);
 	if (i == 1)
