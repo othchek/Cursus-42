@@ -6,13 +6,13 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 15:32:40 by otchekai          #+#    #+#             */
-/*   Updated: 2023/04/29 12:10:07 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/04/29 22:46:39 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	inst_pa(t_push **stack_a, t_push **stack_b, int i)
+void	inst_pa(t_push **stack_a, t_push **stack_b, t_print **headc, int i)
 {
 	t_push		*tmp;
 	int			k;
@@ -26,13 +26,13 @@ void	inst_pa(t_push **stack_a, t_push **stack_b, int i)
 	(*stack_b)->prev = (*stack_b)->prev->prev;
 	ft_lstadd_front(stack_a, lst_new(tmp->data));
 	if (i)
-		write(1, "pa\n", 3);
+		ft_lstadd_back2(headc, lst_new2("pa\n"));
 	if (k == 1)
 		*stack_b = NULL;
 	free(tmp);
 }
 
-void	inst_pb(t_push **stack_a, t_push **stack_b, int i)
+void	inst_pb(t_push **stack_a, t_push **stack_b, t_print **headc, int i)
 {	
 	t_push	*tmp;
 	int		k;
@@ -46,7 +46,7 @@ void	inst_pb(t_push **stack_a, t_push **stack_b, int i)
 	(*stack_a)->prev = (*stack_a)->prev->prev;
 	ft_lstadd_front(stack_b, lst_new(tmp->data));
 	if (i)
-		write(1, "pb\n", 3);
+		ft_lstadd_back2(headc, lst_new2("pb\n"));
 	if (k == 1)
 		*stack_a = NULL;
 	free(tmp);
