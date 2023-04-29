@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 11:33:44 by otchekai          #+#    #+#             */
-/*   Updated: 2023/04/29 15:15:15 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/04/29 16:59:25 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,5 @@ char	*ft_strjoin(char *s1, char *s2);
 int		ft_strchr(char *s, int c);
 char	*ft_strdup(char *s1);
 size_t	ft_strlen(char *s);
-
 
 #endif

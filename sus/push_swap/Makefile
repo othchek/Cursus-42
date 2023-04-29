@@ -6,12 +6,12 @@
 #    By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/05 14:36:47 by mbachar           #+#    #+#              #
-#    Updated: 2023/04/29 13:10:39 by otchekai         ###   ########.fr        #
+#    Updated: 2023/04/29 17:15:12 by otchekai         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
-BONUS = push_swap_bonus
+BONUS = checker
 
 CFLAGS = -Wall -Wextra -Werror
 
@@ -47,11 +47,11 @@ $(BONUS): $(OBJ_B)
 	@ $(CC) $(CFLAGS) $(OBJ_B) -o $(BONUS) $(LIBFT)
 
 clean:
-	@ rm -rf $(OBJ)
+	@ rm -rf $(OBJ) $(OBJ_B)
 	@ cd ./libft && make clean
 
 fclean:
-	@ rm -rf $(NAME) $(OBJ)
+	@ rm -rf $(NAME) $(BONUS) $(OBJ) $(OBJ_B)
 	@ cd ./libft && make fclean
 
 re: fclean all

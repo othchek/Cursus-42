@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 15:25:01 by otchekai          #+#    #+#             */
-/*   Updated: 2023/04/29 16:07:35 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/04/29 16:44:05 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,22 +42,15 @@ void	sort_stack(t_push **heada, t_push **headb)
 		reformed_five(heada, headb);
 }
 
-void	allfree(char **str)
+void	norminette(t_push **heada, t_push **headb)
 {
-	int		k;
-
-	k = 0;
-	while (str[k])
+	if (!is_sorted(heada))
 	{
-		free(str[k]);
-		k++;
+		sort_stack(heada, headb);
+		sort_big(heada, headb);
 	}
-	free(str);
-}
-
-void	funn(void)
-{
-	system("leaks push_swap");
+	else if (is_sorted(heada) == 1)
+		ft_error("Error\nSorted");
 }
 
 int	main(int ac, char **av)
@@ -81,11 +74,7 @@ int	main(int ac, char **av)
 			ft_lstadd_back(&heada, lst_new(ft_atoi(split[i])));
 			i++;
 		}
-		if (is_sorted(&heada) == 1)
-		{
-			sort_stack(&heada, &headb);
-			sort_big(&heada, &headb);
-		}
+		norminette(&heada, &headb);
 		allfree(split);
 		ft_lstclear(&heada);
 	}

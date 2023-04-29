@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 13:29:56 by otchekai          #+#    #+#             */
-/*   Updated: 2022/11/15 01:36:04 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/04/29 16:16:16 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static void	allfree(char **str, int k)
 	free(str);
 }
 
-char	**ft_split(char const *s, char c)
+char	**ft_split(char *s, char c)
 {
 	char	**ptr;
 	int		i;

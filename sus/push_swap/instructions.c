@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 13:40:05 by otchekai          #+#    #+#             */
-/*   Updated: 2023/04/29 15:28:17 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/04/29 16:37:29 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	inst_sa(t_push **lst, int i)
 
 	index = 0;
 	if (ft_lstsize(*lst) < 2)
-		ft_error("Error\nEmpty Stack");
+		return ;
 	index = (*lst)->data;
 	(*lst)->data = (*lst)->next->data;
 	(*lst)->next->data = index;
@@ -35,9 +35,7 @@ void	inst_sb(t_push **lst, int i)
 	index = 0;
 	purpose = ft_lstsize(*lst);
 	if (purpose < 2)
-	{
-		ft_error("Error\nEmpty Stack");
-	}
+		return ;
 	index = (*lst)->data;
 	(*lst)->data = (*lst)->next->data;
 	(*lst)->next->data = index;
@@ -58,6 +56,8 @@ void	inst_ss(t_push **heada, t_push **headb, int i)
 
 void	inst_ra(t_push **lst, int i)
 {
+	if (ft_lstsize(*lst) < 2)
+		return ;
 	(*lst) = (*lst)->next;
 	if (i)
 		write(1, "ra\n", 3);
@@ -66,6 +66,8 @@ void	inst_ra(t_push **lst, int i)
 
 void	inst_rb(t_push **lst, int i)
 {
+	if (ft_lstsize(*lst) < 2)
+		return ;
 	(*lst) = (*lst)->next;
 	if (i)
 		write(1, "rb\n", 3);

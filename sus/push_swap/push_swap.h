@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 14:39:50 by otchekai          #+#    #+#             */
-/*   Updated: 2023/04/29 15:55:48 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/04/29 16:58:53 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@
 # include <stdlib.h>
 # include <stdio.h>
 # include <limits.h>
-#include <readline/readline.h>
-#include <readline/history.h>
 # include "./libft/libft.h"
 # include "get_next_line.h"
 
@@ -60,6 +58,7 @@ void	ft_lstclear(t_push **lst);
 void	push_it_back(t_push **heada, t_push **headb);
 int		max(t_push **lst_b, int half_chunk, int index);
 void	sort_big(t_push **heada, t_push **headb);
+void	allfree(char **str);
 int		is_sorted(t_push **lst);
 
 #endif

@@ -6,13 +6,13 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 08:51:14 by otchekai          #+#    #+#             */
-/*   Updated: 2022/11/07 09:06:26 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/04/29 16:16:16 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_substr(char *s, unsigned int start, size_t len)
 {
 	size_t	i;
 	size_t	j;

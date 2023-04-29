@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 14:42:09 by otchekai          #+#    #+#             */
-/*   Updated: 2023/04/29 16:08:07 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/04/29 16:58:57 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	three_numbers(t_push **Morow)
 
 int	is_sorted(t_push **lst)
 {
-	t_push *head;
+	t_push	*head;
 
 	head = (*lst);
 	while (head)
@@ -51,4 +51,17 @@ int	is_sorted(t_push **lst)
 			break ;
 	}
 	return (1);
+}
+
+void	allfree(char **str)
+{
+	int		k;
+
+	k = 0;
+	while (str[k])
+	{
+		free(str[k]);
+		k++;
+	}
+	free(str);
 }

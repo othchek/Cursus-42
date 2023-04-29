@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 14:41:51 by otchekai          #+#    #+#             */
-/*   Updated: 2023/04/25 14:30:44 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/04/29 16:57:30 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ int	check_if_valid(char **str)
 	{
 		j = 0;
 		if (str[index][j] == '-' && str[index][j + 1])
+				j++;
+		if (str[index][j] == '+' && str[index][j + 1])
 				j++;
 		while (str[index][j])
 		{

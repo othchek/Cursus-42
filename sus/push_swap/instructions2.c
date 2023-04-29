@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 17:25:46 by otchekai          #+#    #+#             */
-/*   Updated: 2023/04/29 13:37:26 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/04/29 16:59:03 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	inst_rr(t_push **heada, t_push **headb, int i)
 {
 	inst_ra(heada, 0);
-	inst_rb(headb, 0); 
+	inst_rb(headb, 0);
 	if (i)
 		write(1, "rr\n", 3);
 	return ;

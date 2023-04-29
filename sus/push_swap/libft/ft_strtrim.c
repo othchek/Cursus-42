@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 16:17:44 by otchekai          #+#    #+#             */
-/*   Updated: 2022/11/11 21:07:38 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/04/29 16:16:16 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static int	findr(char str, const char *c)
 	return (0);
 }
 
-char	*ft_strtrim(char const *s1, char const *set)
+char	*ft_strtrim(char *s1, char *set)
 {
 	int	i;
 	int	j;
