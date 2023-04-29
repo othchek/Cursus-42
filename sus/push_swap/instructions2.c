@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 17:25:46 by otchekai          #+#    #+#             */
-/*   Updated: 2023/04/29 16:59:03 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/04/29 19:54:00 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ void	inst_rra(t_push **lst, int i)
 
 void	inst_rrb(t_push **lst, int i)
 {
+	if (!(*lst))
+		return ;
 	(*lst) = (*lst)->prev;
 	if (i)
 		write(1, "rrb\n", 4);
