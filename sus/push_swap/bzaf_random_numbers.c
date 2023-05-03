@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 13:09:43 by otchekai          #+#    #+#             */
-/*   Updated: 2023/05/03 01:29:12 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/05/03 22:06:11 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ void	push_it_back(t_push **heada, t_push **headb)
 	while (size >= 0)
 	{
 		devide = ft_lstsize(*headb) / 2;
-		if (!max(headb, devide, size))
+		if (!maximilien(headb, devide, size))
 		{
 			while ((*headb)->index != size)
 				inst_rb(headb, 1);

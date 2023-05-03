@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 15:25:01 by otchekai          #+#    #+#             */
-/*   Updated: 2023/05/03 01:26:40 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/05/03 22:35:46 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,15 +47,18 @@ void	norminette(t_push **heada, t_push **headb)
 	int	i;
 
 	i = ft_lstsize(*heada);
-	if (!is_sorted(heada))
+	if (i != 1)
 	{
-		if (i == 2 || i == 3 || i == 4 || i == 5)
-			sort_stack(heada, headb);
-		else
-			sort_big(heada, headb);
+		if (!is_sorted(heada))
+		{
+			if (i == 2 || i == 3 || i == 4 || i == 5)
+				sort_stack(heada, headb);
+			else
+				sort_big(heada, headb);
+		}
+		else if (is_sorted(heada) == 1)
+			exit(0);
 	}
-	else if (is_sorted(heada) == 1)
-		exit(0);
 }
 
 int	main(int ac, char **av)
@@ -84,5 +87,5 @@ int	main(int ac, char **av)
 		ft_lstclear(&heada);
 	}
 	else
-		ft_error("Error\nArgument Error!");
+		return (0);
 }

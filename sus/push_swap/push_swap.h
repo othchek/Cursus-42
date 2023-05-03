@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 14:39:50 by otchekai          #+#    #+#             */
-/*   Updated: 2023/05/03 01:14:17 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/05/03 22:05:58 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,9 +56,8 @@ void	khundred_numbers(t_push **heada, t_push **headb, int size);
 void	five_khundred_numbers(t_push **heada, t_push **headb, int size);
 void	ft_lstclear(t_push **lst);
 void	push_it_back(t_push **heada, t_push **headb);
-void	find_the_chonk(t_push **Morow, int *max, int *second_max);
 void	sort_big(t_push **heada, t_push **headb);
-int		max(t_push **headb, int half, int index);
+int		maximilien(t_push **headb, int half, int num);
 void	allfree(char **str);
 int		is_sorted(t_push **lst);
 
