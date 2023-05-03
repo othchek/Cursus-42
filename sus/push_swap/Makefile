@@ -6,7 +6,7 @@
 #    By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/05 14:36:47 by mbachar           #+#    #+#              #
-#    Updated: 2023/04/29 17:15:12 by otchekai         ###   ########.fr        #
+#    Updated: 2023/05/02 23:07:55 by otchekai         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,7 +40,7 @@ bonus: $(BONUS)
 
 $(NAME): $(OBJ)
 	@ cd ./libft && make
-	@ $(CC) $(CFLAGS) $(OBJ) -o $(NAME) $(LIBFT)
+	@ $(CC) $(CFLAGS) $(OBJ) -o $(NAME) $(LIBFT) $(PRINTF)
 
 $(BONUS): $(OBJ_B)
 	@ cd ./libft && make

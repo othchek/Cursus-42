@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 12:29:20 by otchekai          #+#    #+#             */
-/*   Updated: 2023/04/29 20:42:29 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/04/30 13:57:13 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,16 +21,6 @@ t_push	*lst_new(int sata)
 	node->data = sata;
 	node->next = node;
 	node->prev = node;
-	return (node);
-}
-
-t_print	*lst_new2(char *sata)
-{
-	t_print	*node;
-
-	node = malloc(sizeof(t_print));
-	node->data = sata;
-	node->next = NULL;
 	return (node);
 }
 
@@ -52,20 +42,6 @@ void	ft_lstadd_back(t_push **lst, t_push *new)
 	new->next = head;
 	new->prev = node;
 	head->prev = new;
-}
-void	ft_lstadd_back2(t_print **lst, t_print *new)
-{
-	t_print	*node;
-
-	if (!*lst)
-	{
-		*lst = new;
-		return ;
-	}
-	node = (*lst);
-	while (node->next)
-		node = (node)->next;
-	node->next = new;
 }
 
 void	ft_lstadd_front(t_push **lst, t_push *new)
