@@ -6,13 +6,13 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 13:40:05 by otchekai          #+#    #+#             */
-/*   Updated: 2023/05/02 23:01:20 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/04/29 21:15:23 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	inst_sa(t_push **lst, int i)
+void	inst_sa(t_push **lst, t_print **headc, int i)
 {
 	int	index;
 
@@ -23,11 +23,11 @@ void	inst_sa(t_push **lst, int i)
 	(*lst)->data = (*lst)->next->data;
 	(*lst)->next->data = index;
 	if (i)
-		write(1, "sa\n", 3);
+		ft_lstadd_back2(headc, lst_new2("sa\n"));
 	return ;
 }
 
-void	inst_sb(t_push **lst, int i)
+void	inst_sb(t_push **lst, t_print **headc, int i)
 {
 	int	index;
 	int	purpose;
@@ -40,38 +40,38 @@ void	inst_sb(t_push **lst, int i)
 	(*lst)->data = (*lst)->next->data;
 	(*lst)->next->data = index;
 	if (i)
-		write(1, "sb\n", 3);
+		ft_lstadd_back2(headc, lst_new2("sb\n"));
 	return ;
 }
 
-void	inst_ss(t_push **heada, t_push **headb, int i)
+void	inst_ss(t_push **heada, t_push **headb, t_print **headc, int i)
 {
 	int	index;
 
 	index = 0;
-	inst_sa(heada, i);
-	inst_sb(headb, i);
+	inst_sa(heada, headc, i);
+	inst_sb(headb, headc, i);
 	if (i)
-		write(1, "ss\n", 3);
+		ft_lstadd_back2(headc, lst_new2("ss\n"));
 	return ;
 }
 
-void	inst_ra(t_push **lst, int i)
+void	inst_ra(t_push **lst, t_print **headc, int i)
 {
 	if (ft_lstsize(*lst) < 2)
 		return ;
 	(*lst) = (*lst)->next;
 	if (i)
-		write(1, "ra\n", 3);
+		ft_lstadd_back2(headc, lst_new2("ra\n"));
 	return ;
 }
 
-void	inst_rb(t_push **lst, int i)
+void	inst_rb(t_push **lst, t_print **headc, int i)
 {
 	if (ft_lstsize(*lst) < 2)
 		return ;
 	(*lst) = (*lst)->next;
 	if (i)
-		write(1, "rb\n", 3);
+		ft_lstadd_back2(headc, lst_new2("rb\n"));
 	return ;
 }

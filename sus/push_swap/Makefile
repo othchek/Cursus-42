@@ -6,7 +6,7 @@
 #    By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/05 14:36:47 by mbachar           #+#    #+#              #
-#    Updated: 2023/05/02 23:07:55 by otchekai         ###   ########.fr        #
+#    Updated: 2023/05/04 22:44:48 by otchekai         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,10 +22,10 @@ CC = cc
 LIBFT = ./libft/libft.a
 
 SRC = push_swap.c parsing.c the_all_you_need.c instructions.c instructions2.c instructions3.c \
-	three_random_numbers.c four_five_random_numbers.c bzaf_random_numbers.c
+	three_random_numbers.c four_five_random_numbers.c bzaf_random_numbers.c yajoz_wa_ma_la_yajoz.c
 
 SRC_B = ./bonus/push_swap_bonus.c parsing.c the_all_you_need.c instructions.c instructions2.c instructions3.c \
-	three_random_numbers.c four_five_random_numbers.c bzaf_random_numbers.c get_next_line.c get_next_line_utils.c
+	three_random_numbers.c four_five_random_numbers.c bzaf_random_numbers.c get_next_line.c get_next_line_utils.c yajoz_wa_ma_la_yajoz.c \
 
 OBJ	= $(SRC:.c=.o)
 
@@ -40,7 +40,7 @@ bonus: $(BONUS)
 
 $(NAME): $(OBJ)
 	@ cd ./libft && make
-	@ $(CC) $(CFLAGS) $(OBJ) -o $(NAME) $(LIBFT) $(PRINTF)
+	@ $(CC) $(CFLAGS) $(OBJ) -o $(NAME) $(LIBFT)
 
 $(BONUS): $(OBJ_B)
 	@ cd ./libft && make

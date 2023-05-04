@@ -6,86 +6,85 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 15:25:01 by otchekai          #+#    #+#             */
-/*   Updated: 2023/05/03 22:35:46 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/05/04 22:34:04 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sort_big(t_push **heada, t_push **headb)
+void	sort_big(t_push **heada, t_push **headb, t_print **headc)
 {
 	if (ft_lstsize(*heada) <= 100 && ft_lstsize(*heada) > 5)
 	{
 		cookielolxx(heada);
-		khundred_numbers(heada, headb, 19);
+		khundred_numbers(heada, headb, headc, 19);
 		cookielolxx(headb);
-		push_it_back(heada, headb);
+		push_it_back(heada, headb, headc);
 	}
-	else
+	else if (ft_lstsize(*heada) >= 101)
 	{
 		cookielolxx(heada);
-		five_khundred_numbers(heada, headb, 55);
+		five_khundred_numbers(heada, headb, headc, 55);
 		cookielolxx(headb);
-		push_it_back(heada, headb);
+		push_it_back(heada, headb, headc);
 	}
 }
 
-void	sort_stack(t_push **heada, t_push **headb)
+void	sort_stack(t_push **heada, t_push **headb, t_print **headc)
 {
-	if (ft_lstsize(*heada) == 2)
-		inst_ra(heada, 1);
-	if (ft_lstsize(*heada) == 3)
-		three_numbers(heada);
-	if (ft_lstsize(*heada) == 4)
-		flower_in_the_dawn(heada, headb);
-	if (ft_lstsize(*heada) == 5)
-		reformed_five(heada, headb);
-}
-
-void	norminette(t_push **heada, t_push **headb)
-{
-	int	i;
-
-	i = ft_lstsize(*heada);
-	if (i != 1)
+	if (ft_lstsize(*heada) != 1)
 	{
-		if (!is_sorted(heada))
-		{
-			if (i == 2 || i == 3 || i == 4 || i == 5)
-				sort_stack(heada, headb);
-			else
-				sort_big(heada, headb);
-		}
-		else if (is_sorted(heada) == 1)
-			exit(0);
+		if (ft_lstsize(*heada) == 2)
+			inst_ra(heada, headc, 1);
+		if (ft_lstsize(*heada) == 3)
+			three_numbers(heada, headc);
+		if (ft_lstsize(*heada) == 4)
+			flower_in_the_dawn(heada, headb, headc);
+		if (ft_lstsize(*heada) == 5)
+			reformed_five(heada, headb, headc);
 	}
+}
+
+void	norminette(t_push **heada, t_push **headb, t_print **headc)
+{
+	if (!is_sorted(heada))
+	{
+		sort_stack(heada, headb, headc);
+		sort_big(heada, headb, headc);
+	}
+	else if (is_sorted(heada) == 1)
+		exit(0);
+}
+
+void	gg(void)
+{
+	system("leaks push_swap");
 }
 
 int	main(int ac, char **av)
 {
-	int		i;
-	char	**split;
+	t_list	oth;
 	t_push	*heada;
 	t_push	*headb;
+	t_print	*print;
+	t_print	*print2;
 
-	i = 1;
 	heada = NULL;
-	headb = NULL;
+	print2 = NULL;
+	oth.i = 1;
 	if (ac > 1)
 	{
-		while (av[i])
-			max_or_min(av[i++]);
-		split = kill_to_flourish(av);
-		i = 0;
-		while (split[i])
-		{
-			ft_lstadd_back(&heada, lst_new(ft_atoi(split[i])));
-			i++;
-		}
-		norminette(&heada, &headb);
-		allfree(split);
+		while (av[oth.i])
+			max_or_min(av[oth.i++]);
+		oth.split = kill_to_flourish(av);
+		oth.i = 0;
+		while (oth.split[oth.i])
+			ft_lstadd_back(&heada, lst_new(ft_atoi(oth.split[oth.i++])));
+		norminette(&heada, &headb, &print);
+		allfree(oth.split);
 		ft_lstclear(&heada);
+		normanitte(print, print2);
 	}
 	else
-		return (0);
+		exit(1);
 }

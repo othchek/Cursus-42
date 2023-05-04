@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 12:29:20 by otchekai          #+#    #+#             */
-/*   Updated: 2023/04/30 13:57:13 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/05/04 21:06:04 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,16 @@ t_push	*lst_new(int sata)
 	node->data = sata;
 	node->next = node;
 	node->prev = node;
+	return (node);
+}
+
+t_print	*lst_new2(char *sata)
+{
+	t_print	*node;
+
+	node = malloc(sizeof(t_print));
+	node->data = sata;
+	node->next = NULL;
 	return (node);
 }
 
@@ -44,6 +54,21 @@ void	ft_lstadd_back(t_push **lst, t_push *new)
 	head->prev = new;
 }
 
+void	ft_lstadd_back2(t_print **lst, t_print *new)
+{
+	t_print	*node;
+
+	if (!*lst)
+	{
+		*lst = new;
+		return ;
+	}
+	node = (*lst);
+	while (node->next)
+		node = (node)->next;
+	node->next = new;
+}
+
 void	ft_lstadd_front(t_push **lst, t_push *new)
 {
 	if (!*lst)
@@ -56,47 +81,4 @@ void	ft_lstadd_front(t_push **lst, t_push *new)
 	(*lst)->prev->next = new;
 	(*lst)->prev = new;
 	(*lst) = new;
-}
-
-int	ft_lstsize(t_push *lst)
-{
-	int		index;
-	t_push	*tmp;
-
-	tmp = lst;
-	index = 0;
-	while (lst)
-	{
-		index++;
-		lst = lst->next;
-		if (lst == tmp)
-			break ;
-	}
-	return (index);
-}
-
-void	cookielolxx(t_push **Morow)
-{
-	t_push	*head;
-	int		i;
-
-	i = 0;
-	(*Morow)->index = 0;
-	head = (*Morow);
-	while (i < ft_lstsize(*Morow))
-	{
-		if ((*Morow)->data > head->data)
-			(*Morow)->index++;
-		head = head->next;
-		if (head == *Morow)
-		{
-			if (i == ft_lstsize(*Morow) - 1)
-				break ;
-			(*Morow) = (*Morow)->next;
-			head = head->next;
-			(*Morow)->index = 0;
-			i++;
-		}
-	}
-	(*Morow) = (*Morow)->next;
 }
