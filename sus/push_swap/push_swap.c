@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 15:25:01 by otchekai          #+#    #+#             */
-/*   Updated: 2023/05/05 15:56:38 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/05/05 16:08:23 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,14 +56,8 @@ void	norminette(t_push **heada, t_push **headb, t_print **headc)
 		exit(0);
 }
 
-void	gg(void)
-{
-	system("leaks push_swap");
-}
-
 int	main(int ac, char **av)
 {
-	// atexit(gg);
 	t_list	oth;
 	t_push	*heada;
 	t_push	*headb;
@@ -86,7 +80,6 @@ int	main(int ac, char **av)
 		allfree(oth.split);
 		ft_lstclear(&heada);
 		ft_clear_lst(&print);
-		ft_clear_lst(&print2);
 	}
 	else
 		exit(1);
