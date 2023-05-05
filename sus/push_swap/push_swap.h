@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 14:39:50 by otchekai          #+#    #+#             */
-/*   Updated: 2023/05/04 22:20:47 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/05/05 00:38:09 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,5 @@ void	ft_lstadd_back2(t_print **lst, t_print *new);
 int		ft_index(t_push **Morow);
 void	ft_clear_lst(t_print **lst);
 void	normanitte(t_print *print, t_print *print2);
-void	norinatte(t_print *print, t_print *print2);
 
 #endif

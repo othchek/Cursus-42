@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 15:25:01 by otchekai          #+#    #+#             */
-/*   Updated: 2023/05/04 22:34:04 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/05/05 15:56:38 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ void	gg(void)
 
 int	main(int ac, char **av)
 {
+	// atexit(gg);
 	t_list	oth;
 	t_push	*heada;
 	t_push	*headb;
@@ -81,9 +82,11 @@ int	main(int ac, char **av)
 		while (oth.split[oth.i])
 			ft_lstadd_back(&heada, lst_new(ft_atoi(oth.split[oth.i++])));
 		norminette(&heada, &headb, &print);
+		normanitte(print, print2);
 		allfree(oth.split);
 		ft_lstclear(&heada);
-		normanitte(print, print2);
+		ft_clear_lst(&print);
+		ft_clear_lst(&print2);
 	}
 	else
 		exit(1);

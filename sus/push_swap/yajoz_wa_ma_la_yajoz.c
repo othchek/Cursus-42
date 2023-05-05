@@ -1,46 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mayajoz_wa_ma_la_yajoz.c                           :+:      :+:    :+:   */
+/*   yajoz_wa_ma_la_yajoz.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 23:21:17 by otchekai          #+#    #+#             */
-/*   Updated: 2023/05/04 21:14:08 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/05/05 15:55:52 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	normanitte(t_print *print, t_print *print2)
-{
-	t_print	*oldprint;
-	t_print	*oldprint2;
-
-	oldprint = print;
-	oldprint2 = print2;
-	while (oldprint)
-	{
-		if ((!ft_strncmp("ra\n", oldprint->data, 3) && \
-				oldprint->next && \
-				!ft_strncmp("rb\n", oldprint->next->data, 3)) || \
-			(!ft_strncmp("rb\n", oldprint->data, 3) && \
-				oldprint->next && !ft_strncmp("ra\n", oldprint->next->data, 3)))
-		{
-			ft_lstadd_back2(&oldprint2, lst_new2("rr\n"));
-			oldprint = oldprint->next;
-		}
-		else if (!ft_strncmp("pb\n", oldprint->data, 3)
-			&& oldprint->next && !ft_strncmp("pa\n", oldprint->next->data, 3))
-			oldprint = oldprint->next;
-		else
-			ft_lstadd_back2(&oldprint2, lst_new2(oldprint->data));
-		oldprint = oldprint->next;
-	}
-	norinatte(print, print2);
-}
-
-void	norinatte(t_print *print, t_print *print2)
+void	norinatte(t_print *print)
 {
 	t_print	*oldprint2;
 
@@ -62,9 +34,33 @@ void	norinatte(t_print *print, t_print *print2)
 			ft_putstr_fd(oldprint2->data, 1);
 		oldprint2 = oldprint2->next;
 	}
-	ft_clear_lst(&print);
-	ft_clear_lst(&print2);
 }
+
+void	normanitte(t_print *print, t_print *print2)
+{
+	t_print	*oldprint;
+	t_print	*oldprint2;
+
+	oldprint = print;
+	oldprint2 = print2;
+	while (oldprint)
+	{
+		if ((!ft_strncmp("ra\n", oldprint->data, 3) && oldprint->next
+			&& !ft_strncmp("rb\n", oldprint->next->data, 3)) || (!ft_strncmp("rb\n", oldprint->data, 3) && oldprint->next && !ft_strncmp("ra\n", oldprint->next->data, 3)))
+		{
+			ft_lstadd_back2(&oldprint2, lst_new2("rr\n"));
+			oldprint = oldprint->next;
+		}
+		else if (!ft_strncmp("pb\n", oldprint->data, 3) && oldprint->next && !ft_strncmp("pa\n", oldprint->next->data, 3))
+			oldprint = oldprint->next;
+		else
+			ft_lstadd_back2(&oldprint2, lst_new2(oldprint->data));
+		oldprint = oldprint->next;
+	}
+	ft_clear_lst(&oldprint2);
+	norinatte(print);
+}
+
 
 void	cookielolxx(t_push **Morow)
 {

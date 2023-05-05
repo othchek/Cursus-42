@@ -6,7 +6,7 @@
 #    By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/05 14:36:47 by mbachar           #+#    #+#              #
-#    Updated: 2023/05/04 22:44:48 by otchekai         ###   ########.fr        #
+#    Updated: 2023/05/05 15:55:19 by otchekai         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,6 @@ NAME = push_swap
 BONUS = checker
 
 CFLAGS = -Wall -Wextra -Werror
-
 INC = push_swap.h
 
 CC = cc

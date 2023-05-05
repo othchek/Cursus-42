@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 12:29:20 by otchekai          #+#    #+#             */
-/*   Updated: 2023/05/04 21:06:04 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/05/05 00:06:37 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ t_push	*lst_new(int sata)
 	t_push	*node;
 
 	node = malloc(sizeof(t_push));
+	if (!node)
+		exit(1);
 	node->index = 0;
 	node->data = sata;
 	node->next = node;
@@ -29,6 +31,8 @@ t_print	*lst_new2(char *sata)
 	t_print	*node;
 
 	node = malloc(sizeof(t_print));
+	if (!node)
+		exit(1);
 	node->data = sata;
 	node->next = NULL;
 	return (node);
