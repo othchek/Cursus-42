@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 11:59:57 by otchekai          #+#    #+#             */
-/*   Updated: 2023/05/07 20:06:05 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/05/08 13:58:55 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdio.h>
 # include <pthread.h>
 # include <stdlib.h>
+# include <sys/time.h>
 
 typedef struct s_push {
 	int						data;
@@ -27,12 +28,15 @@ typedef struct s_push {
 }	t_push;
 
 typedef struct s_list {
-	int		philo;
-	int		death;
-	int		eat;
-	int		sleep;
-	int		tbd;
-	t_push	*linked_list;
+	long long	time;
+	t_push		*linked_list;
+	t_push		*linked_list2;
+
+	int			philo;
+	int			death;
+	int			eat;
+	int			sleep;
+	int			tbd;
 }	t_list;
 
 int		ft_isdigit(int c);

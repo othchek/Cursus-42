@@ -6,13 +6,13 @@
 #    By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/06 11:56:37 by otchekai          #+#    #+#              #
-#    Updated: 2023/05/06 22:40:40 by otchekai         ###   ########.fr        #
+#    Updated: 2023/05/08 12:56:40 by otchekai         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = philo
 
-# CFLAGS = -Wall -Wextra -Werror #-g -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -g
 
 SRC = philo.c the_all_you_need.c philo_utils.c
 

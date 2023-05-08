@@ -6,41 +6,60 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 12:00:02 by otchekai          #+#    #+#             */
-/*   Updated: 2023/05/07 20:05:50 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/05/08 15:16:48 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
+long long	in_time()
+{
+	struct timeval	time;
+
+	gettimeofday(&time, NULL);
+	return ((time.tv_sec * 1000) + (time.tv_usec / 1000));
+}
+
+void	kadir_chi_haja(t_push *node, char *str)
+{
+	printf("%lld %d %s\n", (in_time() - node->struct_ss->time), node->data, str);
+}
+
 void	*routine(void *ptr)
 {
 	t_push	*node;
-
 	node = (t_push *) ptr;
-}
-
-void	create_detach(t_push *list, t_list *head)
-{
 	while (1)
 	{
-		if (pthread_create(&list->p1, NULL, routine, head->linked_list) != 0)
+		kadir_chi_haja(node, "Morow");
+	}
+	return (0);
+}
+
+void	create_detach(t_list *head)
+{
+	head->linked_list2 = head->linked_list;
+	head->time = in_time();
+	while (1)
+	{
+		if (pthread_create(&head->linked_list->p1, NULL, routine, head->linked_list) != 0)
 			printf("Thread Error\n");
-		pthread_detach(&list->p1);
+		pthread_detach(head->linked_list->p1);
 		head->linked_list = head->linked_list->next;
-		if (head->linked_list == list)
+		if (head->linked_list == head->linked_list2)
 			break ;
 	}
-	while (1);
+	while(1);
 }
 
 int	main(int ac, char **av)
 {
-	t_push	*list;
-	t_list	*head;
+	// t_push	*list;
+	t_list	head;
 	int		i;
 	int		purpose;
 
-	list = NULL;
+	// list = NULL;
 	i = 1;
 	if (ac == 5 || ac == 6)
 	{
@@ -49,8 +68,8 @@ int	main(int ac, char **av)
 		{
 			purpose = ft_atoi(av[1]);
 			while (i <= purpose)
-				ft_lstadd_back(&list, lst_new(i++, head));
-			create_detach(list, head);
+				ft_lstadd_back(&head.linked_list, lst_new(i++, &head));
+			create_detach(&head);
 		}
 		else
 			printf("Error\nNot Valid\n");
