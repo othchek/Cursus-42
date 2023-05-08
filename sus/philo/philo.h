@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 11:59:57 by otchekai          #+#    #+#             */
-/*   Updated: 2023/05/08 13:58:55 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/05/08 18:20:58 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ typedef struct s_push {
 	int						data;
 	struct s_push			*next;
 	pthread_t				p1;
+	pthread_mutex_t			mutex;
 	struct s_push			*prev;
 	struct s_list			*struct_ss;
 }	t_push;
@@ -31,7 +32,6 @@ typedef struct s_list {
 	long long	time;
 	t_push		*linked_list;
 	t_push		*linked_list2;
-
 	int			philo;
 	int			death;
 	int			eat;
@@ -47,5 +47,6 @@ int		question_authority(char **str);
 int		is_number(char **str);
 void	ft_lstadd_back(t_push **lst, t_push *new);
 t_push	*lst_new(int sata, t_list *linked_list);
+void	usleeping(long long var);
 
 #endif
