@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 12:00:02 by otchekai          #+#    #+#             */
-/*   Updated: 2023/05/09 16:42:09 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/05/09 18:30:13 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ void	*routine(void *ptr)
 	t_push		*node;
 
 	node = (t_push *) ptr;
+	if ((node->data % 2) == 0)
+		usleep(200);
 	while (1)
 	{
 		pthread_mutex_lock(&node->mutex);
