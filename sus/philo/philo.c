@@ -6,13 +6,13 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 12:00:02 by otchekai          #+#    #+#             */
-/*   Updated: 2023/05/09 15:13:42 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/05/09 15:40:01 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-long long	in_time()
+long long	in_time(void)
 {
 	struct timeval	time;
 
@@ -55,19 +55,20 @@ void	create_detach(t_list *head)
 	while (1)
 	{
 		head->linked_list->ate = in_time();
-		if (pthread_create(&head->linked_list->p1, NULL, routine, head->linked_list) != 0)
+		if (pthread_create(&head->linked_list->p1, NULL,
+				routine, head->linked_list) != 0)
 			printf("Pthread Error\n");
 		pthread_detach(head->linked_list->p1);
 		head->linked_list = head->linked_list->next;
 		if (head->linked_list == head->linked_list2)
 			break ;
 	}
-	while(1)
+	while (1)
 	{
 		if (in_time() - head->linked_list->ate > head->death)
 		{
 			kadir_chi_haja(head->linked_list, "is dead");
-			exit(0);
+			return ;
 		}
 		head->linked_list = head->linked_list->next;
 	}
