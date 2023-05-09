@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 12:00:02 by otchekai          #+#    #+#             */
-/*   Updated: 2023/05/09 15:40:01 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/05/09 16:42:09 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,12 @@ long long	in_time(void)
 
 void	kadir_chi_haja(t_push *node, char *str)
 {
-	printf("%lld %d %s\n", (in_time() - node->struct_ss->time), node->data, str);
+	if (ft_strncmp(str, "died", 4) == 0)
+		printf("\033[0;31m%lld\033[0m \033[0;31m%d\033[0m \033[0;31m%s\033[0m 💀\n",
+        (in_time() - node->struct_ss->time), node->data, str);
+	else
+		printf("\033[0;34m%lld\033[0m \033[0;31m%d\033[0m \033[0;33m%s\033[0m 🗿\n",
+			(in_time() - node->struct_ss->time), node->data, str);
 }
 
 void	*routine(void *ptr)
@@ -67,7 +72,7 @@ void	create_detach(t_list *head)
 	{
 		if (in_time() - head->linked_list->ate > head->death)
 		{
-			kadir_chi_haja(head->linked_list, "is dead");
+			kadir_chi_haja(head->linked_list, "died");
 			return ;
 		}
 		head->linked_list = head->linked_list->next;

@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 11:59:57 by otchekai          #+#    #+#             */
-/*   Updated: 2023/05/09 15:03:36 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/05/09 16:34:45 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ typedef struct s_push {
 }	t_push;
 
 typedef struct s_list {
-	long long	time;
+	unsigned long long	time;
 	t_push		*linked_list;
 	t_push		*linked_list2;
 	int			philo;
@@ -49,5 +49,6 @@ int		is_number(char **str);
 void	ft_lstadd_back(t_push **lst, t_push *new);
 t_push	*lst_new(int sata, t_list *linked_list);
 void	usleeping(long long var);
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
 
 #endif
