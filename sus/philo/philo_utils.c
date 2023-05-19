@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 15:52:54 by otchekai          #+#    #+#             */
-/*   Updated: 2023/05/08 13:23:05 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/05/14 13:32:56 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,8 @@ t_push	*lst_new(int sata, t_list *linked_list)
 	t_push	*node;
 
 	node = malloc(sizeof(t_push));
+	pthread_mutex_init(&node->mutex, NULL);
+	pthread_mutex_init(&node->msoos, NULL);
 	node->data = sata;
 	node->next = node;
 	node->prev = node;
