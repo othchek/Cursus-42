@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 11:59:57 by otchekai          #+#    #+#             */
-/*   Updated: 2023/05/14 13:32:08 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/05/19 16:56:56 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ typedef struct s_list {
 	int			philo;
 	int			death;
 	int			eat;
+	int			obese;
 	int			sleep;
 	int			tbd;
 }	t_list;
@@ -51,5 +52,7 @@ void	ft_lstadd_back(t_push **lst, t_push *new);
 t_push	*lst_new(int sata, t_list *linked_list);
 void	usleeping(long long var);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
+void	u_sleep(long long value);
+long long	in_time(void);
 
 #endif

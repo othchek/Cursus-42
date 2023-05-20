@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 15:53:35 by otchekai          #+#    #+#             */
-/*   Updated: 2023/05/09 16:04:27 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/05/19 16:12:40 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,4 +80,13 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 		i++;
 	}
 	return (0);
+}
+
+void	u_sleep(long long value)
+{
+	long long var;
+
+	var = in_time();
+	while (in_time() < var + value)
+		usleep(100);
 }

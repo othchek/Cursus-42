@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 12:00:02 by otchekai          #+#    #+#             */
-/*   Updated: 2023/05/19 14:30:48 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/05/20 14:56:16 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,15 +28,6 @@ void	kadir_chi_haja(t_push *node, char *str)
 	else
 		printf("\033[0;34m%lld\033[0m \033[0;31m%d\033[0m \033[0;33m%s\033[0m 🗿\n",
 			(in_time() - node->struct_ss->time), node->data, str);
-}
-
-void	u_sleep(long long value)
-{
-	long long var;
-
-	var = in_time();
-	while (in_time() < var + value)
-		usleep(100);
 }
 
 void	*routine(void *ptr)
