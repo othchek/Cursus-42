@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 12:00:02 by otchekai          #+#    #+#             */
-/*   Updated: 2023/05/20 14:56:16 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/06/18 02:00:27 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,13 @@ long long	in_time(void)
 	return ((time.tv_sec * 1000) + (time.tv_usec / 1000));
 }
 
-void	kadir_chi_haja(t_push *node, char *str)
+void	can_trees_feel_pain(t_push *node, char *str)
 {
 	if (ft_strncmp(str, "died", 4) == 0)
-		printf("\033[0;31m%lld\033[0m \033[0;31m%d\033[0m \033[0;31m%s\033[0m 💀\n",
-        	(in_time() - node->struct_ss->time), node->data, str);
+		printf("%lld %d %s💀\n",
+			(in_time() - node->struct_ss->time), node->data, str);
 	else
-		printf("\033[0;34m%lld\033[0m \033[0;31m%d\033[0m \033[0;33m%s\033[0m 🗿\n",
+		printf("%lld %d %s 🤓\n",
 			(in_time() - node->struct_ss->time), node->data, str);
 }
 
@@ -40,24 +40,40 @@ void	*routine(void *ptr)
 	while (1)
 	{
 		pthread_mutex_lock(&node->mutex);
-		kadir_chi_haja(node, "has taken a fork");
+		can_trees_feel_pain(node, "has taken a fork");
 		pthread_mutex_lock(&node->next->mutex);
-		kadir_chi_haja(node, "has taken a fork");
-		pthread_mutex_lock(&node->msoos);
+		can_trees_feel_pain(node, "has taken a fork");
+		pthread_mutex_lock(&node->death);
 		node->ate = in_time();
-		kadir_chi_haja(node, "is eating");
-		pthread_mutex_unlock(&node->msoos);
+		node->lasteat++;
+		can_trees_feel_pain(node, "is eating");
+		pthread_mutex_unlock(&node->death);
 		u_sleep(node->struct_ss->eat);
 		pthread_mutex_unlock(&node->mutex);
 		pthread_mutex_unlock(&node->next->mutex);
-		kadir_chi_haja(node, "is sleeping");
+		can_trees_feel_pain(node, "is sleeping");
 		u_sleep(node->struct_ss->sleep);
-		kadir_chi_haja(node, "is thinking");
+		can_trees_feel_pain(node, "is thinking");
 	}
 	return (0);
 }
 
-void	create_detach(t_list *head)
+int	jesus_manger(t_push *node)
+{
+	t_push	*head;
+
+	head = node;
+	while (1)
+	{
+		if (head->struct_ss->tbd)
+		{
+			if (head->lasteat >= head->struct_ss->tbd * head->struct_ss->philo)
+				return (0);
+		}
+	}
+}
+
+void	patience_is_bitter_but_its_fruit_is_sweet(t_list *head)
 {
 	head->linked_list2 = head->linked_list;
 	head->time = in_time();
@@ -74,13 +90,13 @@ void	create_detach(t_list *head)
 	}
 	while (1)
 	{
-		pthread_mutex_lock(&head->linked_list->msoos);
+		pthread_mutex_lock(&head->linked_list->death);
 		if (in_time() - head->linked_list->ate > head->death)
 		{
-			kadir_chi_haja(head->linked_list, "died");
+			can_trees_feel_pain(head->linked_list, "died");
 			return ;
 		}
-		pthread_mutex_unlock(&head->linked_list->msoos);
+		pthread_mutex_unlock(&head->linked_list->death);
 		head->linked_list = head->linked_list->next;
 	}
 }
@@ -89,21 +105,23 @@ int	main(int ac, char **av)
 {
 	t_list	head;
 	int		i;
-	int		purpose;
 
 	i = 1;
 	if (ac == 5 || ac == 6)
 	{
+		system("open philo.jpg");
 		if (one_two_three_four(av, 200) == 1 && \
 			question_authority(av) == 1 && is_number(av))
 		{
-			purpose = ft_atoi(av[1]);
+			head.philo = ft_atoi(av[1]);
 			head.death = ft_atoi(av[2]);
 			head.eat = ft_atoi(av[3]);
 			head.sleep = ft_atoi(av[4]);
-			while (i <= purpose)
+			if (av[5])
+				head.tbd = ft_atoi(av[5]);
+			while (i <= head.philo)
 				ft_lstadd_back(&head.linked_list, lst_new(i++, &head));
-			create_detach(&head);
+			patience_is_bitter_but_its_fruit_is_sweet(&head);
 		}
 		else
 			printf("Error\nNot Valid\n");
