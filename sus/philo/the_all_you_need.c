@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 15:53:35 by otchekai          #+#    #+#             */
-/*   Updated: 2023/05/19 16:12:40 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/06/20 23:06:52 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,5 +88,5 @@ void	u_sleep(long long value)
 
 	var = in_time();
 	while (in_time() < var + value)
-		usleep(100);
+		usleep(10);
 }
