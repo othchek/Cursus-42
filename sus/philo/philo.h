@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 11:59:57 by otchekai          #+#    #+#             */
-/*   Updated: 2023/06/18 01:56:06 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/06/20 16:54:52 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PHILO_H
 
 # include <unistd.h>
+# include <limits.h>
 # include <stdio.h>
 # include <pthread.h>
 # include <stdlib.h>
@@ -26,6 +27,7 @@ typedef struct s_push {
 	pthread_t				p1;
 	pthread_mutex_t			mutex;
 	pthread_mutex_t			death;
+	pthread_mutex_t			manger;
 	long long				ate;
 	struct s_push			*prev;
 	struct s_list			*struct_ss;
@@ -56,5 +58,6 @@ void		u_sleep(long long value);
 long long	in_time(void);
 int			jesus_manger(t_push *node);
 void		can_trees_feel_pain(t_push *node, char *str);
+void		check_death(t_list *head);
 
 #endif

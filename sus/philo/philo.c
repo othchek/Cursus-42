@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 12:00:02 by otchekai          #+#    #+#             */
-/*   Updated: 2023/06/18 02:00:27 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/06/20 16:54:55 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,20 +61,26 @@ void	*routine(void *ptr)
 int	jesus_manger(t_push *node)
 {
 	t_push	*head;
+	int		i;
 
 	head = node;
+	i = 0;
 	while (1)
 	{
-		if (head->struct_ss->tbd)
-		{
-			if (head->lasteat >= head->struct_ss->tbd * head->struct_ss->philo)
-				return (0);
-		}
+		if (head->lasteat >= head->struct_ss->tbd)
+			i++;
+		head = head->next;
+		if (head == node)
+			break;
 	}
+	return (i);
 }
 
 void	patience_is_bitter_but_its_fruit_is_sweet(t_list *head)
 {
+	int	i;
+
+	i = 0;
 	head->linked_list2 = head->linked_list;
 	head->time = in_time();
 	while (1)
@@ -90,6 +96,11 @@ void	patience_is_bitter_but_its_fruit_is_sweet(t_list *head)
 	}
 	while (1)
 	{
+		pthread_mutex_lock(&head->linked_list->manger);
+		i = jesus_manger(head->linked_list);
+		if (i == head->philo)
+			return ;
+		pthread_mutex_unlock(&head->linked_list->manger);
 		pthread_mutex_lock(&head->linked_list->death);
 		if (in_time() - head->linked_list->ate > head->death)
 		{
@@ -109,10 +120,10 @@ int	main(int ac, char **av)
 	i = 1;
 	if (ac == 5 || ac == 6)
 	{
-		system("open philo.jpg");
 		if (one_two_three_four(av, 200) == 1 && \
 			question_authority(av) == 1 && is_number(av))
 		{
+			head.tbd = INT_MAX;
 			head.philo = ft_atoi(av[1]);
 			head.death = ft_atoi(av[2]);
 			head.eat = ft_atoi(av[3]);
