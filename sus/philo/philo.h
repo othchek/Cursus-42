@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 11:59:57 by otchekai          #+#    #+#             */
-/*   Updated: 2023/06/20 23:22:06 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/06/21 22:47:12 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ typedef struct s_push {
 	pthread_t				p1;
 	pthread_mutex_t			mutex;
 	pthread_mutex_t			death;
+	pthread_mutex_t			manger;
 	long long				ate;
 	struct s_push			*next;
 	struct s_push			*prev;
@@ -35,6 +36,7 @@ typedef struct s_push {
 typedef struct s_list {
 	unsigned long long	time;
 	t_push				*linked_list;
+	pthread_mutex_t			danger;
 	pthread_mutex_t		eat_mutex;
 	int					philo;
 	int					death;

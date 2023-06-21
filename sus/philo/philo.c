@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 12:00:02 by otchekai          #+#    #+#             */
-/*   Updated: 2023/06/20 23:26:28 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/06/21 22:55:19 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,16 @@ long long	in_time(void)
 
 void	can_trees_feel_pain(t_push *node, char *str)
 {
-	printf("%lld %d %s 🤓\n",
-		(in_time() - node->struct_ss->time), node->data, str);
+	pthread_mutex_lock(&node->struct_ss->danger);
+	if (ft_strncmp(str, "died", 4) == 0)
+		printf("%lld %d %s 💀\n",
+			(in_time() - node->struct_ss->time), node->data, str);
+	else if (ft_strncmp(str, "died", 4) != 0)
+	{
+		printf("%lld %d %s 🤓\n",
+			(in_time() - node->struct_ss->time), node->data, str);
+		pthread_mutex_unlock(&node->struct_ss->danger);
+	}
 }
 
 void	*routine(void *ptr)
@@ -42,8 +50,10 @@ void	*routine(void *ptr)
 		pthread_mutex_lock(&node->death);
 		can_trees_feel_pain(node, "is eating");
 		node->ate = in_time();
-		// node->lasteat++;
 		pthread_mutex_unlock(&node->death);
+		pthread_mutex_lock(&node->struct_ss->eat_mutex);
+		node->lasteat++;
+		pthread_mutex_unlock(&node->struct_ss->eat_mutex);
 		u_sleep(node->struct_ss->eat);
 		pthread_mutex_unlock(&node->mutex);
 		pthread_mutex_unlock(&node->next->mutex);
@@ -63,9 +73,11 @@ int	jesus_manger(t_push *node)
 	i = 0;
 	while (1)
 	{
+		pthread_mutex_lock(&node->struct_ss->eat_mutex);
 		if (head->lasteat >= head->struct_ss->tbd)
 			i++;
 		head = head->next;
+		pthread_mutex_unlock(&node->struct_ss->eat_mutex);
 		if (head == node)
 			break;
 	}
@@ -80,6 +92,7 @@ void	patience_is_bitter_but_its_fruit_is_sweet(t_list *head)
 	i = 0;
 	head->time = in_time();
 	pthread_mutex_init(&head->eat_mutex, NULL);
+	pthread_mutex_init(&head->danger, NULL);
 	while (1)
 	{
 		head->linked_list->ate = in_time();
@@ -93,11 +106,15 @@ void	patience_is_bitter_but_its_fruit_is_sweet(t_list *head)
 	}
 	while (1)
 	{
+		pthread_mutex_lock(&tmp->manger);
+		i = jesus_manger(head->linked_list);
+		if (i == head->philo)
+			return ;
+		pthread_mutex_unlock(&tmp->manger);
 		pthread_mutex_lock(&head->linked_list->death);
 		if (in_time() - head->linked_list->ate > head->death)
 		{
-			// can_trees_feel_pain(head->linked_list, "died");
-			printf("%lld %d died💀\n", (in_time() - head->time), head->linked_list->data);
+			can_trees_feel_pain(head->linked_list, "died");
 			return ;
 		}
 		pthread_mutex_unlock(&head->linked_list->death);
@@ -123,9 +140,12 @@ int	main(int ac, char **av)
 			head.sleep = ft_atoi(av[4]);
 			if (av[5])
 				head.tbd = ft_atoi(av[5]);
+			head.linked_list = NULL;
 			while (i <= head.philo)
 				ft_lstadd_back(&head.linked_list, lst_new(i++, &head));
 			patience_is_bitter_but_its_fruit_is_sweet(&head);
+			pthread_mutex_destroy(&head.danger);
+			pthread_mutex_destroy(&head.eat_mutex);
 		}
 		else
 			printf("Error\nNot Valid\n");
