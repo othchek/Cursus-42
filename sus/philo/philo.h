@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 11:59:57 by otchekai          #+#    #+#             */
-/*   Updated: 2023/06/21 22:47:12 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/06/22 11:00:50 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ typedef struct s_push {
 typedef struct s_list {
 	unsigned long long	time;
 	t_push				*linked_list;
-	pthread_mutex_t			danger;
+	pthread_mutex_t		danger;
 	pthread_mutex_t		eat_mutex;
 	int					philo;
 	int					death;
@@ -60,5 +60,7 @@ long long	in_time(void);
 int			jesus_manger(t_push *node);
 void		can_trees_feel_pain(t_push *node, char *str);
 void		check_death(t_list *head);
+void		pleased_to_die(t_list *head);
+void		init(t_list *head);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 15:53:35 by otchekai          #+#    #+#             */
-/*   Updated: 2023/06/20 23:06:52 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/06/22 10:50:54 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 
 void	u_sleep(long long value)
 {
-	long long var;
+	long long	var;
 
 	var = in_time();
 	while (in_time() < var + value)

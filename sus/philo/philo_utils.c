@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 15:52:54 by otchekai          #+#    #+#             */
-/*   Updated: 2023/06/21 22:33:30 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/06/22 10:50:36 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,26 +53,26 @@ int	ft_atoi(const char *str)
 	return (k * sign);
 }
 
-void    ft_lstadd_back(t_push **lst, t_push *new)
+void	ft_lstadd_back(t_push **lst, t_push *new)
 {
-    t_push    *nextlst;
-    t_push    *head;
+	t_push	*nextlst;
+	t_push	*head;
 
-    if (!new)
-        return ;
-    if (!*lst)
-    {
-        *lst = new;
-        return ;
-    }
-    head = *lst;
-    nextlst = *lst;
-    while (nextlst && nextlst->next != head)
-        nextlst = nextlst->next;
-    nextlst->next = new;
-    new->next = head;
-    new->prev = nextlst;
-    head->prev = new;
+	if (!new)
+		return ;
+	if (!*lst)
+	{
+		*lst = new;
+		return ;
+	}
+	head = *lst;
+	nextlst = *lst;
+	while (nextlst && nextlst->next != head)
+		nextlst = nextlst->next;
+	nextlst->next = new;
+	new->next = head;
+	new->prev = nextlst;
+	head->prev = new;
 }
 
 t_push	*lst_new(int sata, t_list *linked_list)

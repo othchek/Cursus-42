@@ -6,19 +6,11 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 12:00:02 by otchekai          #+#    #+#             */
-/*   Updated: 2023/06/21 22:55:19 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/06/22 15:02:02 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
-
-long long	in_time(void)
-{
-	struct timeval	time;
-
-	gettimeofday(&time, NULL);
-	return ((time.tv_sec * 1000) + (time.tv_usec / 1000));
-}
 
 void	can_trees_feel_pain(t_push *node, char *str)
 {
@@ -61,7 +53,6 @@ void	*routine(void *ptr)
 		u_sleep(node->struct_ss->sleep);
 		can_trees_feel_pain(node, "is thinking");
 	}
-	return (0);
 }
 
 int	jesus_manger(t_push *node)
@@ -79,16 +70,17 @@ int	jesus_manger(t_push *node)
 		head = head->next;
 		pthread_mutex_unlock(&node->struct_ss->eat_mutex);
 		if (head == node)
-			break;
+			break ;
 	}
 	return (i);
 }
 
 void	patience_is_bitter_but_its_fruit_is_sweet(t_list *head)
 {
-	int	i;
-	t_push *tmp = head->linked_list;
+	int		i;
+	t_push	*tmp;
 
+	tmp = head->linked_list;
 	i = 0;
 	head->time = in_time();
 	pthread_mutex_init(&head->eat_mutex, NULL);
@@ -104,22 +96,7 @@ void	patience_is_bitter_but_its_fruit_is_sweet(t_list *head)
 		if (head->linked_list == tmp)
 			break ;
 	}
-	while (1)
-	{
-		pthread_mutex_lock(&tmp->manger);
-		i = jesus_manger(head->linked_list);
-		if (i == head->philo)
-			return ;
-		pthread_mutex_unlock(&tmp->manger);
-		pthread_mutex_lock(&head->linked_list->death);
-		if (in_time() - head->linked_list->ate > head->death)
-		{
-			can_trees_feel_pain(head->linked_list, "died");
-			return ;
-		}
-		pthread_mutex_unlock(&head->linked_list->death);
-		head->linked_list = head->linked_list->next;
-	}
+	pleased_to_die(head);
 }
 
 int	main(int ac, char **av)

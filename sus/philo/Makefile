@@ -6,7 +6,7 @@
 #    By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/06 11:56:37 by otchekai          #+#    #+#              #
-#    Updated: 2023/06/21 23:32:03 by otchekai         ###   ########.fr        #
+#    Updated: 2023/06/22 10:40:07 by otchekai         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = philo
 
 CFLAGS = -Wall -Wextra -Werror #-g -fsanitize=thread
 
-SRC = philo.c the_all_you_need.c philo_utils.c
+SRC = philo.c the_all_you_need.c philo_utils.c norminette.c
 
 OBJ = $(SRC:.c=.o)
 
