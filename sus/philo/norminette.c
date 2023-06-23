@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 23:03:56 by otchekai          #+#    #+#             */
-/*   Updated: 2023/06/22 11:01:27 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/06/23 21:08:09 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,22 @@ long long	in_time(void)
 
 	gettimeofday(&time, NULL);
 	return ((time.tv_sec * 1000) + (time.tv_usec / 1000));
+}
+
+void	destruction(t_push *head)
+{
+	t_push	*tmp;
+	int		i;
+
+	i = 0;
+	tmp = head;
+	while (i++ < head->struct_ss->philo)
+	{
+		pthread_mutex_destroy(&tmp->death);
+		pthread_mutex_destroy(&tmp->manger);
+		pthread_mutex_destroy(&tmp->mutex);
+		tmp = tmp->next;
+	}
+	pthread_mutex_destroy(&head->struct_ss->danger);
+	pthread_mutex_destroy(&head->struct_ss->eat_mutex);
 }

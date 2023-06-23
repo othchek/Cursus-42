@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 12:00:02 by otchekai          #+#    #+#             */
-/*   Updated: 2023/06/22 15:02:02 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/06/23 22:21:10 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,28 +105,19 @@ int	main(int ac, char **av)
 	int		i;
 
 	i = 1;
-	if (ac == 5 || ac == 6)
-	{
-		if (one_two_three_four(av, 200) == 1 && \
-			question_authority(av) == 1 && is_number(av))
-		{
-			head.tbd = INT_MAX;
-			head.philo = ft_atoi(av[1]);
-			head.death = ft_atoi(av[2]);
-			head.eat = ft_atoi(av[3]);
-			head.sleep = ft_atoi(av[4]);
-			if (av[5])
-				head.tbd = ft_atoi(av[5]);
-			head.linked_list = NULL;
-			while (i <= head.philo)
-				ft_lstadd_back(&head.linked_list, lst_new(i++, &head));
-			patience_is_bitter_but_its_fruit_is_sweet(&head);
-			pthread_mutex_destroy(&head.danger);
-			pthread_mutex_destroy(&head.eat_mutex);
-		}
-		else
-			printf("Error\nNot Valid\n");
-	}
-	else
-		printf("Error\nNot Valid\n");
+	if (ac < 5 || ac > 6 || !one_two_three_four(av, 200)
+		|| !question_authority(av) || !is_number(av))
+		return (printf("Error\nNot Valid\n"), 0);
+	head.tbd = INT_MAX;
+	head.philo = ft_atoi(av[1]);
+	head.death = ft_atoi(av[2]);
+	head.eat = ft_atoi(av[3]);
+	head.sleep = ft_atoi(av[4]);
+	if (av[5])
+		head.tbd = ft_atoi(av[5]);
+		head.linked_list = NULL;
+	while (i <= head.philo)
+		ft_lstadd_back(&head.linked_list, lst_new(i++, &head));
+	patience_is_bitter_but_its_fruit_is_sweet(&head);
+	destruction(head.linked_list);
 }

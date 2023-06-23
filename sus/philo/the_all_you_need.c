@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 15:53:35 by otchekai          #+#    #+#             */
-/*   Updated: 2023/06/22 10:50:54 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/06/23 22:20:14 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,8 @@
 
 int	one_two_three_four(char **str, int num)
 {
-	int	index;
-
-	index = 1;
-	while (str[1])
-	{
-		if (ft_atoi(str[1]) >= index && ft_atoi(str[1]) <= num)
-			return (1);
-		else
-			return (0);
-	}
+	if (str[1] && ft_atoi(str[1]) >= 1 && ft_atoi(str[1]) <= num)
+		return (1);
 	return (0);
 }
 
@@ -34,9 +26,10 @@ int	question_authority(char **str)
 
 	index = 2;
 	j = 0;
-	while (index < 5 && str[index])
+	while (index < 6 && str[index])
 	{
-		if (ft_atoi(str[index]) >= 60)
+		if (ft_atoi(str[index]) >= 60
+			|| (index == 5 && ft_atoi(str[index]) > 0))
 			index++;
 		else
 			return (0);
@@ -57,13 +50,11 @@ int	is_number(char **str)
 		{
 			if (!ft_isdigit(str[index][j]))
 				return (0);
-			else
-				return (1);
 			j++;
 		}
 		index++;
 	}
-	return (0);
+	return (1);
 }
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)

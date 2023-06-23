@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 11:59:57 by otchekai          #+#    #+#             */
-/*   Updated: 2023/06/22 11:00:50 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/06/23 20:46:49 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,5 +62,6 @@ void		can_trees_feel_pain(t_push *node, char *str);
 void		check_death(t_list *head);
 void		pleased_to_die(t_list *head);
 void		init(t_list *head);
+void		destruction(t_push *head);
 
 #endif
