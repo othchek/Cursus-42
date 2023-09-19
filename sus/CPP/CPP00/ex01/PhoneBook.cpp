@@ -32,9 +32,8 @@ void    Phonebook::array_dark(std::string str, int i)
 
 bool isAlphaString(const std::string& input) {
     for (char c : input) {
-        if (!std::isalpha(c)) {
+        if (!std::isalpha(c))
             return false;
-        }
     }
     return true;
 }
@@ -133,6 +132,10 @@ void    Search_command(Phonebook *info)
     if (std::cin >> index) {
         std::cin.clear();
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        if (index > 8) {
+            std::cout << RED "Are You Blind? One digit!" << RESET <<  std::endl;
+            return ;
+        }
     } else {
         std::cin.clear();
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');

@@ -1,4 +1,4 @@
-NAME = zombie
+NAME = horde
 
 CFLAGS = -Wall -Wextra -Werror
 
@@ -6,7 +6,7 @@ INC = Zombie.hpp
 
 CPP = c++
 
-SRC = main.cpp Zombie.cpp newZombie.cpp randomChump.cpp
+SRC = main.cpp Zombie.cpp zombieHorde.cpp
 
 all : $(NAME)
 
