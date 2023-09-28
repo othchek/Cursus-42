@@ -140,9 +140,11 @@ void    Search_command(Phonebook *info)
         std::cin.clear();
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     }
-    if (!(info->Phonebook::array_getter(index).getter_firstname().length() == 0 && info->Phonebook::array_getter(index).getter_lastname().length() == 0
+    if (info->Phonebook::array_getter(index).getter_firstname().length() == 0 && info->Phonebook::array_getter(index).getter_lastname().length() == 0
 	&& info->Phonebook::array_getter(index).getter_nickname().length() == 0 && info->Phonebook::array_getter(index).getter_phone_number().length() == 0 &&
-	info->Phonebook::array_getter(index).getter_darkest_secret().length() == 0))
+	info->Phonebook::array_getter(index).getter_darkest_secret().length() == 0)
+        std::cout << RED "Are You Blind? It Does Not Exist!" << RESET <<  std::endl;
+    else
     {
         std::cout << "First Name : " << info->Phonebook::array_getter(index).getter_firstname() << std::endl;
 		std::cout << "Last Name : " << info->Phonebook::array_getter(index).getter_lastname() << std::endl;
@@ -150,6 +152,4 @@ void    Search_command(Phonebook *info)
 		std::cout << "Phone number : " << info->Phonebook::array_getter(index).getter_phone_number() << std::endl;
 		std::cout << "Dark Secret : " << info->Phonebook::array_getter(index).getter_darkest_secret() << std::endl;
     }
-    else
-        std::cout << RED "Are You Blind? It Does Not Exist!" << RESET <<  std::endl;
 }

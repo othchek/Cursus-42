@@ -1,10 +1,12 @@
-NAME = main
+NAME = Harl
 
 CFLAGS = -Wall -Wextra -Werror
 
 CPP = c++
 
-SRC = main.cpp
+INC = Harl.hpp
+
+SRC = main.cpp Harl.cpp
 
 all : $(NAME)
 

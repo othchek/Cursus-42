@@ -8,15 +8,15 @@ int main()
     int i = 0;
     while (1)
     {
-        std::cout << BLUE "What You See Is What You Get :" RESET << ORANGE " Add | Search | Exit " RESET << std::endl;
+        std::cout << BLUE "What You See Is What You Get :" RESET << ORANGE " ADD | SEARCH | EXIT " RESET << std::endl;
         std::cout << PURPLE "Choose (: " RESET;
         if (!std::getline(std::cin, str))
             return (0);
-        if (str == "Add")
+        if (str == "ADD")
             i = store_input(&search, i);
-        if (str == "Search")
+        if (str == "SEARCH")
             Search_command(&search);
-        if (str == "Exit")
+        if (str == "EXIT")
             exit (0);
     }
     return (0);

@@ -2,11 +2,11 @@
 
 int main() {
     int N = 20;
-    std::string name = "Walker";
+    std::string Name = "Walker";
 
-    Zombie *horde = zombieHorde(N, name);
+    Zombie *Horde = zombieHorde(N, Name);
     for (int i = 0; i < N; i++) {
-        horde[i].announce();
+        Horde[i].announce();
     }
-    delete[] horde;
+    delete[] Horde;
 }
