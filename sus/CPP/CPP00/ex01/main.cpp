@@ -12,6 +12,8 @@ int main()
         std::cout << PURPLE "Choose (: " RESET;
         if (!std::getline(std::cin, str))
             return (0);
+        if (i == 8)
+            i = 0;
         if (str == "ADD")
             i = store_input(&search, i);
         if (str == "SEARCH")
