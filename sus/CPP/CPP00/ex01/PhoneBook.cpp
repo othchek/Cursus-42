@@ -30,10 +30,24 @@ void    Phonebook::array_dark(std::string str, int i)
     array[i].setter_darkest_secret(str);
 }
 
-bool isAlphaString(const std::string& input) {
-    for (char c : input) {
-        if (!std::isalpha(c))
+bool isString(const std::string& input) {
+    for (std::size_t i = 0; input[i]; ++i) {
+        while (isspace(input[i]))
+            i++;
+        if (!std::isalpha(input[i++])) {
             return false;
+        }
+    }
+    return true;
+}
+
+bool isDigit(const std::string& input)
+{
+    for (std::size_t i = 0; input[i]; ++i) {
+        if (!isdigit(input[i])) {
+            return false;
+            break;
+        }
     }
     return true;
 }
@@ -49,35 +63,35 @@ int store_input(Phonebook *info, int i)
     std::cout << "Enter First Name : ";
     if (!std::getline(std::cin, temp_firstname))
         return (i);
-    if (!isAlphaString(temp_firstname)) {
+    if (!isString(temp_firstname)) {
         std::cout << RED "Invalid Input: First Name Cannot be a Number." RESET << std::endl;
         return (i);
     }
     std::cout << "Enter Last Name : ";
     if (!std::getline(std::cin, temp_lastname))
         return (i);
-    if (!isAlphaString(temp_lastname)) {
+    if (!isString(temp_lastname)) {
         std::cout << RED "Invalid Input: Lastname Cannot be a Number." RESET << std::endl;
         return (i);
     }
     std::cout << "Enter Nickname : ";
     if (!std::getline(std::cin, temp_nickname))
         return (i);
-    if (!isAlphaString(temp_nickname)) {
+    if (!isString(temp_nickname)) {
         std::cout << RED "Invalid Input: Nickname Cannot be a Number." RESET << std::endl;
         return (i);
     }
     std::cout << "Enter Phonenumber : ";
     if (!std::getline(std::cin, temp_phonenumber))
         return (i);
-    if (isAlphaString(temp_phonenumber)) {
+    if (!isDigit(temp_phonenumber)) {
         std::cout << RED "Invalid Input: Phonenumber Cannot be a string." RESET << std::endl;
         return (i);
     }
     std::cout << "Enter Darksecret : ";
     if (!std::getline(std::cin, temp_darkestsecret))
         return (i);
-    if (!isAlphaString(temp_darkestsecret)) {
+    if (!isString(temp_darkestsecret)) {
         std::cout << RED "Invalid Input: Darksecret Cannot be a Number." RESET << std::endl;
         return (i);
     }
@@ -128,17 +142,14 @@ void    Search_command(Phonebook *info)
         i++;
     }
     std::cout << BLUE << "what interests you the most: " << RESET;
-    int index;
-    if (std::cin >> index) {
-        std::cin.clear();
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-        if (index > 8) {
-            std::cout << RED "Are You Blind? One digit!" << RESET <<  std::endl;
-            return ;
-        }
-    } else {
-        std::cin.clear();
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    if (!std::getline(std::cin, str)) {
+        exit(0);
+    }
+    const char *st = str.c_str();
+    int index = atoi(st);
+    if (index > 8 || index < 0 || !isDigit(str)) {
+        std::cout << RED << "Invalid input Please enter a valid number." << RESET << std::endl;
+        return;
     }
     if (info->Phonebook::array_getter(index).getter_firstname().length() == 0 && info->Phonebook::array_getter(index).getter_lastname().length() == 0
 	&& info->Phonebook::array_getter(index).getter_nickname().length() == 0 && info->Phonebook::array_getter(index).getter_phone_number().length() == 0 &&
