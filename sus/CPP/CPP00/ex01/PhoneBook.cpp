@@ -31,10 +31,8 @@ void    Phonebook::array_dark(std::string str, int i)
 }
 
 bool isString(const std::string& input) {
-    for (std::size_t i = 0; input[i]; ++i) {
-        while (isspace(input[i]))
-            i++;
-        if (!std::isalpha(input[i++])) {
+    for (std::size_t i = 0; input[i]; i++) {
+        if (!std::isalpha(input[i]) && input[i] != ' ') {
             return false;
         }
     }
@@ -46,7 +44,6 @@ bool isDigit(const std::string& input)
     for (std::size_t i = 0; input[i]; ++i) {
         if (!isdigit(input[i])) {
             return false;
-            break;
         }
     }
     return true;
@@ -129,15 +126,13 @@ void    Search_command(Phonebook *info)
     << std::setw(10) << "Last Name" << "|" << std::setw(10) << "Nickname" << "|" << std::endl;
     while (i < 8)
     {
-        if (info->Phonebook::array_getter(i).getter_firstname().length() == 0 || info->Phonebook::array_getter(i).getter_lastname().length() == 0
-            || info->Phonebook::array_getter(i).getter_nickname().length() == 0 || info->Phonebook::array_getter(i).getter_phone_number().length() == 0
-                || info->Phonebook::array_getter(i).getter_darkest_secret().length() == 0)
+        if (info->Phonebook::array_getter(i).getter_firstname().length() == 0)
                 break ;
         std::cout << "|";
         std::cout << std::setw(10) << i;
-        printFormatted(info->Phonebook::array_getter(i).getter_firstname());
-        printFormatted(info->Phonebook::array_getter(i).getter_lastname());
-        printFormatted(info->Phonebook::array_getter(i).getter_nickname());
+        printFormatted(info->array_getter(i).getter_firstname());
+        printFormatted(info->array_getter(i).getter_lastname());
+        printFormatted(info->array_getter(i).getter_nickname());
         std::cout << "|" << std::endl;
         i++;
     }
@@ -147,20 +142,18 @@ void    Search_command(Phonebook *info)
     }
     const char *st = str.c_str();
     int index = atoi(st);
-    if (index > 8 || index < 0 || !isDigit(str)) {
+    if (index > 8 || index < 0 || !isDigit(str) || str.empty()) {
         std::cout << RED << "Invalid input Please enter a valid number." << RESET << std::endl;
         return;
     }
-    if (info->Phonebook::array_getter(index).getter_firstname().length() == 0 && info->Phonebook::array_getter(index).getter_lastname().length() == 0
-	&& info->Phonebook::array_getter(index).getter_nickname().length() == 0 && info->Phonebook::array_getter(index).getter_phone_number().length() == 0 &&
-	info->Phonebook::array_getter(index).getter_darkest_secret().length() == 0)
+    if (info->Phonebook::array_getter(index).getter_firstname().length() == 0)
         std::cout << RED "Are You Blind? It Does Not Exist!" << RESET <<  std::endl;
     else
     {
-        std::cout << "First Name : " << info->Phonebook::array_getter(index).getter_firstname() << std::endl;
-		std::cout << "Last Name : " << info->Phonebook::array_getter(index).getter_lastname() << std::endl;
-		std::cout << "Nick Name : " << info->Phonebook::array_getter(index).getter_nickname() << std::endl;
-		std::cout << "Phone number : " << info->Phonebook::array_getter(index).getter_phone_number() << std::endl;
-		std::cout << "Dark Secret : " << info->Phonebook::array_getter(index).getter_darkest_secret() << std::endl;
+        std::cout << "First Name : " << info->array_getter(index).getter_firstname() << std::endl;
+		std::cout << "Last Name : " << info->array_getter(index).getter_lastname() << std::endl;
+		std::cout << "Nick Name : " << info->array_getter(index).getter_nickname() << std::endl;
+		std::cout << "Phone number : " << info->array_getter(index).getter_phone_number() << std::endl;
+		std::cout << "Dark Secret : " << info->array_getter(index).getter_darkest_secret() << std::endl;
     }
 }

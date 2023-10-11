@@ -5,9 +5,7 @@
 #include <iostream>
 #include <iomanip>
 #include <string>
-#include <sstream>
 #include <cstring>
-#include <limits>
 
 #define BLUE      "\x1b[34m"
 #define ORANGE    "\x1b[33m"
@@ -15,8 +13,6 @@
 #define PURPLE    "\x1b[96m"
 #define GREEN     "\x1b[32m"
 #define RED       "\x1b[1;31m"
-
-#define MAX_SIZE 120
 
 class Phonebook {
     private:
