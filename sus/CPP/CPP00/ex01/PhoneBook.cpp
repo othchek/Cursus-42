@@ -41,7 +41,7 @@ bool isString(const std::string& input) {
 
 bool isDigit(const std::string& input)
 {
-    for (std::size_t i = 0; input[i]; ++i) {
+    for (std::size_t i = 0; input[i]; i++) {
         if (!isdigit(input[i])) {
             return false;
         }
@@ -146,7 +146,7 @@ void    Search_command(Phonebook *info)
         std::cout << RED << "Invalid input Please enter a valid number." << RESET << std::endl;
         return;
     }
-    if (info->Phonebook::array_getter(index).getter_firstname().length() == 0)
+    if (info->array_getter(index).getter_firstname().length() == 0)
         std::cout << RED "Are You Blind? It Does Not Exist!" << RESET <<  std::endl;
     else
     {
