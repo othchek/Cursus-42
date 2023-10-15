@@ -1,12 +1,12 @@
-NAME = sedforlosers
+NAME = Harl
 
 CFLAGS = -Wall -Wextra -Werror
 
 CPP = c++
 
-INC = sed.hpp
+INC = Harl.hpp
 
-SRC = main.cpp sed.cpp
+SRC = main.cpp Harl.cpp
 
 all : $(NAME)
 

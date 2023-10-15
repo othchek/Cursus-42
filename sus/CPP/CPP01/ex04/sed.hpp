@@ -1,9 +1,12 @@
 #ifndef SED_HPP
 #define SED_HPP
 
-#define STRING "Crazy? I was crazy once. They locked me in a room. A rubber room. A rubber room with rats. And rats make me crazy"
-#define ORIGINAL "rats"
-#define REPLACE "Pigs"
+#define BLUE      "\x1b[34m"
+#define ORANGE    "\x1b[33m"
+#define RESET     "\x1b[0m"
+#define PURPLE    "\x1b[96m"
+#define GREEN     "\x1b[32m"
+#define RED       "\x1b[1;31m"
 
 #include <iostream>
 #include <fstream>

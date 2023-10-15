@@ -1,11 +1,9 @@
 #include "Zombie.hpp"
 
 int main() {
-    int N = 20;
-    std::string Name = "Walker";
-
-    Zombie *Horde = zombieHorde(N, Name);
-    for (int i = 0; i < N; i++) {
+    Zombie *Horde;
+    Horde = zombieHorde(20, "abmoula");
+    for (int i = 0; i < 20; i++) {
         Horde[i].announce();
     }
     delete[] Horde;

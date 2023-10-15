@@ -9,16 +9,16 @@ private:
     std::string name;
 
 public:
+    void    setName(std::string str);
     Zombie() {
 
     }
-    Zombie(std::string name);
     void announce(void);
     ~Zombie()
     {
         std::cout << this->name << " has been destroyed!" << std::endl;
     }
 };
-Zombie* zombieHorde(int N, std::string name);
+Zombie *zombieHorde(int N, std::string name);
 
 #endif

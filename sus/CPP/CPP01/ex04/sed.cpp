@@ -2,24 +2,21 @@
 
 void file_practice(std::string filename, std::string S1, std::string S2) {
     std::string line;
-    std::ifstream ini_file{
-        filename
-    };
-    std::ofstream out_file{filename.append(".replace")};
-    if (ini_file && out_file) {
-        while (getline(ini_file, line)) {
-            size_t found = line.find(S1);
-            while (found != std::string::npos) {
-                line.replace(found, S1.length(), S2);
-                found = line.find(S1, found + S2.length());
-            }
-            out_file << line << std::endl;
+    std::ifstream fileread(filename);
+    std::ofstream fileout(filename.append(".replace"));
+    if (!fileread.is_open() && !fileout.is_open()) {
+        std::cout << RED << "Cannot read File" << RESET << std::endl;
+        return ;
+    }
+    while (std::getline(fileread, line)) {
+        size_t found = 0;
+        while ((found = line.find(S1, found)) != std::string::npos) {
+            line = line.substr(0, found) + S2 + line.substr(found + S1.length());
+            found += S2.length();
         }
-        std::cout << "Copy Finished" << std::endl;
+        fileout << line << std::endl;
     }
-    else {
-        printf("Cannot read File");
-    }
-    ini_file.close();
-    out_file.close();
+    fileread.close();
+    fileout.close();
+    std::cout << GREEN << "Copy Finished" << RESET << std::endl;
 }
