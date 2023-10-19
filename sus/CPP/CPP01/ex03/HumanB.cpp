@@ -2,14 +2,15 @@
 
 HumanB::HumanB(std::string Name){
     this->name = Name;
+    this->weapon = NULL;
 }
 
-void HumanB::setWeapon(Weapon WeaponB) {
-    this->weapon = new Weapon(WeaponB);
+void HumanB::setWeapon(Weapon &WeaponB) {
+    weapon = &WeaponB;
 }
 
 void HumanB::attack() {
-    if (weapon != nullptr) {
+    if (weapon != NULL) {
         std::cout << name << " attacks with their " << weapon->getType() << std::endl;
     }
 }

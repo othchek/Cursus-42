@@ -16,6 +16,8 @@ $(NAME) : $(SRC) $(INC)
 clean : 
 	rm -rf $(NAME)
 
+fclean : clean
+
 re : clean all
 
 .PHONY : clean fclean re

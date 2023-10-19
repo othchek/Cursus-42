@@ -27,10 +27,12 @@ void Harl::complain(std::string level) {
     ptr[4] = &Harl::error;
 
     const char *converter = level.c_str();
-    int purpose = atoi(converter);
-    if (purpose >= 1 && purpose <= 4) {
+    int purpose = std::atoi(converter);
+    if (purpose >= 1 && purpose <= 4)
+    {
         (this->*ptr[purpose])();
-    } else {
-        std::cout << RED << "Invalid level: " << level << RESET << std::endl;
+        return;
     }
+    std::cout << RED << "Invalid level: " << level << RESET << std::endl;
+    return;
 }
