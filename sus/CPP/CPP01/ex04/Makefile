@@ -13,7 +13,8 @@ all : $(NAME)
 $(NAME) : $(SRC) $(INC)
 	$(CPP) $(CFLAGS) $(SRC) -o $(NAME)
 
-clean : 
+clean :
+	find . -type f -name "*.replace" -exec rm {} \;
 	rm -rf $(NAME)
 
 fclean : clean

@@ -1,12 +1,12 @@
-NAME = zombie
+NAME = Fixed
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -std=c++98
 
-INC = Zombie.hpp
+INC = Fixed.hpp
 
 CPP = c++
 
-SRC = main.cpp Zombie.cpp newZombie.cpp randomChump.cpp
+SRC = main.cpp Fixed.cpp
 
 all : $(NAME)
 

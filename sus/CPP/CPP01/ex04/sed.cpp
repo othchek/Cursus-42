@@ -13,13 +13,13 @@ void file_practice(std::string filename, std::string S1, std::string S2)
         std::cout << RED << "Cannot read File" << RESET << std::endl;
         return ;
     }
-
     while (std::getline(fileread, line))
     {
         size_t found = 0;
         while ((found = line.find(S1, found)) != std::string::npos && (S1.length() != 0 || S2.length() != 0))
         {
             line = line.substr(0, found) + S2 + line.substr(found + S1.length());
+            // std::cout << line << std::endl;
             found += S2.length();
         }
         fileout << line << std::endl;
