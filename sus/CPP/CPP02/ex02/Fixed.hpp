@@ -27,20 +27,26 @@ class Fixed {
         bool operator<=(const Fixed& obj);
         bool operator>=(const Fixed& obj);
 
-        Fixed operator=(const Fixed& obj);
-	    Fixed operator+(const Fixed& obj);
-	    Fixed operator*(const Fixed& obj);
-	    Fixed operator/(const Fixed& obj);
-	    Fixed operator-(const Fixed& obj);
+        Fixed& operator=(const Fixed& b);
+	    Fixed operator+(const Fixed& b);
+	    Fixed operator*(const Fixed& b);
+	    Fixed operator/(const Fixed& b);
+	    Fixed operator-(const Fixed& b);
 
         Fixed operator++(int);
 	    Fixed operator--(int);
-	    Fixed &operator++(void);
-	    Fixed &operator--(void);
+	    Fixed &operator++();
+	    Fixed &operator--();
 
         int getRawBits(void) const;
         float toFloat( void ) const;
         int toInt( void ) const;
+
+        static Fixed &min(Fixed &num, Fixed &number);
+        static Fixed &max(Fixed &num, Fixed &number);
+
+        static const Fixed &min(const Fixed &num, const Fixed &number);
+        static const Fixed &max(const Fixed &num, const Fixed &number);
         ~Fixed();
 };
 std::ostream &operator<<(std::ostream& os, const Fixed& dt);

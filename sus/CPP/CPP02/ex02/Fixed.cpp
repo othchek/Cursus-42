@@ -3,34 +3,28 @@
 const int Fixed::fractionalbits = 8;
 
 Fixed::Fixed(void) {
-    
-    std::cout << GREEN << "Default constructor called" << RESET << std::endl;
     stash = 0;
 }
 
 Fixed::Fixed(const int num)
 {
-    std::cout << GREEN << "Int constructor called" << RESET << std::endl;
     stash = num << fractionalbits;
 }
 
 Fixed::Fixed(const float num)
 {
-    std::cout << GREEN << "Float constructor called" << RESET << std::endl;
     stash = roundf(num * (1 << fractionalbits));
 }
 
 Fixed::Fixed(const Fixed &obj)
 {
-    std::cout << GREEN << "Copy constructor called" << RESET << std::endl;
-    (*this) = obj;
+    (*this) = (obj);
 }
 
-Fixed Fixed::operator=(const Fixed& obj)
-{
-    std::cout << GREEN << "Copy assignment operator called" << RESET << std::endl;
-    this->stash = obj.stash;
-    return (*this);
+Fixed& Fixed::operator=(const Fixed& obj) {
+    if (this != &obj)
+        this->stash = obj.stash;
+    return *this;
 }
 
 int Fixed::getRawBits() const 
@@ -54,11 +48,11 @@ int Fixed::toInt( void ) const {
 }
 
 bool Fixed::operator==(const Fixed& obj) {
-
+    return this->stash == obj.stash;
 }
 
 bool Fixed::operator!=(const Fixed& obj) {
-
+    return this->stash != obj.stash;
 }
 
 bool Fixed::operator<(const Fixed& obj) {
@@ -78,22 +72,77 @@ bool Fixed::operator>=(const Fixed& obj) {
 }
 
 Fixed Fixed::operator+(const Fixed& obj) {
-    return this->stash + obj.stash;
+    stash += obj.stash;
+    return (*this);
 }
 
 Fixed Fixed::operator*(const Fixed& obj) {
-    return this->stash * obj.stash;
+    stash *= obj.toFloat();
+    return (*this);
 }
 
 Fixed Fixed::operator/(const Fixed& obj) {
-    return this->stash / obj.stash;
+    stash /= obj.toFloat();
+    return (*this);
 }
 
 Fixed Fixed::operator-(const Fixed& obj) {
-    return this->stash - obj.stash;
+    stash -= obj.stash;
+    return (*this);
+}
+
+Fixed Fixed::operator++(int) {
+    Fixed store;
+    store = this->stash;
+    this->stash++;
+    return (store);
+}
+
+Fixed Fixed::operator--(int) {
+    Fixed store;
+    store = this->stash;
+    this->stash--;
+    return (store);
+}
+
+Fixed &Fixed::operator++() {
+    this->stash++;
+    return (*this);
+}
+
+Fixed &Fixed::operator--() {
+    this->stash--;
+    return (*this);
+}
+
+Fixed   &Fixed::min(Fixed &num, Fixed &number)
+{
+    if (num < number)
+        return (num);
+    return (number);
+}
+Fixed   &Fixed::max(Fixed &num, Fixed &number)
+{
+    if (num > number)
+        return (num);
+    return (number);
+}
+
+const Fixed &Fixed::min(const Fixed &num, const Fixed &number)
+{
+    if (num.stash < number.stash)
+        return (num);
+    return (number);
+}
+
+const Fixed &Fixed::max(const Fixed &num, const Fixed &number)
+{
+    if (num.stash > number.stash)
+        return (num);
+    return (number);
 }
 
 Fixed::~Fixed()
 {
-    std::cout << PURPLE << "Destructor called" << RESET << std::endl;
+
 }
