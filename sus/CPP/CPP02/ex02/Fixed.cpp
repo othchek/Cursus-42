@@ -53,44 +53,44 @@ int Fixed::toInt( void ) const {
     return (this->stash >> fractionalbits);
 }
 
-bool Fixed::operator==(const Fixed& obj) const {
+bool Fixed::operator==(const Fixed& obj) {
 
 }
 
-bool Fixed::operator!=(const Fixed& obj) const {
+bool Fixed::operator!=(const Fixed& obj) {
 
 }
 
-bool Fixed::operator<(const Fixed& obj) const {
-
+bool Fixed::operator<(const Fixed& obj) {
+    return this->stash < obj.stash;
 }
 
-bool Fixed::operator>(const Fixed& obj) const {
-
+bool Fixed::operator>(const Fixed& obj) {
+    return this->stash > obj.stash;
 }
 
-bool Fixed::operator<=(const Fixed& obj) const {
-
+bool Fixed::operator<=(const Fixed& obj) {
+    return this->stash <= obj.stash;
 }
 
-bool Fixed::operator>=(const Fixed& obj) const {
-
+bool Fixed::operator>=(const Fixed& obj) {
+    return this->stash >= obj.stash;
 }
 
 Fixed Fixed::operator+(const Fixed& obj) {
-
+    return this->stash + obj.stash;
 }
 
 Fixed Fixed::operator*(const Fixed& obj) {
-
+    return this->stash * obj.stash;
 }
 
 Fixed Fixed::operator/(const Fixed& obj) {
-
+    return this->stash / obj.stash;
 }
 
 Fixed Fixed::operator-(const Fixed& obj) {
-
+    return this->stash - obj.stash;
 }
 
 Fixed::~Fixed()

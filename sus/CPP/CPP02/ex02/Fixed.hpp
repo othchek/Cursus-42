@@ -16,26 +16,32 @@ class Fixed {
         static const int fractionalbits;
     public :
         Fixed();
-        ~Fixed();
         Fixed(const int num);
         Fixed(const float num);
         Fixed(const Fixed &obj);
 
-        bool operator==(const Fixed& obj) const;
-        bool operator!=(const Fixed& obj) const;
-        bool operator<(const Fixed& obj) const;
-        bool operator>(const Fixed& obj) const;
-        bool operator<=(const Fixed& obj) const;
-        bool operator>=(const Fixed& obj) const;
+        bool operator==(const Fixed& obj);
+        bool operator!=(const Fixed& obj);
+        bool operator<(const Fixed& obj);
+        bool operator>(const Fixed& obj);
+        bool operator<=(const Fixed& obj);
+        bool operator>=(const Fixed& obj);
 
         Fixed operator=(const Fixed& obj);
 	    Fixed operator+(const Fixed& obj);
 	    Fixed operator*(const Fixed& obj);
 	    Fixed operator/(const Fixed& obj);
 	    Fixed operator-(const Fixed& obj);
+
+        Fixed operator++(int);
+	    Fixed operator--(int);
+	    Fixed &operator++(void);
+	    Fixed &operator--(void);
+
         int getRawBits(void) const;
         float toFloat( void ) const;
         int toInt( void ) const;
+        ~Fixed();
 };
 std::ostream &operator<<(std::ostream& os, const Fixed& dt);
 
