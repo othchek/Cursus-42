@@ -17,7 +17,7 @@ Fixed::Fixed(const float num)
 }
 
 Fixed::Fixed(const Fixed &obj)
-{
+{  
     (*this) = (obj);
 }
 
@@ -93,7 +93,7 @@ Fixed Fixed::operator-(const Fixed& obj) {
 
 Fixed Fixed::operator++(int) {
     Fixed store;
-    store = this->stash;
+    store = *this;
     this->stash++;
     return (store);
 }
