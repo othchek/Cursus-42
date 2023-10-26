@@ -5,6 +5,7 @@ int main() {
 
 	john.attack("sma3ine");
     john.takeDamage(5);
+    john.beRepaired(5);
     john.takeDamage(5);
     john.takeDamage(5);
     john.takeDamage(5);
