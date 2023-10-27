@@ -2,14 +2,14 @@
 
 ScavTrap::ScavTrap() {
     std::cout << PURPLE << "this is ScavTrap the default constructor" << RESET << std::endl;
-    this->Name = "abmoula";
+    this->Name = "sma3in";
     Hitpoints = 100;
     Energypoints = 50;
     Attackdamage = 20;
 }
 
 ScavTrap::ScavTrap(std::string Name) {
-    std::cout << ORANGE << "ScavTrap constructor called" << RESET << std::endl;
+    std::cout << PURPLE << "ScavTrap constructor called" << RESET << std::endl;
     this->Name = Name;
     Hitpoints = 100;
     Energypoints = 50;

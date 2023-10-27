@@ -1,11 +1,15 @@
 #include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap() {
+    this->Name = "abmoula";
+    Hitpoints = 10;
+    Energypoints = 10;
+    Attackdamage = 0;
 }
 
 ClapTrap::ClapTrap(std::string Name) 
 {
-    std::cout << "Constructor called" << std::endl;
+    std::cout << "ClapTrap Constructor called" << std::endl;
     this->Name = Name;
     Hitpoints = 10;
     Energypoints = 10;
@@ -13,7 +17,7 @@ ClapTrap::ClapTrap(std::string Name)
 }
 
 void ClapTrap::attack(const std::string& target) {
-    if (Energypoints == 0 || Hitpoints == 0) {
+    if (Energypoints == 0) {
         std::cout << "This ClapTrap could not attack right neow" << std::endl;
         return ;
     }
@@ -21,14 +25,16 @@ void ClapTrap::attack(const std::string& target) {
     Energypoints--;
 }
 
-void ClapTrap::takeDamage(unsigned int amount) {
-    if ((int)amount > Hitpoints) {
-        std::cout << "This ClapTrap is Deadge how unfortunate" << std::endl;
-        Hitpoints = 0;
-        return ;
+void ClapTrap::takeDamage(unsigned int amount)
+{
+    if(this->Energypoints > 0 && this->Hitpoints > 0)
+    {
+        std::cout << "ClapTrap " << this->Name << " took " << amount << " points of damage!" << std::endl;
+        if((int)amount > this->Hitpoints)
+            this->Hitpoints = 0;
+        else
+            this->Hitpoints -= amount;
     }
-    std::cout << "This ClapTrap " << Name << " Took this ammount: " << amount << " of damage" << std::endl;
-    Hitpoints -= amount;
 }
 
 void ClapTrap::beRepaired(unsigned int amount) {
@@ -42,10 +48,12 @@ void ClapTrap::beRepaired(unsigned int amount) {
 }
 
 ClapTrap::ClapTrap(const ClapTrap &obj) {
+    std::cout << "Copy constructor called" << std::endl;
     (*this) = obj;
 }
 
 ClapTrap& ClapTrap::operator=(const ClapTrap& obj) {
+    std::cout << "Copy assignment operator called" << std::endl;
     if (this == &obj) {
         return *this;
     }

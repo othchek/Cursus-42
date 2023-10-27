@@ -2,7 +2,7 @@
 
 ClapTrap::ClapTrap() {
     std::cout << PURPLE << "this is ClapTrap default constructor" << RESET << std::endl;
-    this->Name = "sma3in";
+    this->Name = "othman";
     Hitpoints = 10;
     Energypoints = 10;
     Attackdamage = 0;
