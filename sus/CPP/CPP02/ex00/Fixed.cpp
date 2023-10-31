@@ -1,6 +1,6 @@
 #include "Fixed.hpp"
 
-Fixed::Fixed(void)
+Fixed::Fixed()
 {
     std::cout << GREEN << "Default constructor called" << RESET << std::endl;
     stash = 0;

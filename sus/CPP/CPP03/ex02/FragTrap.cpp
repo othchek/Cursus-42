@@ -17,7 +17,7 @@ FragTrap::FragTrap(std::string Name) {
 }
 
 void    FragTrap::highFivesGuys() {
-    std::cout << ORANGE << "FragTrap " << Name << RESET << BLUE << " wants to high five you, uWu" << RESET << std::endl;
+    std::cout << ORANGE << "FragTrap " << Name << RESET << BLUE << " wants to high five you, UwU" << RESET << std::endl;
 }
 
 FragTrap::FragTrap(const FragTrap &obj) {
@@ -27,14 +27,10 @@ FragTrap::FragTrap(const FragTrap &obj) {
 
 FragTrap& FragTrap::operator=(const FragTrap& obj) {
     std::cout << PURPLE << "Copy assignment operator called" << RESET << std::endl;
-    if (this == &obj) {
-        return *this;
-    }
     this->Name = obj.Name;
     this->Hitpoints = obj.Hitpoints;
     this->Energypoints = obj.Energypoints;
     this->Attackdamage = obj.Attackdamage;
-
     return *this;
 }
 

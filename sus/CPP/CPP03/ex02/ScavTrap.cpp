@@ -32,9 +32,6 @@ ScavTrap::ScavTrap(const ScavTrap &obj) {
 
 ScavTrap& ScavTrap::operator=(const ScavTrap& obj) {
     std::cout << PURPLE << "Copy assignment operator called" << RESET << std::endl;
-    if (this == &obj) {
-        return *this;
-    }
     this->Name = obj.Name;
     this->Hitpoints = obj.Hitpoints;
     this->Energypoints = obj.Energypoints;

@@ -13,10 +13,8 @@ all : $(NAME)
 $(NAME) : $(SRC) $(INC)
 	$(CPP) $(CFLAGS) $(SRC) -o $(NAME)
 
-clean :
+fclean :
 	rm -rf $(NAME)
-
-fclean : clean
 
 re : clean all
 

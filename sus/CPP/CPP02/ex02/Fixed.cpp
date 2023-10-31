@@ -47,6 +47,7 @@ int Fixed::toInt( void ) const {
     return (this->stash >> fractionalbits);
 }
 
+
 bool Fixed::operator==(const Fixed& obj) {
     return this->stash == obj.stash;
 }
