@@ -4,7 +4,7 @@
 #include <iostream>
 #include "AMateria.hpp"
 #include "MateriaSource.hpp"
-#include "Character.hpp"
+
 class AMateria;
 
 #define BLUE      "\x1b[34m"

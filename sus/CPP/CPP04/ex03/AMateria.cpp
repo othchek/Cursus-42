@@ -23,10 +23,6 @@ AMateria& AMateria::operator=(const AMateria& obj) {
     return (*this);
 }
 
-std::string const & AMateria::getType() const {
-    return (type);
-}
-
 void AMateria::use(ICharacter& target) {
     std::cout << target.getName() << std::endl;
 }

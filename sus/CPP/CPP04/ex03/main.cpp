@@ -4,8 +4,13 @@
 #include "Character.hpp"
 #include "MateriaSource.hpp"
 
+void funn(void) {
+    system("leaks AMateria");
+}
+
 int main()
 {
+    atexit(funn);
     IMateriaSource* src = new MateriaSource();
     src->learnMateria(new Ice());
     src->learnMateria(new Cure());
@@ -26,6 +31,5 @@ int main()
     delete bob;
     delete me;
     delete src;
-
     return 0;
 }

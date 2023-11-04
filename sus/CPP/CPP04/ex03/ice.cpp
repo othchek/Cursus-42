@@ -6,7 +6,7 @@ Ice::Ice() {
 }
 
 void    Ice::use(ICharacter& target) {
-    std::cout << "* shoots an ice bolt at " << target.getName() << "*" << std::endl;
+    std::cout << ORANGE << "* shoots an ice bolt at " << target.getName() << " *" << RESET << std::endl;
 }
 
 Ice::Ice(const Ice &obj) {

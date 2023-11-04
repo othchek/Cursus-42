@@ -16,7 +16,7 @@ std::string const & Character::getName() const {
 
 void Character::equip(AMateria* m) {
     for(int i = 0; i < 4; i++) {
-        if (i == 0 && obj[i] == NULL) {
+        if (obj[i] == NULL) {
             obj[i] = m;
             break ;
         }
@@ -28,7 +28,8 @@ void Character::unequip(int idx) {
 }
 
 void Character::use(int idx, ICharacter& target) {
-    obj[idx]->use(target);
+    if (idx >= 0 && idx < 4 && obj[idx])
+        obj[idx]->use(target);
 }
 
 Character::Character(const Character &obj) {
@@ -46,4 +47,7 @@ Character& Character::operator=(const Character& obj) {
 
 Character::~Character() {
     std::cout << RED << "This is Character destructor" << RESET << std::endl;
+    for(int i = 0; i < 4; i++) {
+        delete obj[i];
+    }
 }

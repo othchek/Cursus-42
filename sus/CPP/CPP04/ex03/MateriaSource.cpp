@@ -2,6 +2,9 @@
 
 MateriaSource::MateriaSource() {
     std::cout << "MateriaSource default constructor" << std::endl;
+    for (int i = 0; i < 4; i++) {
+        obj[i] = NULL;
+    }
 }
 
 MateriaSource::MateriaSource(const MateriaSource &obj) {
@@ -19,7 +22,7 @@ MateriaSource& MateriaSource::operator=(const MateriaSource& obj) {
 
 void MateriaSource::learnMateria(AMateria* stock) {
     for(int i = 0; i < 4; i++) {
-        if (i == 0 && obj[i] == NULL) {
+        if (obj[i] == NULL) {
             obj[i] = stock;
             break ;
         }
@@ -37,4 +40,7 @@ AMateria* MateriaSource::createMateria(std::string const & type) {
 
 MateriaSource::~MateriaSource() {
     std::cout << RED << "This is MateriaSource destructor" << RESET << std::endl;
+    for(int i = 0; i < 4; i++) {
+        delete obj[i];
+    }
 }
