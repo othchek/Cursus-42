@@ -6,8 +6,8 @@
 #define ORANGE    "\x1b[33m"
 #define RESET     "\x1b[0m"
 #define PURPLE    "\x1b[96m"
-#define GREEN     "\x1b[32m"
 #define RED       "\x1b[1;31m"
+#define GREEN     "\x1b[32m"
 
 class Animal {
     protected:
@@ -18,8 +18,8 @@ class Animal {
         Animal(const Animal &obj);
         Animal& operator=(const Animal& obj);
         std::string getType() const;
-        virtual void    makeSound() const;
-        ~Animal();
+        virtual void    makeSound() const = 0;
+        virtual ~Animal();
 };
 
 #endif

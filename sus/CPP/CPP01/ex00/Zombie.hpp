@@ -5,13 +5,12 @@
 #include <iostream>
 
 class Zombie {
-
-private:
-    std::string name;
-public:
-    Zombie(std::string str);
-    void announce(void);
-    ~Zombie();
+    private:
+        std::string name;
+    public:
+        Zombie(std::string str);
+        void announce(void);
+        ~Zombie();
 };
 void randomChump(std::string name);
 Zombie* newZombie(std::string name);

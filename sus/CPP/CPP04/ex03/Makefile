@@ -1,12 +1,12 @@
-NAME = Animal
+NAME = AMateria
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
-INC = Animal.hpp Cat.hpp Dog.hpp WrongAnimal.hpp WrongCat.hpp
+INC = AMateria.hpp Character.hpp cure.hpp ice.hpp MateriaSource.hpp
 
 CPP = c++
 
-SRC = main.cpp Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp
+SRC = main.cpp AMateria.cpp Character.cpp cure.cpp ice.cpp MateriaSource.cpp
 
 all : $(NAME)
 
