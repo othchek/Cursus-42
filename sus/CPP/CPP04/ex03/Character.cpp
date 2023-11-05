@@ -3,11 +3,17 @@
 Character::Character() {
     std::cout << "Character default constructor" << std::endl;
     name = "abmoula";
+    for (int i = 0; i < 4; i++) {
+        obj[i] = NULL;
+    }
 }
 
 Character::Character(std::string name) {
     std::cout << "Character constructor called" << std::endl;
     this->name = name;
+    for (int i = 0; i < 4; i++) {
+        obj[i] = NULL;
+    }
 }
 
 std::string const & Character::getName() const {
