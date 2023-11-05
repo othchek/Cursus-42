@@ -7,7 +7,8 @@ Cat::Cat() {
 
 Cat::Cat(std::string name) {
     std::cout << PURPLE << "This is Cat constructor" << RESET << std::endl;
-    this->type = name;
+    type = name;
+    ptr = new Brain;
 }
 
 Cat::Cat(const Cat &obj) {
@@ -19,7 +20,7 @@ Cat& Cat::operator=(const Cat& obj) {
     std::cout << PURPLE << "Cat Copy assignment operator called" << RESET << std::endl;
     if (this == &obj) {
         this->type = obj.type;
-        this->ptr = obj.ptr;
+        this->ptr = new Brain(*(obj.ptr));
     }
     return (*this);
 }

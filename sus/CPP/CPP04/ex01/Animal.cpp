@@ -2,6 +2,7 @@
 
 Animal::Animal() {
     std::cout << PURPLE << "This is Animal default constructor" << RESET << std::endl;
+    this->type = "default";
 }
 
 Animal::Animal(std::string name) {

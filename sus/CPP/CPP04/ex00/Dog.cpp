@@ -1,6 +1,7 @@
 #include "Dog.hpp"
 
 Dog::Dog() {
+    type = "dog";
     std::cout << RED << "This is Dog default constructor" << RESET << std::endl;
 }
 
@@ -20,7 +21,7 @@ Dog& Dog::operator=(const Dog& obj) {
 }
 
 void    Dog::makeSound() const {
-    std::cout << ORANGE << this->type << RESET << BLUE << "haw haw" << RESET << std::endl;
+    std::cout << BLUE << "haw haw" << RESET << std::endl;
 }
 
 Dog::~Dog() {

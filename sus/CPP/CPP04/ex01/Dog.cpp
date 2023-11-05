@@ -8,6 +8,7 @@ Dog::Dog() {
 Dog::Dog(std::string name) {
     std::cout << PURPLE << "This is Dog constructor" << RESET << std::endl;
     this->type = name;
+    meta = new Brain();
 }
 
 Dog::Dog(const Dog &obj) {
@@ -18,7 +19,8 @@ Dog::Dog(const Dog &obj) {
 Dog& Dog::operator=(const Dog& obj) {
     std::cout << PURPLE << "Dog Copy assignment operator called" << RESET << std::endl;
     if (this == &obj) {
-        return *this;
+        this->type = obj.type;
+        this->meta = new Brain(*(obj.meta));
     }
     return (*this);
 }

@@ -1,6 +1,7 @@
 #include "Cat.hpp"
 
 Cat::Cat() {
+    type = "cat";
     std::cout << RED << "This is Cat default constructor" << RESET << std::endl;
 }
 
@@ -20,7 +21,7 @@ Cat& Cat::operator=(const Cat& obj) {
 }
 
 void    Cat::makeSound() const {
-    std::cout << ORANGE << this->type << RESET << BLUE << "morew moraw" << RESET << std::endl;
+    std::cout << BLUE << "morew moraw" << RESET << std::endl;
 }
 
 Cat::~Cat() {
