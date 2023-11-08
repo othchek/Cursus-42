@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include "WrongAnimal.hpp"
+
 #define BLUE      "\x1b[34m"
 #define ORANGE    "\x1b[33m"
 #define RESET     "\x1b[0m"
@@ -16,7 +17,8 @@ class WrongCat : public WrongAnimal {
         WrongCat(std::string name);
         WrongCat(const WrongCat &obj);
         WrongCat& operator=(const WrongCat& obj);
-        void    makeSound();
+        void    makeSound() const ;
+        std::string getType(void) const;
         ~WrongCat();
 };
 

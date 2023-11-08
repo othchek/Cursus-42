@@ -4,13 +4,8 @@
 #include "Character.hpp"
 #include "MateriaSource.hpp"
 
-void f() {
-    system("leaks AMateria");
-}
-
 int main()
 {
-    // atexit(f);
     IMateriaSource* src = new MateriaSource();
     src->learnMateria(new Ice());
     src->learnMateria(new Cure());

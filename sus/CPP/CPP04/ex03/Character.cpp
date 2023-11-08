@@ -43,11 +43,11 @@ Character::Character(const Character &obj) {
     *this = obj;
 }
 
-Character& Character::operator=(const Character& obj) {
+Character& Character::operator=(const Character& meta) {
     std::cout << PURPLE << "Character Copy assignment operator called" << RESET << std::endl;
-    if (this == &obj) {
-        return *this;
-    }
+        for(int i = 0; i < 4; i++) {
+            this->obj[i] = meta.obj[i]->clone();
+        }
     return (*this);
 }
 

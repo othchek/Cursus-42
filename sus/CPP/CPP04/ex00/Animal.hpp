@@ -19,7 +19,7 @@ class Animal {
         Animal& operator=(const Animal& obj);
         std::string getType() const;
         virtual void    makeSound() const;
-        ~Animal();
+        virtual ~Animal();
 };
 
 #endif

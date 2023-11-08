@@ -16,7 +16,7 @@ int main()
             meta[index] = new Cat();
     }
     index = 0;
-    while (index++ < 10)
+    while (index++ < 20)
         delete meta[index];
     return (0);
 }

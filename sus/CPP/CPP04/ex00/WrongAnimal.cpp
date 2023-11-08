@@ -2,6 +2,7 @@
 
 WrongAnimal::WrongAnimal() {
     std::cout << RED << "This is WrongAnimal default constructor" << RESET << std::endl;
+    type = "default";
 }
 
 WrongAnimal::WrongAnimal(std::string name) {
@@ -14,12 +15,16 @@ WrongAnimal::WrongAnimal(const WrongAnimal &obj) {
 
 WrongAnimal& WrongAnimal::operator=(const WrongAnimal& obj) {
     if (this == &obj) {
-        return *this;
+        this->type = obj.type;
     }
     return (*this);
 }
 
-void    WrongAnimal::makeSound() {
+std::string WrongAnimal::getType(void) const {
+    return (this->type);
+}
+
+void    WrongAnimal::makeSound() const {
     std::cout << PURPLE << "Seelance" << RESET << std::endl;
 }
 

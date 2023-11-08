@@ -2,6 +2,7 @@
 
 Animal::Animal() {
     std::cout << RED << "This is Animal default constructor" << RESET << std::endl;
+    this->type = "Animal";
 }
 
 Animal::Animal(std::string name) {
@@ -14,7 +15,7 @@ Animal::Animal(const Animal &obj) {
 
 Animal& Animal::operator=(const Animal& obj) {
     if (this == &obj) {
-        return *this;
+        this->type = obj.type;
     }
     return (*this);
 }

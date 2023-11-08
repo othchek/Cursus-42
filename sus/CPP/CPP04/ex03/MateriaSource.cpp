@@ -12,10 +12,10 @@ MateriaSource::MateriaSource(const MateriaSource &obj) {
     *this = obj;
 }
 
-MateriaSource& MateriaSource::operator=(const MateriaSource& obj) {
+MateriaSource& MateriaSource::operator=(const MateriaSource& meta) {
     std::cout << PURPLE << "MateriaSource Copy assignment operator called" << RESET << std::endl;
-    if (this == &obj) {
-        return *this;
+    for(int i = 0; i < 4; i++) {
+        this->obj[i] = meta.obj[i]->clone();
     }
     return (*this);
 }
