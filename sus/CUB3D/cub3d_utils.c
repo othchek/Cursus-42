@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 14:05:38 by otchekai          #+#    #+#             */
-/*   Updated: 2023/11/08 14:12:40 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/11/11 21:36:57 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,6 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	return (0);
 }
 
-void	ft_error(char *s)
-{
-	ft_putstr_fd(s, 1);
-	write (1, "\n", 1);
-	exit(0);
-}
-
 void	ft_putstr_fd(char *s, int fd)
 {
 	int	i;
@@ -47,4 +40,119 @@ void	ft_putstr_fd(char *s, int fd)
 		write(fd, &s[i], 1);
 		i++;
 	}
+}
+
+static    int    words_counter(char *s, char *c)
+{
+    int        i;
+    int        words;
+
+    i = 0;
+    words = 0;
+    while (s[i] != '\0')
+    {
+        if (ft_strchr(c, s[i]))
+            i++;
+        else
+        {
+            words++;
+            while (s[i] != '\0' && !ft_strchr(c, s[i]))
+                i++;
+        }
+    }
+    return (words);
+}
+
+static char    **free_mem2(char **mem)
+{
+    int    i;
+
+    i = 0;
+    while (mem[i])
+    {
+        free(mem[i]);
+        i++;
+    }
+    free(mem);
+    return (NULL);
+}
+
+char    **ft_split2(char *s, char *c)
+{
+    size_t        word_len;
+    char        **split;
+    size_t        i;
+
+    i = 0;
+    if (!s || !c)
+        return (NULL);
+    split = (char **)malloc((words_counter(s, c) + 1) * sizeof(*split));
+    if (!split)
+        return (free(split), NULL);
+    while (*s != '\0')
+    {
+        while (*s && ft_strchr(c, *s))
+            s++;
+        word_len = 0;
+        while (s[word_len] && !ft_strchr(c, s[word_len]))
+            word_len++;
+        if (word_len != 0)
+            split[i++] = ft_substr(s, 0, word_len);
+        if (word_len != 0 && split[i - 1] == 0)
+            return (free_mem2(split));
+        s += word_len;
+    }
+    split[i] = NULL;
+    return (split);
+}
+
+char	*ft_substr(char const *s, unsigned int start, size_t len)
+{
+	size_t	i;
+	size_t	j;
+	char	*ptr;
+
+	if (s)
+	{
+		i = ft_strlen(s);
+		j = 0;
+		if (len > i)
+			len = i;
+		ptr = malloc(len + 1);
+		if (!ptr)
+			return (NULL);
+		while (j < len && start < i)
+		{
+			ptr[j] = s[start];
+			start++;
+			j++;
+		}
+		ptr[j] = '\0';
+		return (ptr);
+	}
+	return (NULL);
+}
+
+int strfound(char* haystack, char* needle)
+{
+    while (*haystack != '\0') 
+    {
+        while (*haystack != '\0' && *needle != '\0' && *haystack == *needle) 
+        {
+            haystack++;
+            needle++;
+        }
+        if (*needle == '\0')
+            return 1;
+        haystack++;
+    }
+    return 0;
+}
+
+void skip_whitespaces(char *str)
+{
+    if (!str)
+        return;
+    while (*str && (*str == ' ' || *str == '\t' || *str == '\n' || *str == '\r'))
+        str++;
 }

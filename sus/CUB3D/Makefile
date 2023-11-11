@@ -6,7 +6,7 @@
 #    By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/08 14:35:14 by otchekai          #+#    #+#              #
-#    Updated: 2023/11/08 14:44:45 by otchekai         ###   ########.fr        #
+#    Updated: 2023/11/10 13:19:58 by otchekai         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ CFLAGS = -Wall -Wextra -Werror
 
 INC = cub3d.h get_next_line.h
 
-SRC = cub3d.c cub3d_utils.c readmap.c get_next_line_utils.c get_next_line.c parsing.c
+SRC = cub3d.c cub3d_utils.c readmap.c get_next_line_utils.c get_next_line.c parsing.c ft_error.c
 
 OBJ = $(SRC:.c=.o)
  

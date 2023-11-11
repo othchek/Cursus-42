@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 11:33:38 by otchekai          #+#    #+#             */
-/*   Updated: 2023/02/26 16:55:03 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/11/11 22:45:27 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,4 +88,37 @@ char	*ft_strdup(char *s1)
 		gnl[pr++] = s1[sec++];
 	gnl[pr] = '\0';
 	return (gnl);
+}
+
+size_t ft_numlen(int num)
+{
+    size_t len;
+
+	len = 1;
+    while (num /= 10)
+        len++;
+    return len;
+}
+
+int	ft_atoi(const char *str)
+{
+	int	i;
+	int	k;
+	int	sign;
+
+	i = 0;
+	k = 0;
+	sign = 1;
+	while ((str[i] == ' ') || (str[i] >= '\t' && str[i] <= '\r'))
+		i++;
+	if (str[i] == '-')
+		sign *= -1;
+	if (str[i] == '+' || str[i] == '-')
+		i++;
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		k = k * 10 + (str[i] - '0');
+		i++;
+	}
+	return (k * sign);
 }

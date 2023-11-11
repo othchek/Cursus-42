@@ -1,26 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_error.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/10 07:20:52 by otchekai          #+#    #+#             */
-/*   Updated: 2023/11/10 18:12:39 by otchekai         ###   ########.fr       */
+/*   Created: 2023/11/10 13:11:52 by otchekai          #+#    #+#             */
+/*   Updated: 2023/11/11 22:50:06 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "cub3d.h"
 
-char	*ft_strchr(const char *str, int c)
+void	ft_error(char *s)
 {
-	while (*str != '\0')
+	ft_putstr_fd(s, 1);
+	write (1, "\n", 1);
+	exit(0);
+}
+
+int	ft_isdigit(int c)
+{
+	if (c >= 48 && c <= 57)
+		return (1);
+	else
+		return (0);
+}
+
+int	ft_strcmp(char *s1, char *s2)
+{
+	while (*s1 || *s2)
 	{
-		if (*str == (char)(c))
-			return ((char *)str);
-		str++;
+		if (*s1 != *s2)
+			return (1);
+		s1++;
+		s2++;
 	}
-	if (*str == '\0' && *str == (char)c)
-		return ((char *)str);
 	return (0);
 }

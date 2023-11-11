@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 13:54:26 by otchekai          #+#    #+#             */
-/*   Updated: 2023/11/08 17:54:43 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/11/11 23:51:36 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ char	**read_map(t_cub *cub, char *av)
 	fd = open(av, O_RDONLY);
 	if (fd == -1)
 		ft_error("Error\nFile error");
-	ptr = (char **)malloc((cub->map_height + 1) * sizeof(char *));
+	ptr = malloc((cub->map_height + 1) * sizeof(char *));
 	if (!ptr)
 		return (NULL);
 	str = get_next_line(fd);
@@ -46,7 +46,7 @@ char	**read_map(t_cub *cub, char *av)
 	return (ptr);
 }
 
-void    map_height(t_cub *cub, char *name)
+void	map_height(t_cub *cub, char *name)
 {
 	int		fd;
 	char	str;
@@ -65,30 +65,118 @@ void    map_height(t_cub *cub, char *name)
 	cub->map_height++;
 	close(fd);
 }
-char	**devide_map(t_cub *cub)
+
+void	parse_rgb(t_cub *cub)
 {
-	char **ptr;
 	int index;
-	int	j;
-	int	i;
-	
+	int count;
+	int delimiter;
+	int value;
+	int j;
+
 	index = 0;
-	i = 0;
-	ptr = (char **)malloc(sizeof(char *) * 9);
-	while (cub->map[index])
+	count = 0;
+	while (cub->allmap[index])
 	{
 		j = 0;
-		while (cub->map[index][j])
+		delimiter = 0;
+		if (cub->allmap[index][j] == '\0')
 		{
-			if (cub->map[index][j] == 'E' && cub->map[index][j + 1] == 'A')
-			{
-				ptr[i++] = cub->map[index];
-				return (ptr);
-			}
-			j++;
+			index++;
+			continue;
 		}
-		ptr[i++] = cub->map[index];
+		while (cub->allmap[index][j])
+		{
+			if (cub->allmap[index][j] == 'F' || cub->allmap[index][j] == 'C')
+				j++;
+			else if (cub->allmap[index][j] == ' ' || cub->allmap[index][j] == '\t' || cub->allmap[index][j] == '\r')
+				j++;
+			else if (cub->allmap[index][j] == ',' && ft_isdigit(cub->allmap[index][j + 1]))
+			{
+				delimiter++;
+				j++;
+			}
+			else if (!ft_isdigit(cub->allmap[index][j]))
+				ft_error("Invalid elements");
+			else
+			{
+			    value = 0;
+			    while (cub->allmap[index][j] && ft_isdigit(cub->allmap[index][j]))
+			    {
+			        value = value * 10 + (cub->allmap[index][j] - '0');
+			        j++;
+			    }
+			    while (cub->allmap[index][j] && (cub->allmap[index][j] == ' ' || cub->allmap[index][j] == '\t' || cub->allmap[index][j] == '\r'))
+			        j++;
+			    if (value < 0 || value > 255)
+			        ft_error("Invalid elements: RGB values must be between 0 and 255");
+				if (cub->allmap[index][j] && cub->allmap[index][j] != ',')
+                    ft_error("Extra number found");
+			}
+		}
+		count++;
+		if (count == 2)
+		{
+			if (delimiter != 2)
+				ft_error("Invalid elements:");
+			break ;
+		}
 		index++;
 	}
-	return (NULL);
 }
+
+// char	**devide_map(t_cub *cub)
+// {
+// 	char	**ptr;
+// 	int		index;
+// 	int		i;
+// 	int		count;
+// 	int		j;
+
+// 	j = 0;
+// 	count = 0;
+// 	i = 0;
+// 	index = 0;
+// 	ptr = malloc(sizeof(char *) * 6);
+// 	if (!ptr)
+// 		return (NULL);
+// 	while (cub->allmap[index] && count <= 5)
+// 	{
+// 		if (cub->allmap[index][j] == '\0')
+// 		{
+// 			index++;
+// 			continue ;
+// 		}
+// 		if (count == 5)
+// 		{
+// 			ptr[i++] = cub->allmap[index];
+// 			break ;
+// 		}
+// 		ptr[i++] = cub->allmap[index];
+// 		index++;
+// 		count++;
+// 	}
+// 	ptr[i] = NULL;
+// 	return (ptr);
+// }
+
+// void key_check(char *str, char *key) 
+// {
+//     char **split;
+//     int i;
+
+// 	i = 0;
+//     split = ft_split(str, ' ');
+//     while (split[i]) 
+// 	{
+//         if (!ft_strncmp(split[i], key, 1)) 
+// 		{
+//             if (split[i + 1] == NULL)
+//                 printf("Key: %s has no corresponding value.\n", split[i]);
+// 			break;
+//         }
+// 		i++;
+//     }
+// 	if (split[i] == NULL)
+//         printf("Key: %s not found.\n", key);
+// }
