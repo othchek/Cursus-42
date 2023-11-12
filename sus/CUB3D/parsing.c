@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 13:09:25 by otchekai          #+#    #+#             */
-/*   Updated: 2023/11/12 17:04:37 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/11/12 21:41:14 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,4 +128,60 @@ void	parse_xpmfiles(t_cub *cub)
 	}
 	if (count != 4)
 		ft_error("Invalid Path");
+}
+
+void	parse_map(t_cub *cub)
+{
+	int index;
+	int	flag;
+	int j;
+
+	j = 0;
+	index = 0;
+	flag = 0;
+	while (cub->map[index])
+	{
+		j = 0;
+		while (cub->map[index][j])
+		{
+			if (cub->map[index][j] == ' ' || cub->map[index][j] == '\t' || cub->map[index][j] == '\r')
+				j++;
+			else if (cub->map[index][j] == 'N' || cub->map[index][j] == 'S' || cub->map[index][j] == 'W'
+				|| cub->map[index][j] == 'E')
+			{
+				j++;
+				flag++;
+			}
+			else if (cub->map[index][j] != '0' && cub->map[index][j] != '1')
+					ft_error("Invalid map: unknown character");
+			j++;
+		}
+		index++;
+	}
+	if (flag > 1)
+		ft_error("Invalid map: more than one player");
+}
+
+void	parse_zeros(t_cub *cub)
+{
+	int index;
+	int j;
+	
+	index = 0;
+	while (cub->map[index])
+	{
+		j = 0;
+		while (cub->map[index][j])
+		{
+			if (cub->map[index][j] == '0')
+			{
+				printf("%c\n", cub->map[index - 1][j]);
+				if (cub->map[index][j - 1] != '1' && cub->map[index][j + 1] != '1'
+					&& cub->map[index - 1][j] != '1' && cub->map[index + 1][j] != '1')
+					ft_error("Invalid map: 0 is not surrounded by 1");
+			}
+			j++;
+		}
+		index++;
+	}
 }

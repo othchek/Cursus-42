@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 13:54:26 by otchekai          #+#    #+#             */
-/*   Updated: 2023/11/12 17:18:59 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/11/12 22:37:32 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,17 +88,19 @@ void	store_it(t_cub *cub)
 		index++;
 	}
 }
-//saloua 2:1 simo
+
 char	**devide_map(t_cub *cub)
 {
 	char	**ptr;
 	int		index;
+	int		count;
 	int		i;
 	int		j;
 
 	j = 0;
 	i = 0;
 	index = 0;
+	count = 0;
 	ptr = malloc(sizeof(char *) * cub->map_height);
 	if (!ptr)
 		return (NULL);
@@ -109,13 +111,37 @@ char	**devide_map(t_cub *cub)
 			index++;
 			continue ;
 		}
-		if (cub->allmap[index][j] == '1' && cub->allmap[index][j + 1] == '1' 
+		if (cub->allmap[index][j] == '1' && cub->allmap[index][j + 1] == '1'
 			&& cub->allmap[index][j + 2] == '1')
 		{
 			ptr = &cub->allmap[index];
 			return (ptr);
 		}
 		index++;
+		count++;
 	}
 	return (NULL);
+}
+
+void	width_check(t_cub *cub)
+{
+	char **ptr;
+	int index;
+	int j;
+
+	index = 0;
+	cub->map_width = 0;
+	while (cub->map[index])
+	{
+		j = 0;
+		while (cub->map[index][j])
+		{
+			if (cub->map[index][j] == ' ' || cub->map[index][j] == '\t' || cub->map[index][j] == '\r')
+				j++;
+			j++;
+		}
+		if (j > cub->map_width)
+			cub->map_width = j;
+		index++;
+	}
 }

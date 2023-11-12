@@ -6,16 +6,15 @@
 #    By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/08 14:35:14 by otchekai          #+#    #+#              #
-#    Updated: 2023/11/10 13:19:58 by otchekai         ###   ########.fr        #
+#    Updated: 2023/11/12 21:29:40 by otchekai         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-MAKEFLAGS += -s
 NAME = cub3D
 
 CC = cc
 
-CFLAGS = -Wall -Wextra -Werror 
+CFLAGS = -Wall -Wextra -Werror -g -fsanitize=address
 
 INC = cub3d.h get_next_line.h
 
