@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 11:33:44 by otchekai          #+#    #+#             */
-/*   Updated: 2023/11/11 22:50:10 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/11/12 14:25:53 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,6 @@ int     ft_atoi(const char *str);
 int		ft_strlen(const char *s);
 void    skip_whitespaces(char *str);
 size_t  ft_numlen(int num);
+int     ft_isspace(int c);
 
 #endif

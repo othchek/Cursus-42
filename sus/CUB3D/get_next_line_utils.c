@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 11:33:38 by otchekai          #+#    #+#             */
-/*   Updated: 2023/11/11 22:45:27 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/11/12 15:12:03 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,4 +121,9 @@ int	ft_atoi(const char *str)
 		i++;
 	}
 	return (k * sign);
+}
+
+int ft_isspace(int c)
+{
+    return (c == ' ' || c == '\t' || c == '\n' || c == '\r' || c == '\f' || c == '\v');
 }

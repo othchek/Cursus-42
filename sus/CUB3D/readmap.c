@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 13:54:26 by otchekai          #+#    #+#             */
-/*   Updated: 2023/11/11 23:51:36 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/11/12 17:18:59 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,117 +66,56 @@ void	map_height(t_cub *cub, char *name)
 	close(fd);
 }
 
-void	parse_rgb(t_cub *cub)
+void	store_it(t_cub *cub)
 {
 	int index;
-	int count;
-	int delimiter;
-	int value;
-	int j;
 
 	index = 0;
-	count = 0;
 	while (cub->allmap[index])
 	{
-		j = 0;
-		delimiter = 0;
-		if (cub->allmap[index][j] == '\0')
-		{
-			index++;
-			continue;
-		}
-		while (cub->allmap[index][j])
-		{
-			if (cub->allmap[index][j] == 'F' || cub->allmap[index][j] == 'C')
-				j++;
-			else if (cub->allmap[index][j] == ' ' || cub->allmap[index][j] == '\t' || cub->allmap[index][j] == '\r')
-				j++;
-			else if (cub->allmap[index][j] == ',' && ft_isdigit(cub->allmap[index][j + 1]))
-			{
-				delimiter++;
-				j++;
-			}
-			else if (!ft_isdigit(cub->allmap[index][j]))
-				ft_error("Invalid elements");
-			else
-			{
-			    value = 0;
-			    while (cub->allmap[index][j] && ft_isdigit(cub->allmap[index][j]))
-			    {
-			        value = value * 10 + (cub->allmap[index][j] - '0');
-			        j++;
-			    }
-			    while (cub->allmap[index][j] && (cub->allmap[index][j] == ' ' || cub->allmap[index][j] == '\t' || cub->allmap[index][j] == '\r'))
-			        j++;
-			    if (value < 0 || value > 255)
-			        ft_error("Invalid elements: RGB values must be between 0 and 255");
-				if (cub->allmap[index][j] && cub->allmap[index][j] != ',')
-                    ft_error("Extra number found");
-			}
-		}
-		count++;
-		if (count == 2)
-		{
-			if (delimiter != 2)
-				ft_error("Invalid elements:");
-			break ;
-		}
+		if (ft_strfound(cub->allmap[index], "F"))
+			cub->f = cub->allmap[index];
+		else if (ft_strfound(cub->allmap[index], "C"))
+			cub->c = cub->allmap[index];
+		else if (ft_strfound(cub->allmap[index], "NO"))
+			cub->no = cub->allmap[index];
+		else if (ft_strfound(cub->allmap[index], "SO"))
+			cub->so = cub->allmap[index];
+		else if (ft_strfound(cub->allmap[index], "WE"))
+			cub->we = cub->allmap[index];
+		else if (ft_strfound(cub->allmap[index], "EA"))
+			cub->ea = cub->allmap[index];
 		index++;
 	}
 }
+//saloua 2:1 simo
+char	**devide_map(t_cub *cub)
+{
+	char	**ptr;
+	int		index;
+	int		i;
+	int		j;
 
-// char	**devide_map(t_cub *cub)
-// {
-// 	char	**ptr;
-// 	int		index;
-// 	int		i;
-// 	int		count;
-// 	int		j;
-
-// 	j = 0;
-// 	count = 0;
-// 	i = 0;
-// 	index = 0;
-// 	ptr = malloc(sizeof(char *) * 6);
-// 	if (!ptr)
-// 		return (NULL);
-// 	while (cub->allmap[index] && count <= 5)
-// 	{
-// 		if (cub->allmap[index][j] == '\0')
-// 		{
-// 			index++;
-// 			continue ;
-// 		}
-// 		if (count == 5)
-// 		{
-// 			ptr[i++] = cub->allmap[index];
-// 			break ;
-// 		}
-// 		ptr[i++] = cub->allmap[index];
-// 		index++;
-// 		count++;
-// 	}
-// 	ptr[i] = NULL;
-// 	return (ptr);
-// }
-
-// void key_check(char *str, char *key) 
-// {
-//     char **split;
-//     int i;
-
-// 	i = 0;
-//     split = ft_split(str, ' ');
-//     while (split[i]) 
-// 	{
-//         if (!ft_strncmp(split[i], key, 1)) 
-// 		{
-//             if (split[i + 1] == NULL)
-//                 printf("Key: %s has no corresponding value.\n", split[i]);
-// 			break;
-//         }
-// 		i++;
-//     }
-// 	if (split[i] == NULL)
-//         printf("Key: %s not found.\n", key);
-// }
+	j = 0;
+	i = 0;
+	index = 0;
+	ptr = malloc(sizeof(char *) * cub->map_height);
+	if (!ptr)
+		return (NULL);
+	while (cub->allmap[index])
+	{
+		if (cub->allmap[index][j] == '\0')
+		{
+			index++;
+			continue ;
+		}
+		if (cub->allmap[index][j] == '1' && cub->allmap[index][j + 1] == '1' 
+			&& cub->allmap[index][j + 2] == '1')
+		{
+			ptr = &cub->allmap[index];
+			return (ptr);
+		}
+		index++;
+	}
+	return (NULL);
+}
