@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 14:05:38 by otchekai          #+#    #+#             */
-/*   Updated: 2023/11/12 14:29:27 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/11/15 18:40:06 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,35 +131,4 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		return (ptr);
 	}
 	return (NULL);
-}
-
-int ft_strfound(char* haystack, char* needle)
-{
-    int needleLen = ft_strlen(needle);
-    while (*haystack != '\0') 
-    {
-        int leadingWhitespaceLen = 0;
-        while (ft_isspace(*haystack)) 
-        {
-            haystack++;
-            leadingWhitespaceLen++;
-        }
-        if (ft_strncmp(haystack, needle, needleLen) == 0) 
-        {
-            if (haystack[needleLen] == '\0' || ft_isspace(haystack[needleLen]))
-                return 1;
-        }
-        haystack += leadingWhitespaceLen;
-        if (leadingWhitespaceLen == 0)
-            haystack++;
-    }
-    return 0;
-}
-
-void skip_whitespaces(char *str)
-{
-    if (!str)
-        return;
-    while (*str && (*str == ' ' || *str == '\t' || *str == '\n' || *str == '\r'))
-        str++;
 }

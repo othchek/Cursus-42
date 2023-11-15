@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 13:09:25 by otchekai          #+#    #+#             */
-/*   Updated: 2023/11/12 21:41:14 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/11/15 18:36:13 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,11 @@ void	checkmap(t_cub *cub)
 	count = 0;
 	while (cub->allmap[index])
 	{
-		if (ft_strfound(cub->allmap[index], "F") || ft_strfound(cub->allmap[index], "C") || ft_strfound(cub->allmap[index], "NO")
-			|| ft_strfound(cub->allmap[index], "SO") || ft_strfound(cub->allmap[index], "WE")
+		if (ft_strfound(cub->allmap[index], "F") 
+			|| ft_strfound(cub->allmap[index], "C") 
+			|| ft_strfound(cub->allmap[index], "NO") 
+			|| ft_strfound(cub->allmap[index], "SO") 
+			|| ft_strfound(cub->allmap[index], "WE") 
 			|| ft_strfound(cub->allmap[index], "EA"))
 			count++;
 		index++;
@@ -32,12 +35,12 @@ void	checkmap(t_cub *cub)
 }
 void	parse_rgb(t_cub *cub)
 {
-	int index;
-	int count;
-	int key_counter;
-	int delimiter;
-	int value;
-	int j;
+	int	index;
+	int	count;
+	int	key_counter;
+	int	delimiter;
+	int	value;
+	int	j;
 
 	index = 0;
 	count = 0;
@@ -49,12 +52,11 @@ void	parse_rgb(t_cub *cub)
 		if (cub->allmap[index][j] == '\0')
 		{
 			index++;
-			continue;
+			continue ;
 		}
 		while (cub->allmap[index][j])
 		{
-			if ((cub->allmap[index][j] == 'F' && cub->allmap[index][j + 1] != 'F')
-				|| (cub->allmap[index][j] == 'C' && cub->allmap[index][j + 1] != 'C'))
+			if ((cub->allmap[index][j] == 'F' && cub->allmap[index][j + 1] != 'F') || (cub->allmap[index][j] == 'C' && cub->allmap[index][j + 1] != 'C'))
 			{
 				key_counter++;
 				j++;
@@ -70,18 +72,18 @@ void	parse_rgb(t_cub *cub)
 				ft_error("Invalid elements");
 			else
 			{
-			    value = 0;
-			    while (cub->allmap[index][j] && ft_isdigit(cub->allmap[index][j]))
-			    {
-			        value = value * 10 + (cub->allmap[index][j] - '0');
-			        j++;
-			    }
-			    while (cub->allmap[index][j] && (cub->allmap[index][j] == ' ' || cub->allmap[index][j] == '\t' || cub->allmap[index][j] == '\r'))
-			        j++;
-			    if (value < 0 || value > 255)
-			        ft_error("Invalid elements: RGB values must be between 0 and 255");
+				value = 0;
+				while (cub->allmap[index][j] && ft_isdigit(cub->allmap[index][j]))
+				{
+					value = value * 10 + (cub->allmap[index][j] - '0');
+					j++;
+				}
+				while (cub->allmap[index][j] && (cub->allmap[index][j] == ' ' || cub->allmap[index][j] == '\t' || cub->allmap[index][j] == '\r'))
+					j++;
+				if (value < 0 || value > 255)
+					ft_error("Invalid elements: RGB values must be between 0 and 255");
 				if (cub->allmap[index][j] && cub->allmap[index][j] != ',' && !ft_isdigit(cub->allmap[index][j]))
-                    ft_error("Extra number found");
+					ft_error("Extra number found");
 			}
 		}
 		count++;
@@ -108,8 +110,7 @@ void	parse_xpmfiles(t_cub *cub)
 	while (cub->allmap[index])
 	{
 		j = 0;
-		if ((ft_strfound(cub->allmap[index], "NO")) || ft_strfound(cub->allmap[index], "SO") 
-			|| ft_strfound(cub->allmap[index], "WE") || ft_strfound(cub->allmap[index], "EA"))
+		if ((ft_strfound(cub->allmap[index], "NO")) || ft_strfound(cub->allmap[index], "SO") || ft_strfound(cub->allmap[index], "WE") || ft_strfound(cub->allmap[index], "EA"))
 		{
 			count++;
 			while (cub->allmap[index][j])
@@ -133,7 +134,7 @@ void	parse_xpmfiles(t_cub *cub)
 void	parse_map(t_cub *cub)
 {
 	int index;
-	int	flag;
+	int flag;
 	int j;
 
 	j = 0;
@@ -146,42 +147,17 @@ void	parse_map(t_cub *cub)
 		{
 			if (cub->map[index][j] == ' ' || cub->map[index][j] == '\t' || cub->map[index][j] == '\r')
 				j++;
-			else if (cub->map[index][j] == 'N' || cub->map[index][j] == 'S' || cub->map[index][j] == 'W'
-				|| cub->map[index][j] == 'E')
+			else if (cub->map[index][j] == 'N' || cub->map[index][j] == 'S' || cub->map[index][j] == 'W' || cub->map[index][j] == 'E')
 			{
 				j++;
 				flag++;
 			}
 			else if (cub->map[index][j] != '0' && cub->map[index][j] != '1')
-					ft_error("Invalid map: unknown character");
+				ft_error("Invalid map: unknown character");
 			j++;
 		}
 		index++;
 	}
-	if (flag > 1)
-		ft_error("Invalid map: more than one player");
-}
-
-void	parse_zeros(t_cub *cub)
-{
-	int index;
-	int j;
-	
-	index = 0;
-	while (cub->map[index])
-	{
-		j = 0;
-		while (cub->map[index][j])
-		{
-			if (cub->map[index][j] == '0')
-			{
-				printf("%c\n", cub->map[index - 1][j]);
-				if (cub->map[index][j - 1] != '1' && cub->map[index][j + 1] != '1'
-					&& cub->map[index - 1][j] != '1' && cub->map[index + 1][j] != '1')
-					ft_error("Invalid map: 0 is not surrounded by 1");
-			}
-			j++;
-		}
-		index++;
-	}
+	if (flag > 1 || flag == 0)
+		ft_error("Invalid map: more than one or No player in the map");
 }

@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 13:54:26 by otchekai          #+#    #+#             */
-/*   Updated: 2023/11/12 22:37:32 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/11/15 18:55:05 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,27 +121,4 @@ char	**devide_map(t_cub *cub)
 		count++;
 	}
 	return (NULL);
-}
-
-void	width_check(t_cub *cub)
-{
-	char **ptr;
-	int index;
-	int j;
-
-	index = 0;
-	cub->map_width = 0;
-	while (cub->map[index])
-	{
-		j = 0;
-		while (cub->map[index][j])
-		{
-			if (cub->map[index][j] == ' ' || cub->map[index][j] == '\t' || cub->map[index][j] == '\r')
-				j++;
-			j++;
-		}
-		if (j > cub->map_width)
-			cub->map_width = j;
-		index++;
-	}
 }

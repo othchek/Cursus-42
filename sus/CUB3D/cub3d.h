@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 13:08:25 by otchekai          #+#    #+#             */
-/*   Updated: 2023/11/12 22:36:28 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/11/15 14:00:16 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ typedef struct l_cub
 {
 	char	**allmap;
 	char	**map;
+	char	**defmap;
 	int		map_height;
 	int		map_width;
 	char	*f;
@@ -39,11 +40,13 @@ int		ft_strncmp(const char *s1, const char *s2, size_t n);
 void	ft_error(char *s);
 char	**read_map(t_cub *cub, char *av);
 void	map_height(t_cub *cub, char *name);
+void	width_check(t_cub *cub);
 void	ft_putstr_fd(char *s, int fd);
 void	parse_rgb(t_cub *cub);
 void	parse_xpmfiles(t_cub *cub);
 void	checkmapextension(char *filename);
 char	**devide_map(t_cub *cub);
+char	**defmap(t_cub *cub);
 void	checkmap(t_cub *cub);
 void	parse_map(t_cub *cub);
 void	parse_zeros(t_cub *cub);
