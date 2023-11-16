@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 11:52:40 by otchekai          #+#    #+#             */
-/*   Updated: 2023/11/16 12:23:38 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/11/16 13:59:24 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	parse_player(t_cub *cub)
 			if ((cub->defmap[i][j] == 'N' || cub->defmap[i][j] == 'S'
 				|| cub->defmap[i][j] == 'W' || cub->defmap[i][j] == 'E')
 				&& !player_valid(cub, i, j))
-				ft_error("Invalid map: player");
+				ft_error("Invalid map: player is not surrounded by valid elements!");
 			j++;
 		}
 		i++;

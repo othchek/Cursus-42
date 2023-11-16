@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 13:54:26 by otchekai          #+#    #+#             */
-/*   Updated: 2023/11/16 11:26:45 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/11/16 16:54:05 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,4 +116,14 @@ char	**devide_map(t_cub *cub)
 		index++;
 	}
 	return (NULL);
+}
+
+void	ones_length(t_cub *cub)
+{
+	int index;
+
+	index = 0;
+	while (cub->map[index])
+		index++;
+	cub->ones_length = index;
 }

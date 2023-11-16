@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 13:08:23 by otchekai          #+#    #+#             */
-/*   Updated: 2023/11/16 12:22:40 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/11/16 16:56:08 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ int	main(int ac, char **av)
 	cub.allmap = read_map(&cub, av[1]);
 	parse_elements(&cub);
 	cub.map = devide_map(&cub);
+	ones_length(&cub);
 	width_check(&cub);
 	cub.defmap = defmap(&cub);
 	map_parse(&cub);
