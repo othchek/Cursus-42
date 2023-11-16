@@ -6,7 +6,7 @@
 #    By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/08 14:35:14 by otchekai          #+#    #+#              #
-#    Updated: 2023/11/15 18:44:09 by otchekai         ###   ########.fr        #
+#    Updated: 2023/11/16 12:02:04 by otchekai         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,8 @@ CFLAGS = -Wall -Wextra -Werror -g -fsanitize=address
 
 INC = cub3d.h get_next_line.h
 
-SRC = cub3d.c cub3d_utils.c readmap.c get_next_line_utils.c get_next_line.c parsing.c ft_error.c parsing2.c readmap2.c cub3d_utils2.c
+SRC = cub3d.c cub3d_utils.c readmap.c get_next_line_utils.c get_next_line.c parsing.c ft_error.c parsing2.c readmap2.c cub3d_utils2.c \
+	parsing3.c
 
 OBJ = $(SRC:.c=.o)
  

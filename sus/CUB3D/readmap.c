@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 13:54:26 by otchekai          #+#    #+#             */
-/*   Updated: 2023/11/15 18:55:05 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/11/16 11:26:45 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,14 +93,10 @@ char	**devide_map(t_cub *cub)
 {
 	char	**ptr;
 	int		index;
-	int		count;
-	int		i;
 	int		j;
 
 	j = 0;
-	i = 0;
 	index = 0;
-	count = 0;
 	ptr = malloc(sizeof(char *) * cub->map_height);
 	if (!ptr)
 		return (NULL);
@@ -118,7 +114,6 @@ char	**devide_map(t_cub *cub)
 			return (ptr);
 		}
 		index++;
-		count++;
 	}
 	return (NULL);
 }

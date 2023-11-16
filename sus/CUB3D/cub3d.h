@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 13:08:25 by otchekai          #+#    #+#             */
-/*   Updated: 2023/11/15 14:00:16 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/11/16 12:22:16 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ void	ft_error(char *s);
 char	**read_map(t_cub *cub, char *av);
 void	map_height(t_cub *cub, char *name);
 void	width_check(t_cub *cub);
+void	process_rgb_line(char *str, int *key, int *delimiter, int *count);
 void	ft_putstr_fd(char *s, int fd);
 void	parse_rgb(t_cub *cub);
 void	parse_xpmfiles(t_cub *cub);
@@ -50,10 +51,13 @@ char	**defmap(t_cub *cub);
 void	checkmap(t_cub *cub);
 void	parse_map(t_cub *cub);
 void	parse_zeros(t_cub *cub);
-int		ft_strfound(char* haystack, char* needle);
+void	parse_empty_line(t_cub *cub);
+void	parse_player(t_cub *cub);
+int		player_valid(t_cub *cub, int i, int j);
+int		ft_strfound(char *haystack, char *needle);
 void	store_it(t_cub *cub);
 int		ft_strcmp(char *s1, char *s2);
-char    **ft_split2(char *s, char *c);
+char	**ft_split2(char *s, char *c);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 int		ft_isdigit(int c);
 

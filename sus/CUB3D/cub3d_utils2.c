@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 18:40:11 by otchekai          #+#    #+#             */
-/*   Updated: 2023/11/15 18:43:57 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/11/16 11:43:59 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	ft_strfound(char *haystack, char *needle)
 	int	whitespaces;
 
 	needlelen = ft_strlen(needle);
-	while (*haystack != '\0') 
+	while (*haystack != '\0')
 	{
 		whitespaces = 0;
 		while (ft_isspace(*haystack)) 
@@ -68,4 +68,31 @@ void	width_check(t_cub *cub)
 			cub->map_width = j;
 		index++;
 	}
+}
+
+char	*ft_substr(char const *s, unsigned int start, size_t len)
+{
+	size_t	i;
+	size_t	j;
+	char	*ptr;
+
+	if (s)
+	{
+		i = ft_strlen(s);
+		j = 0;
+		if (len > i)
+			len = i;
+		ptr = malloc(len + 1);
+		if (!ptr)
+			return (NULL);
+		while (j < len && start < i)
+		{
+			ptr[j] = s[start];
+			start++;
+			j++;
+		}
+		ptr[j] = '\0';
+		return (ptr);
+	}
+	return (NULL);
 }

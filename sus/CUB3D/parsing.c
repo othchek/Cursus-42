@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 13:09:25 by otchekai          #+#    #+#             */
-/*   Updated: 2023/11/15 18:36:13 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/11/16 12:07:16 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ void	checkmap(t_cub *cub)
 	if (count != 6)
 		ft_error("Invalid elements");
 }
+
 void	parse_rgb(t_cub *cub)
 {
 	int	index;
@@ -101,29 +102,34 @@ void	parse_rgb(t_cub *cub)
 
 void	parse_xpmfiles(t_cub *cub)
 {
-	int index;
-	int count;
-	int j;
+	int	index;
+	int	count;
+	int	j;
 
 	index = 0;
 	count = 0;
 	while (cub->allmap[index])
 	{
 		j = 0;
-		if ((ft_strfound(cub->allmap[index], "NO")) || ft_strfound(cub->allmap[index], "SO") || ft_strfound(cub->allmap[index], "WE") || ft_strfound(cub->allmap[index], "EA"))
+		if ((ft_strfound(cub->allmap[index], "NO")) 
+			|| ft_strfound(cub->allmap[index], "SO")
+			|| ft_strfound(cub->allmap[index], "WE")
+			|| ft_strfound(cub->allmap[index], "EA"))
 		{
-			count++;
 			while (cub->allmap[index][j])
 			{
 				j += 2;
-				if (cub->allmap[index][j] && (cub->allmap[index][j] == ' ' || cub->allmap[index][j] == '\t' || cub->allmap[index][j] == '\r'))
+				if ((cub->allmap[index][j] == ' '
+					|| cub->allmap[index][j] == '\t'
+					|| cub->allmap[index][j] == '\r'))
 					j++;
 				if (cub->allmap[index][j])
-					break;
+					break ;
 				else
 					ft_error("Invalid Path");
 				j++;
 			}
+			count++;
 		}
 		index++;
 	}
@@ -133,21 +139,22 @@ void	parse_xpmfiles(t_cub *cub)
 
 void	parse_map(t_cub *cub)
 {
-	int index;
-	int flag;
-	int j;
+	int	index;
+	int	flag;
+	int	j;
 
-	j = 0;
-	index = 0;
+	index = -1;
 	flag = 0;
-	while (cub->map[index])
+	while (cub->map[++index])
 	{
 		j = 0;
 		while (cub->map[index][j])
 		{
-			if (cub->map[index][j] == ' ' || cub->map[index][j] == '\t' || cub->map[index][j] == '\r')
+			if (cub->map[index][j] == ' '
+				|| cub->map[index][j] == '\t' || cub->map[index][j] == '\r')
 				j++;
-			else if (cub->map[index][j] == 'N' || cub->map[index][j] == 'S' || cub->map[index][j] == 'W' || cub->map[index][j] == 'E')
+			else if (cub->map[index][j] == 'N' || cub->map[index][j] == 'S'
+				|| cub->map[index][j] == 'W' || cub->map[index][j] == 'E')
 			{
 				j++;
 				flag++;
@@ -156,7 +163,6 @@ void	parse_map(t_cub *cub)
 				ft_error("Invalid map: unknown character");
 			j++;
 		}
-		index++;
 	}
 	if (flag > 1 || flag == 0)
 		ft_error("Invalid map: more than one or No player in the map");

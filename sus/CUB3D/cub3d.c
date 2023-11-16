@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 13:08:23 by otchekai          #+#    #+#             */
-/*   Updated: 2023/11/15 16:57:15 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/11/16 12:22:40 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,10 @@ void	parse_elements(t_cub *cub)
 
 void	map_parse(t_cub *cub)
 {
+	parse_empty_line(cub);
 	parse_map(cub);
 	parse_zeros(cub);
+	parse_player(cub);
 }
 
 int	main(int ac, char **av)
@@ -41,6 +43,6 @@ int	main(int ac, char **av)
 	width_check(&cub);
 	cub.defmap = defmap(&cub);
 	map_parse(&cub);
-	for (int i = 0; cub.defmap[i]; i++)
-		printf("%s\n", cub.defmap[i]);
+	// for (int i = 0; cub.defmap[i]; i++)
+		// printf("%s\n", cub.defmap[i]);
 }
