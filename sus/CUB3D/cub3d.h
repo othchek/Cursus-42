@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 13:08:25 by otchekai          #+#    #+#             */
-/*   Updated: 2023/11/18 01:33:33 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/11/18 17:25:28 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,9 @@
 # include <stdio.h>
 # include <stdlib.h>
 
-# define tile_size 32;
+# ifndef tile_size
+# define tile_size 32
+#endif
 
 typedef struct l_cub {
 	struct s_data	*content;
@@ -62,6 +64,8 @@ void	process_rgb_line(char *str, int *key, int *delimiter, int *count);
 void	ft_putstr_fd(char *s, int fd);
 void	parse_rgb(t_cub *cub);
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
+void	loop_zeros(t_cub *cub, t_data *img);
+void	draw_square(int x, int y, t_data *img, int color);
 int		key(int keycode, t_cub *oth);
 void	parse_xpmfiles(t_cub *cub);
 void	checkmapextension(char *filename);

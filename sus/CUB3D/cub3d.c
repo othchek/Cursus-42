@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 13:08:23 by otchekai          #+#    #+#             */
-/*   Updated: 2023/11/18 01:35:18 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/11/18 17:18:41 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 void	init(t_cub *cub, t_data *img)
 {
 	cub->mlx_ptr = mlx_init();
-	cub->win_ptr = mlx_new_window(cub->mlx_ptr, 1920, 1080, "D3buc");
-	img->img = mlx_new_image(cub->mlx_ptr, 1920, 1080);
-	img->addr = mlx_get_data_addr(img->img, &img->bits_per_pixel, &img->line_length, 
-				&img->endian);
+	cub->win_ptr = mlx_new_window(cub->mlx_ptr, 1280, 720, "D3buc");
+	img->img = mlx_new_image(cub->mlx_ptr, 1280, 720);
+	img->addr = mlx_get_data_addr(img->img, &img->bits_per_pixel, &img->line_length,
+								&img->endian);
 	if (!cub->win_ptr)
 		ft_error("Error");
 }
@@ -65,7 +65,7 @@ int	main(int ac, char **av)
 	cub.defmap = defmap(&cub);
 	map_parse(&cub);
 	init(&cub, &img);
-	my_mlx_pixel_put(&img, 1280, 720, 0xFFFFFF);
+	loop_zeros(&cub, &img);
 	mlx_put_image_to_window(cub.mlx_ptr, cub.win_ptr, img.img, 0, 0);
 	mlxat(&cub);
 	// for (int i = 0; cub.defmap[i]; i++)

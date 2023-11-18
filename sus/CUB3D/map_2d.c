@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 20:23:26 by otchekai          #+#    #+#             */
-/*   Updated: 2023/11/18 01:32:15 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/11/18 17:23:19 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,25 +15,49 @@
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 {
 	char	*dst;
-
+	if(x > 1920 || y > 1080)
+		return ;
 	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
 	*(unsigned int*)dst = color;
 }
 
-void	draw_square(int x, int y, int size, t_data *vars)
+void	draw_square(int x, int y, t_data *img, int color)
 {
 	int i;
 	int j;
 
 	i = 0;
-	while (i < size)
+	while (i < tile_size)
 	{
 		j = 0;
-		while (j < size)
+		while (j < tile_size)
 		{
-			my_mlx_pixel_put(vars->img, x + i, y + j, 0x00FF0000);
+			my_mlx_pixel_put(img, x + j, y + i, color);
 			j++;
 		}
 		i++;
+	}
+}
+
+void	loop_zeros(t_cub *cub, t_data *img)
+{
+	int index;
+	int j;
+
+	index = 0;
+	while (index < cub->ones_length)
+	{
+		j = 0;
+		while (j < cub->map_width)
+		{
+			if (cub->defmap[index][j] == '1')
+				draw_square(tile_size * j, tile_size * index, img, 0xFFFFF);
+			if (cub->defmap[index][j] == '0')
+				draw_square(tile_size * j, tile_size * index, img, 0x555555);
+			if (cub->defmap[index][j] == 'N')
+				draw_square(tile_size * j, tile_size * index, img, 0xFF5733);
+			j++;
+		}
+		index++;
 	}
 }
