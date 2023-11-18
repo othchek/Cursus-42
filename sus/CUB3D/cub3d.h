@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 13:08:25 by otchekai          #+#    #+#             */
-/*   Updated: 2023/11/16 16:54:30 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/11/18 01:33:33 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,43 @@
 # define CUB3D_H
 
 # include "get_next_line.h"
+# include "mlx.h"
 
 # include <unistd.h>
+# include <string.h>
 # include <fcntl.h>
 # include <stdlib.h>
 # include <stdio.h>
 # include <stdlib.h>
 
-typedef struct l_cub 
-{
-	char	**allmap;
-	char	**map;
-	char	**defmap;
-	int		map_height;
-	int		map_width;
-	int		ones_length;
-	char	*f;
-	char	*c;
-	char	*no;
-	char	*so;
-	char	*we;
-	char	*ea;
+# define tile_size 32;
+
+typedef struct l_cub {
+	struct s_data	*content;
+	char			**allmap;
+	char			**map;
+	char			**defmap;
+	void			*mlx_ptr;
+	void			*win_ptr;
+	int				map_height;
+	int				map_width;
+	int				ones_length;
+	char			*f;
+	char			*c;
+	char			*no;
+	char			*so;
+	char			*we;
+	char			*ea;
 }	t_cub;
+
+typedef struct	s_data {
+	t_cub	*data;
+	void	*img;
+	char	*addr;
+	int		bits_per_pixel;
+	int		line_length;
+	int		endian;
+}				t_data;
 
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 void	ft_error(char *s);
@@ -46,6 +61,8 @@ void	width_check(t_cub *cub);
 void	process_rgb_line(char *str, int *key, int *delimiter, int *count);
 void	ft_putstr_fd(char *s, int fd);
 void	parse_rgb(t_cub *cub);
+void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
+int		key(int keycode, t_cub *oth);
 void	parse_xpmfiles(t_cub *cub);
 void	checkmapextension(char *filename);
 char	**devide_map(t_cub *cub);

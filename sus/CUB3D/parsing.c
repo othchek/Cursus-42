@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 13:09:25 by otchekai          #+#    #+#             */
-/*   Updated: 2023/11/16 12:07:16 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/11/17 18:34:16 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,12 @@ void	checkmap(t_cub *cub)
 	count = 0;
 	while (cub->allmap[index])
 	{
-		if (ft_strfound(cub->allmap[index], "F") 
-			|| ft_strfound(cub->allmap[index], "C") 
-			|| ft_strfound(cub->allmap[index], "NO") 
-			|| ft_strfound(cub->allmap[index], "SO") 
-			|| ft_strfound(cub->allmap[index], "WE") 
-			|| ft_strfound(cub->allmap[index], "EA"))
+		if (strstr(cub->allmap[index], "F") 
+			|| strstr(cub->allmap[index], "C") 
+			|| strstr(cub->allmap[index], "NO") 
+			|| strstr(cub->allmap[index], "SO") 
+			|| strstr(cub->allmap[index], "WE") 
+			|| strstr(cub->allmap[index], "EA"))
 			count++;
 		index++;
 	}
@@ -111,10 +111,10 @@ void	parse_xpmfiles(t_cub *cub)
 	while (cub->allmap[index])
 	{
 		j = 0;
-		if ((ft_strfound(cub->allmap[index], "NO")) 
-			|| ft_strfound(cub->allmap[index], "SO")
-			|| ft_strfound(cub->allmap[index], "WE")
-			|| ft_strfound(cub->allmap[index], "EA"))
+		if ((strstr(cub->allmap[index], "NO"))
+			|| strstr(cub->allmap[index], "SO")
+			|| strstr(cub->allmap[index], "WE")
+			|| strstr(cub->allmap[index], "EA"))
 		{
 			while (cub->allmap[index][j])
 			{

@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 13:54:26 by otchekai          #+#    #+#             */
-/*   Updated: 2023/11/16 16:54:05 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/11/17 18:53:55 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,17 +73,17 @@ void	store_it(t_cub *cub)
 	index = 0;
 	while (cub->allmap[index])
 	{
-		if (ft_strfound(cub->allmap[index], "F"))
+		if (strstr(cub->allmap[index], "F"))
 			cub->f = cub->allmap[index];
-		else if (ft_strfound(cub->allmap[index], "C"))
+		else if (strstr(cub->allmap[index], "C"))
 			cub->c = cub->allmap[index];
-		else if (ft_strfound(cub->allmap[index], "NO"))
+		else if (strstr(cub->allmap[index], "NO"))
 			cub->no = cub->allmap[index];
-		else if (ft_strfound(cub->allmap[index], "SO"))
+		else if (strstr(cub->allmap[index], "SO"))
 			cub->so = cub->allmap[index];
-		else if (ft_strfound(cub->allmap[index], "WE"))
+		else if (strstr(cub->allmap[index], "WE"))
 			cub->we = cub->allmap[index];
-		else if (ft_strfound(cub->allmap[index], "EA"))
+		else if (strstr(cub->allmap[index], "EA"))
 			cub->ea = cub->allmap[index];
 		index++;
 	}

@@ -6,37 +6,11 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 18:40:11 by otchekai          #+#    #+#             */
-/*   Updated: 2023/11/16 11:43:59 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/11/17 18:35:08 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-
-int	ft_strfound(char *haystack, char *needle)
-{
-	int	needlelen;
-	int	whitespaces;
-
-	needlelen = ft_strlen(needle);
-	while (*haystack != '\0')
-	{
-		whitespaces = 0;
-		while (ft_isspace(*haystack)) 
-		{
-			haystack++;
-			whitespaces++;
-		}
-		if (ft_strncmp(haystack, needle, needlelen) == 0) 
-		{
-			if (haystack[needlelen] == '\0' || ft_isspace(haystack[needlelen]))
-				return (1);
-		}
-		haystack += whitespaces;
-		if (whitespaces == 0)
-			haystack++;
-	}
-	return (0);
-}
 
 void	skip_whitespaces(char *str)
 {
