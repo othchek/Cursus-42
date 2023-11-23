@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 18:37:12 by otchekai          #+#    #+#             */
-/*   Updated: 2023/11/16 16:58:07 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/11/23 11:32:29 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ char    **defmap(t_cub *cub)
 
 	index = -1;
 	k = 0;
+	if (!cub->map)
+		return (NULL);
 	ptr = malloc((sizeof(char *) * cub->map_height) + 1);
 	if (!ptr)
 		return (NULL);

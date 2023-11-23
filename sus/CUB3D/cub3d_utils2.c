@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 18:40:11 by otchekai          #+#    #+#             */
-/*   Updated: 2023/11/17 18:35:08 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/11/23 11:31:50 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	width_check(t_cub *cub)
 
 	index = 0;
 	cub->map_width = 0;
-	while (cub->map[index])
+	while (cub->map && cub->map[index])
 	{
 		j = 0;
 		while (cub->map[index][j])

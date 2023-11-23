@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 13:09:25 by otchekai          #+#    #+#             */
-/*   Updated: 2023/11/17 18:34:16 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/11/23 11:33:00 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -145,7 +145,7 @@ void	parse_map(t_cub *cub)
 
 	index = -1;
 	flag = 0;
-	while (cub->map[++index])
+	while (cub->map && cub->map[++index])
 	{
 		j = 0;
 		while (cub->map[index][j])
@@ -156,6 +156,8 @@ void	parse_map(t_cub *cub)
 			else if (cub->map[index][j] == 'N' || cub->map[index][j] == 'S'
 				|| cub->map[index][j] == 'W' || cub->map[index][j] == 'E')
 			{
+				cub->player_y = index * 32;
+				cub->player_x = j * 32;
 				j++;
 				flag++;
 			}

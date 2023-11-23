@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 17:52:05 by otchekai          #+#    #+#             */
-/*   Updated: 2023/11/16 16:57:07 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/11/20 12:19:30 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,17 +27,6 @@ int	player_valid_surrounding(char c)
 	else
 		return (0);
 }
-
-// int	is_zero_valid(t_cub *cub, int i, int j)
-// {
-// 	if ((i != 0 && is_valid_surrounding(cub->defmap[i - 1][j])) &&
-// 		(i <= cub->map_height && is_valid_surrounding(cub->defmap[i + 1][j])) &&
-// 		((i != 0 && j != 0) && is_valid_surrounding(cub->defmap[i - 1][j - 1])) &&
-// 		(is_valid_surrounding(cub->defmap[i][j + 1]) && cub->defmap[i][j + 1] != '\0'))
-// 		return (1);
-// 	else
-// 		return (0);
-// }
 
 int	is_zero_valid(t_cub *cub, int i, int j)
 {
@@ -60,7 +49,6 @@ int	player_valid(t_cub *cub, int i, int j)
 		return (1);
 	else
 	{
-		printf("%s\n", cub->map[i]);
 		return (0);
 	}
 }

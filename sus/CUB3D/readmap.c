@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 13:54:26 by otchekai          #+#    #+#             */
-/*   Updated: 2023/11/17 18:53:55 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/11/23 11:31:37 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,7 +123,7 @@ void	ones_length(t_cub *cub)
 	int index;
 
 	index = 0;
-	while (cub->map[index])
+	while (cub->map && cub->map[index])
 		index++;
 	cub->ones_length = index;
 }
