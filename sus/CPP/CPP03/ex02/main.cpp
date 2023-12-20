@@ -1,23 +1,20 @@
 #include "FragTrap.hpp"
 
-int main() {
-	ClapTrap john("John");
-	ClapTrap jim("Jim");
-	ScavTrap bok("hihi");
-	ScavTrap tok;
-	FragTrap johny;
-	FragTrap hoho("haha");
+int main()
+{
+    ScavTrap    scav("Hafozli9");
+    ClapTrap    clap("Skerta7");
+    FragTrap    frag("7at7out");
 
-	john.attack("Me");
-	john.attack("You");
-	john.takeDamage(5);
-	jim.takeDamage(9);
-	jim.takeDamage(10);
-	bok.attack("hh");
-	bok.guardGate();
-	hoho.attack("moraw");
-	hoho.takeDamage(5);
-	hoho.highFivesGuys();
-	johny.attack("hamid");
-	johny.highFivesGuys();
+    scav.attack("Skerta7");
+    clap.attack("Hafozli9");
+    frag.attack("7at7out");
+    scav.beRepaired(50);
+    clap.beRepaired(50);
+    frag.beRepaired(50);
+    clap.takeDamage(500);
+    scav.takeDamage(500);
+    frag.takeDamage(500);
+    scav.guardGate();
+    frag.highFivesGuys();
 }
