@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 11:00:02 by otchekai          #+#    #+#             */
-/*   Updated: 2022/11/22 18:50:34 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/12/22 12:38:25 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,4 +61,11 @@ int	ft_printf(const char *str, ...)
 	}
 	va_end(ap);
 	return (j);
+}
+#include <stdio.h>
+#include <fcntl.h>
+
+int main() {
+    fclose(stdout);
+    fprintf(stderr, "%d\n", printf("hello"));
 }

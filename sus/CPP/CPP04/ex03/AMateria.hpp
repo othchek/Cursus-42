@@ -15,7 +15,6 @@ class ICharacter;
 class AMateria {
     protected:
         std::string type;
-
     public:
         AMateria();
         AMateria(const AMateria &obj);

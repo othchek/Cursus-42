@@ -1,5 +1,5 @@
 #include "Bureaucrat.hpp"
-
+#include "Form.hpp"
 int main() {
 	Bureaucrat	person("abmoula", 15);
 	Form		person1("sma3in", true, 14, 1);

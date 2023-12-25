@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 16:37:35 by otchekai          #+#    #+#             */
-/*   Updated: 2023/11/17 23:03:04 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/12/18 23:00:57 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	ini(t_ping *oth)
 	oth->mlx_ptr = mlx_init();
 	x = oth->map_height;
 	y = oth->map_width;
-	oth.i = mlx_new_window(oth->mlx_ptr, y *= 64, x *= 64, "Morow");
+	oth->i = mlx_new_window(oth->mlx_ptr, y *= 64, x *= 64, "Morow");
 	if (!oth->win_ptr)
 		ft_error("Error");
 }

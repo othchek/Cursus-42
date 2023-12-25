@@ -1,16 +1,32 @@
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat(void) {
+Bureaucrat::Bureaucrat(void) : Name("abmoula"), Grade(50) {
 	std::cout << "Bureaucrat Default constructor called" << std::endl;
-	Name = "abmoula";
-	Grade = 50;
+	if (Grade < 1)
+		throw GradeTooHighException();
+	else if (Grade > 150)
+		throw GradeTooLowException();
 }
 
 Bureaucrat::Bureaucrat(std::string Name_, int Grade_) : Name(Name_), Grade(Grade_) {
 	std::cout << "Bureaucrat parameterized Name constructor called" << std::endl;
+	if (Grade < 1)
+		throw GradeTooHighException();
+	else if (Grade > 150)
+		throw GradeTooLowException();
+}
+
+void	Bureaucrat::set_grade( int grade_ ) {
+	if (grade_ <= 0) 
+		throw(GradeTooHighException());
+	else if (grade_ > 150)
+		throw(GradeTooLowException());
+	else
+		Grade = grade_;
 }
 
 Bureaucrat::Bureaucrat(Bureaucrat const &copy) {
+	std::cout << "Bureaucrat copy constructor called" << std::endl;
 	*this = copy;
 }
 
@@ -19,6 +35,7 @@ Bureaucrat::~Bureaucrat(void) {
 }
 
 Bureaucrat const	&Bureaucrat::operator = (Bureaucrat const &obj) {
+	std::cout << "Bureaucrat Copy assignment operator called" << std::endl;
 	if (this == &obj) {
         return *this;
     }
@@ -33,9 +50,8 @@ int			Bureaucrat::getGrade(void) const {
 	return (Grade);
 }
 
-std::ostream &operator<<(std::ostream& os, const Bureaucrat& obj)
-{
-    os << obj.getName() << "'s grade : " << obj.getGrade();
+std::ostream &operator<<(std::ostream& os, const Bureaucrat& obj) {
+    os << "Bureaucrat " << obj.getName() << "'s grade : " << obj.getGrade();
     return os;
 }
 
@@ -57,4 +73,11 @@ void	Bureaucrat::decrement_grade() {
 	if (Grade >= 150)
 		throw GradeTooLowException();
 	Grade++;
+}
+
+void	Bureaucrat::signForm(Form &sign) {
+	if (sign.get_signed())
+		std::cout << "Bureaucrat " << Name << " signed it with blessings!!" << std::endl;
+	else if (!sign.get_signed())
+		std::cout << "Bureaucrat " << Name << " couldn't sign it :()" << std::endl;
 }

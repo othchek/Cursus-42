@@ -6,7 +6,7 @@
 /*   By: otchekai <otchekai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 16:38:31 by otchekai          #+#    #+#             */
-/*   Updated: 2023/02/28 20:34:30 by otchekai         ###   ########.fr       */
+/*   Updated: 2023/12/18 23:01:17 by otchekai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ typedef struct l_ping
 	void	*exitgate;
 	void	*collectible;
 	void	*frisk;
+	int		i;
 	int		map_height;
 	int		var;
 	int		map_width;

@@ -3,7 +3,7 @@
 ScavTrap::ScavTrap() {
     std::cout << PURPLE << "this is ScavTrap the default constructor" << RESET << std::endl;
     this->Name = "abmoula";
-    Hitpoints = 100;
+    Hitpoints = 200;
     Energypoints = 50;
     Attackdamage = 20;
 }
