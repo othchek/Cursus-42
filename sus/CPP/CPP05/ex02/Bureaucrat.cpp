@@ -16,7 +16,7 @@ Bureaucrat::Bureaucrat(std::string Name_, int Grade_) : Name(Name_), Grade(Grade
 		throw GradeTooLowException();
 }
 
-void	Bureaucrat::set_grade( int grade_ ) {
+void	Bureaucrat::set_grade(int grade_) {
 	if (grade_ <= 0) 
 		throw(GradeTooHighException());
 	else if (grade_ > 150)
@@ -72,4 +72,13 @@ void	Bureaucrat::decrement_grade() {
 	if (Grade >= 150)
 		throw GradeTooLowException();
 	Grade++;
+}
+
+void	Bureaucrat::executeForm(AForm const & form) {
+	try {
+		form.execute(*this);
+	}
+	catch (std::exception) {
+		std::cout << getName() << " could not execute Sadge!!" << std::endl;
+	}
 }

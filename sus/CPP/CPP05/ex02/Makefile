@@ -1,6 +1,6 @@
-NAME = Shribiri
+NAME = robotonomy
 
-CFLAGS = -Wall -Wextra -Werror -std=c++98
+CFLAGS = #-Wall -Wextra -Werror -std=c++98
 
 INC = Bureaucrat.hpp AForm.hpp PresidentialPardonForm.hpp RobotomyRequestForm.hpp ShrubberyCreationForm.hpp
 
