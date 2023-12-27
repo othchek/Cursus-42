@@ -34,7 +34,7 @@ Form const	&Form::operator = (Form const &obj) {
 }
 
 std::ostream &operator<<(std::ostream& os, const Form& obj) {
-    os << "Bureaucrat " << obj.getName() << "'s grade : " << obj.get_sign_Grade();
+    os << "Form " << obj.getName() << "'s grade : " << obj.get_sign_Grade() << " Form's exec grade : " << obj.get_exec_Grade();
     return os;
 }
 

@@ -32,9 +32,9 @@ void	ShrubberyCreationForm::execute(Bureaucrat const & executor) const {
 		throw GradeTooLowException();
 	std::ofstream file(target + "_shrubbery");
 	if (file.is_open()) {
-		file << "                                  		   |\n";
-		file << "                                  ________|________\n";
-		file << "                                 |                 |\n";
+		file << "                         		   |\n";
+		file << "                         ________|________\n";
+		file << "                        |                 |\n";
 		file << "              ________________   A   ________________\n";
 		file << "             |              | / \\ |                |\n";
 		file << "          ___B___        ___C___ D ___D___       __E__\n";

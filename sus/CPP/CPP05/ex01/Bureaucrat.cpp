@@ -77,7 +77,7 @@ void	Bureaucrat::decrement_grade() {
 
 void	Bureaucrat::signForm(Form &sign) {
 	if (sign.get_signed())
-		std::cout << "Bureaucrat " << Name << " signed it with blessings!!" << std::endl;
+		std::cout << BLUE << "Bureaucrat " << Name << " signed it with blessings!!" << RESET << std::endl;
 	else if (!sign.get_signed())
-		std::cout << "Bureaucrat " << Name << " couldn't sign it :()" << std::endl;
+		std::cout << RED << "Bureaucrat " << Name << " couldn't sign it :()" << RESET << std::endl;
 }
