@@ -16,9 +16,6 @@ $(NAME) : $(SRC) $(INC)
 fclean :
 	rm -rf $(NAME)
 
-fuck :
-	rm -rf ../../.vscode
-
 re : fclean all
 
 .PHONY : clean fclean re

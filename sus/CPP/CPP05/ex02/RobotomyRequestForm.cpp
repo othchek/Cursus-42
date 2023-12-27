@@ -20,6 +20,9 @@ RobotomyRequestForm::~RobotomyRequestForm(void) {
 
 RobotomyRequestForm const	&RobotomyRequestForm::operator = (RobotomyRequestForm const &rhs) {
 	std::cout << "RobotomyRequestForm Copy assignment operator called" << std::endl;
+	if (this == &rhs) {
+        return *this;
+    }
 	return (*this);
 }
 
@@ -28,7 +31,7 @@ void		RobotomyRequestForm::execute(Bureaucrat const & executor) const {
 		throw GradeTooLowException();
 	srand(time(0));
 	int value = rand();
-	std::cout << "HOORAY !!" << std::endl;
+	std::cout << BLUE << "HOORAY !!" << RESET << std::endl;
 	if (value % 2 == 0)
 		std::cout << ORANGE << target << " has successfully won the 50 50 gambit" << RESET << std::endl;
 	else

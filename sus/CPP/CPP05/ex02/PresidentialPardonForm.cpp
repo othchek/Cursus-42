@@ -21,11 +21,14 @@ PresidentialPardonForm::~PresidentialPardonForm(void) {
 
 PresidentialPardonForm const	&PresidentialPardonForm::operator = (PresidentialPardonForm const &rhs) {
 	std::cout << "PresidentialPardonForm Copy assignment operator called" << std::endl;
+	if (this == &rhs) {
+        return *this;
+    }
 	return (*this);
 }
 
 void		PresidentialPardonForm::execute(Bureaucrat const & executor) const {
 	if (!get_signed() && executor.getGrade() < get_sign_Grade())
 		throw GradeTooLowException();
-	std::cout << PURPLE << "I wish to convey to Mr. " << target << " that he has been granted clemency by Zaphod Beeblebrox." << RESET << std::endl;
+	std::cout << PURPLE << "I wish to inform Mr. " << target << " that he has been pardoned by Zaphod Beeblebrox." << RESET << std::endl;
 }

@@ -16,10 +16,10 @@ Form::Form(std::string Name_, bool is_signed_, int sign_grade_, int exec_grade_)
 		throw GradeTooHighException();
 }
 
-// Form::Form(Form const &copy) {
-// 	std::cout << "Form copy constructor called" << std::endl;
-// 	*this = copy;
-// }
+Form::Form(Form const &copy) : sign_grade(copy.sign_grade), exec_grade(copy.exec_grade) {
+	std::cout << "Form copy constructor called" << std::endl;
+	*this = copy;
+}
 
 Form::~Form(void) {
 	std::cout << "Form destructor called" << std::endl;

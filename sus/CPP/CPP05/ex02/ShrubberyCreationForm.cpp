@@ -21,6 +21,9 @@ ShrubberyCreationForm::~ShrubberyCreationForm(void) {
 
 ShrubberyCreationForm const	&ShrubberyCreationForm::operator = (ShrubberyCreationForm const &rhs) {
 	std::cout << "ShrubberyCreationForm Copy assignment operator called" << std::endl;
+	if (this == &rhs) {
+        return *this;
+    }
 	return (*this);
 }
 
