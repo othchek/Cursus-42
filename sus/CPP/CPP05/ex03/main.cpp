@@ -11,6 +11,8 @@ int main() {
 		Intern someRandomIntern;
 		AForm* rrf;
 		rrf = someRandomIntern.makeForm("shruberry request", "Bender");
+		if (rrf)
+			rrf->execute(obj);
 		delete rrf;
 	}
 	catch (std::exception &e) {
