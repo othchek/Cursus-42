@@ -2,7 +2,7 @@
 
 int main() {
 	Bureaucrat	person("abmoula", 15);
-	Form		person1("sma3in", true, 14, 1);
+	Form		person1("sma3in", false, 14, 1);
 	/*-----------Too High exception-----------*/
 	try {
 		person.set_grade(0);

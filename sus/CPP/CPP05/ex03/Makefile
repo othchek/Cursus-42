@@ -1,0 +1,24 @@
+NAME = intern
+
+CFLAGS = -Wall -Wextra -Werror -std=c++98
+
+INC = Bureaucrat.hpp AForm.hpp PresidentialPardonForm.hpp RobotomyRequestForm.hpp ShrubberyCreationForm.hpp Intern.hpp
+
+CPP = c++
+
+SRC = main.cpp Bureaucrat.cpp AForm.cpp PresidentialPardonForm.cpp RobotomyRequestForm.cpp ShrubberyCreationForm.cpp Intern.cpp
+
+all : $(NAME)
+
+$(NAME) : $(SRC) $(INC)
+	$(CPP) $(CFLAGS) $(SRC) -o $(NAME)
+
+fclean :
+	rm -rf $(NAME)
+
+bleach :
+	rm *_shrubbery
+
+re : fclean all
+
+.PHONY : clean fclean re

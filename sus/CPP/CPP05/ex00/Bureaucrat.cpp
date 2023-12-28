@@ -26,6 +26,7 @@ void	Bureaucrat::set_grade( int grade_ ) {
 }
 
 Bureaucrat::Bureaucrat(Bureaucrat const &copy) {
+	std::cout << "Bureaucrat copy constructor called" << std::endl;
 	*this = copy;
 }
 
@@ -34,6 +35,7 @@ Bureaucrat::~Bureaucrat(void) {
 }
 
 Bureaucrat const	&Bureaucrat::operator = (Bureaucrat const &obj) {
+	std::cout << "Bureaucrat Copy assignment operator called" << std::endl;
 	if (this == &obj) {
         return *this;
     }
