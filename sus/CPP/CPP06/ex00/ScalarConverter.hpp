@@ -2,6 +2,7 @@
 # define SCALARCONVERTER_HPP
 
 #include <iostream>
+#include <sstream>
 
 #define BLUE      "\x1b[34m"
 #define ORANGE    "\x1b[33m"
