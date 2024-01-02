@@ -71,6 +71,5 @@ void	Form::beSigned(Bureaucrat &obj) {
 		throw Checksign();
 	if (obj.getGrade() > this->get_sign_Grade())
 		throw GradeTooLowException();
-	else
-		is_signed = true;
+	is_signed = true;
 }
