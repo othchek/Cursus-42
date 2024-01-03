@@ -18,7 +18,7 @@ ScalarConverter const	&ScalarConverter::operator = (ScalarConverter const &rhs) 
 	if (this == &rhs) {
         return *this;
     }
-    return (*this);=
+    return (*this);
 }
 
 bool	Floatcheck(std::string number) {
@@ -29,9 +29,50 @@ bool	Floatcheck(std::string number) {
 	return (false);
 }
 
+bool	specialcases(std::string special) {
+	std::string array[6] = {"nan", "nanf", "-inff", "+inff", "-inf", "+inf"};
+	for (int index = 0; index < 6; index++) {
+		if (special == array[index]) {
+			std::cout << "Char : " << "impossible" << std::endl;
+			std::cout << "Int : " << " impossible" << std::endl;
+			switch (index) {
+				case 0:
+					std::cout << "Float : " << array[0] << 'f' << std::endl;
+					std::cout << "Double : " << array[0] << std::endl;
+					break;
+				case 1:
+					std::cout << "Float : " << array[1] << 'f' << std::endl;
+					std::cout << "Double : " << array[1].substr(0, array[1].length() - 1) << std::endl;
+					break;
+				case 2:
+					std::cout << "Float : " << array[2].substr(0, array[2].length() - 1) << 'f' << std::endl;
+					std::cout << "Double : " << array[2].substr(0, array[2].length() - 1) << std::endl;
+					break;
+				case 3:
+					std::cout << "Float : " << array[3].substr(0, array[3].length() - 1) << 'f' << std::endl;
+					std::cout << "Double : " << array[3].substr(0, array[3].length() - 1) << std::endl;
+					break;
+				case 4:
+					std::cout << "Float : " << array[4] << 'f' << std::endl;
+					std::cout << "Double : " << array[4] << std::endl;
+					break;
+				case 5:
+					std::cout << "Float : " << array[5] << 'f' << std::endl;
+					std::cout << "Double : " << array[5] << std::endl;
+					break;
+					break;
+			}
+			return (true);
+		}
+		std::cerr << "Invalid input" << std::endl;
+		return (false);
+	}
+	return (false);
+}
 
 void	ScalarConverter::castfun(std::string convert) {
-	std::cout << convert << std::endl;
+	if (specialcases(convert))
+		return ;
 	std::stringstream strim(convert);
 	try {
 		for (int index = 0; convert[index]; index++) {
