@@ -1,17 +1,13 @@
 #include "ScalarConverter.hpp"
 
-ScalarConverter::ScalarConverter(void) {
-	std::cout << "ScalarConverter Default constructor" << std::endl;
-}
+ScalarConverter::ScalarConverter(void) {}
 
 ScalarConverter::ScalarConverter(ScalarConverter const &copy) {
 	std::cout << "ScalarConverter copy constructor called" << std::endl;
 	*this = copy;
 }
 
-ScalarConverter::~ScalarConverter(void) {
-	std::cout << "ScalarConverter Destructor" << std::endl;
-}
+ScalarConverter::~ScalarConverter(void) {}
 
 ScalarConverter const	&ScalarConverter::operator = (ScalarConverter const &rhs) {
 	std::cout << "ScalarConverter Copy assignment operator called" << std::endl;
@@ -45,11 +41,11 @@ bool	specialcases(std::string special) {
 					std::cout << "Double : " << array[1].substr(0, array[1].length() - 1) << std::endl;
 					break;
 				case 2:
-					std::cout << "Float : " << array[2].substr(0, array[2].length() - 1) << 'f' << std::endl;
+					std::cout << "Float : " << array[2] << std::endl;
 					std::cout << "Double : " << array[2].substr(0, array[2].length() - 1) << std::endl;
 					break;
 				case 3:
-					std::cout << "Float : " << array[3].substr(0, array[3].length() - 1) << 'f' << std::endl;
+					std::cout << "Float : " << array[3] << std::endl;
 					std::cout << "Double : " << array[3].substr(0, array[3].length() - 1) << std::endl;
 					break;
 				case 4:
@@ -60,19 +56,18 @@ bool	specialcases(std::string special) {
 					std::cout << "Float : " << array[5] << 'f' << std::endl;
 					std::cout << "Double : " << array[5] << std::endl;
 					break;
-					break;
 			}
 			return (true);
 		}
-		std::cerr << "Invalid input" << std::endl;
-		return (false);
 	}
 	return (false);
 }
 
 void	ScalarConverter::castfun(std::string convert) {
-	if (specialcases(convert))
+	if (!specialcases(convert)) {
+		std::cout << "Invalid input" << std::endl;
 		return ;
+	}
 	std::stringstream strim(convert);
 	try {
 		for (int index = 0; convert[index]; index++) {
