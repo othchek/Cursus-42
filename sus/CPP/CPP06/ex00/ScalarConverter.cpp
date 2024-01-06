@@ -3,14 +3,12 @@
 ScalarConverter::ScalarConverter(void) {}
 
 ScalarConverter::ScalarConverter(ScalarConverter const &copy) {
-	std::cout << "ScalarConverter copy constructor called" << std::endl;
 	*this = copy;
 }
 
 ScalarConverter::~ScalarConverter(void) {}
 
 ScalarConverter const	&ScalarConverter::operator = (ScalarConverter const &rhs) {
-	std::cout << "ScalarConverter Copy assignment operator called" << std::endl;
 	if (this == &rhs) {
         return *this;
     }
@@ -37,7 +35,7 @@ bool	specialcases(std::string special) {
 					std::cout << "Double : " << array[0] << std::endl;
 					break;
 				case 1:
-					std::cout << "Float : " << array[1] << 'f' << std::endl;
+					std::cout << "Float : " << array[1].substr(0, array[1].length() - 1) << 'f' << std::endl;
 					std::cout << "Double : " << array[1].substr(0, array[1].length() - 1) << std::endl;
 					break;
 				case 2:
@@ -64,16 +62,15 @@ bool	specialcases(std::string special) {
 }
 
 void	ScalarConverter::castfun(std::string convert) {
-	if (!specialcases(convert)) {
-		std::cout << "Invalid input" << std::endl;
+	
+	if (specialcases(convert))
 		return ;
-	}
 	std::stringstream strim(convert);
 	try {
 		for (int index = 0; convert[index]; index++) {
 			if (convert[index] && (isdigit(convert[index]) || convert[index] == '-')) {
 				while (convert[index]) {
-					if (convert[index] == '.') {
+					if (convert[index] == '.' && isdigit(convert[index + 1])) {
 						if (!Floatcheck(convert))
 							throw (99.99);
 						throw (99.99f);
@@ -88,30 +85,58 @@ void	ScalarConverter::castfun(std::string convert) {
 	}
 	catch(int) {
 		int num;
+		if (!(strim >> num))
+			return std::cerr << "Overflow!!" << std::endl, (void)0;
 
-		strim >> num;
-		std::cout << "Char : " << static_cast<char>(num) << std::endl;
-		std::cout << "Int : " << static_cast<int>(num) << std::endl;
-		std::cout << "Float : " << static_cast<float>(num) << 'f' << std::endl;
-		std::cout << "Double : " << static_cast<double>(num) << std::endl;
+		if (num <= 32) {
+        	std::cout << "Char : " << "Impossible" << std::endl;
+			std::cout << "Int : " << static_cast<int>(num) << std::endl;
+        	std::cout << "Float : " << static_cast<float>(num) << 'f' << std::endl;
+        	std::cout << "Double : " << static_cast<double>(num) << std::endl;
+		}
+		else {
+        	std::cout << "Char : " << static_cast<char>(num) << std::endl;	
+        	std::cout << "Int : " << static_cast<int>(num) << std::endl;
+        	std::cout << "Float : " << static_cast<float>(num) << 'f' << std::endl;
+        	std::cout << "Double : " << static_cast<double>(num) << std::endl;
+		}
 	}
 	catch (double) {
 		double dub;
+		if (!(strim >> dub))
+			return std::cerr << "Overflow!!" << std::endl, (void)0;
 
-		strim >> dub;
-		std::cout << "Char : " << static_cast<char>(dub) << std::endl;
-		std::cout << "Int : " << static_cast<int>(dub) << std::endl;
-		std::cout << "Float : " << static_cast<float>(dub) << 'f' << std::endl;
-		std::cout << "Double : " << static_cast<double>(dub) << std::endl;
+		if (dub <= 32) {
+    		std::cout << "Char : " << "Impossible" << std::endl;
+			std::cout << "Int : " << static_cast<int>(dub) << std::endl;
+    		std::cout << "Float : " << static_cast<float>(dub) << 'f' << std::endl;
+    		std::cout << "Double : " << dub << std::endl;
+		}
+		else {
+    		std::cout << "Char : " << static_cast<char>(dub) << std::endl;
+    		std::cout << "Int : " << static_cast<int>(dub) << std::endl;
+    		std::cout << "Float : " << static_cast<float>(dub) << 'f' << std::endl;
+    		std::cout << "Double : " << dub << std::endl;
+		}
 	}
 	catch (float) {
 		float fl;
 		std::stringstream flawat(convert.substr(0, convert.length() - 1));
-		flawat >> fl;
-		std::cout << "Char : " << static_cast<char>(fl) << std::endl;
-		std::cout << "Int : " << static_cast<int>(fl) << std::endl;
-		std::cout << "Float : " << fl << 'f' << std::endl;
-		std::cout << "Double : " << static_cast<double>(fl) << std::endl;
+		if (!(flawat >> fl))
+			return std::cerr << "Overflow!!" << std::endl, (void)0;
+
+		if (fl <= 32) {
+        	std::cout << "Char : " << "Impossbile" << std::endl;
+			std::cout << "Int : " << static_cast<int>(fl) << std::endl;
+        	std::cout << "Float : " << fl << 'f' << std::endl;
+        	std::cout << "Double : " << static_cast<double>(fl) << std::endl;
+		}
+		else {
+        	std::cout << "Char : " << static_cast<char>(fl) << std::endl;
+        	std::cout << "Int : " << static_cast<int>(fl) << std::endl;
+        	std::cout << "Float : " << fl << 'f' << std::endl;
+        	std::cout << "Double : " << static_cast<double>(fl) << std::endl;
+		}
 	}
 	catch (char) {
 		std::cout << "Char : " << convert[0] << std::endl;
