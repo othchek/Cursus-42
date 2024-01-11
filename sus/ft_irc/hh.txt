@@ -1,0 +1,2 @@
+join #fff
+mode #fff +k +i +o oth sim

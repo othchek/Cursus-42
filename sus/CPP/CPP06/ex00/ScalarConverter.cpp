@@ -70,7 +70,7 @@ void	ScalarConverter::castfun(std::string convert) {
 		for (int index = 0; convert[index]; index++) {
 			if (convert[index] && (isdigit(convert[index]) || convert[index] == '-')) {
 				while (convert[index]) {
-					if (convert[index] == '.' && isdigit(convert[index + 1])) {
+					if (convert[index] == '.') {
 						if (!Floatcheck(convert))
 							throw (99.99);
 						throw (99.99f);
@@ -89,7 +89,7 @@ void	ScalarConverter::castfun(std::string convert) {
 			return std::cerr << "Overflow!!" << std::endl, (void)0;
 
 		if (num <= 32) {
-        	std::cout << "Char : " << "Impossible" << std::endl;
+        	std::cout << "Char : " << "Non Displayable" << std::endl;
 			std::cout << "Int : " << static_cast<int>(num) << std::endl;
         	std::cout << "Float : " << static_cast<float>(num) << 'f' << std::endl;
         	std::cout << "Double : " << static_cast<double>(num) << std::endl;
@@ -106,8 +106,8 @@ void	ScalarConverter::castfun(std::string convert) {
 		if (!(strim >> dub))
 			return std::cerr << "Overflow!!" << std::endl, (void)0;
 
-		if (dub <= 32) {
-    		std::cout << "Char : " << "Impossible" << std::endl;
+		if (dub < 33) {
+    		std::cout << "Char : " << "Non Displayable" << std::endl;
 			std::cout << "Int : " << static_cast<int>(dub) << std::endl;
     		std::cout << "Float : " << static_cast<float>(dub) << 'f' << std::endl;
     		std::cout << "Double : " << dub << std::endl;
@@ -125,8 +125,8 @@ void	ScalarConverter::castfun(std::string convert) {
 		if (!(flawat >> fl))
 			return std::cerr << "Overflow!!" << std::endl, (void)0;
 
-		if (fl <= 32) {
-        	std::cout << "Char : " << "Impossbile" << std::endl;
+		if (fl < 33) {
+        	std::cout << "Char : " << "Non Displayable" << std::endl;
 			std::cout << "Int : " << static_cast<int>(fl) << std::endl;
         	std::cout << "Float : " << fl << 'f' << std::endl;
         	std::cout << "Double : " << static_cast<double>(fl) << std::endl;
