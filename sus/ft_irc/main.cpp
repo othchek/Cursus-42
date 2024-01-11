@@ -1,6 +1,6 @@
 #include "./inc/channel.hpp"
 #include "./inc/irc_server.hpp"
-#define PORT 12325
+#define PORT 12321
 
 int main() 
 {

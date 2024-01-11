@@ -24,21 +24,27 @@ void	channel::channel_parse(std::string str) {
 	}
 	else
 		throw ("Unknown command");
-	p = std::strtok(const_cast<char *>(str.c_str()), ", ");
+	int i = 0;
+	p = std::strtok(const_cast<char *>(str.c_str()), ", \r\n");
 	while (p != NULL) {
-		if (p[0] == '#')
+		if (p[0] == '#') {
+			std::vector < std::string >::iterator pos = std::find(channels.begin(), channels.end(), p);
+			if (pos != channels.end())
+				throw ("Duplicate channel");
 			channels.push_back(p);
+			i++;
+		}
 		else
 			channels_pass.push_back(p);
-		p = std::strtok(NULL, ", ");
+		p = std::strtok(NULL, ", \n");
 	}
-	if (channels.empty())
+	if (channels.empty() || i == 0)
 		throw ("command alone can't function");
-	std::cout << "command : " << command << std::endl;
-	for (std::vector < std::string >::iterator it_ = channels.begin(); it_ != channels.end(); it_++)
-		std::cout << "channels : " << *it_ << std::endl;
-	for (std::vector < std::string >::iterator iti_ = channels_pass.begin(); iti_ != channels_pass.end(); iti_++)
-		std::cout << "passwords : " << *iti_ << std::endl;
+	// for (std::vector < std::string >::iterator it_ = channels.begin(); it_ != channels.end(); it_++)
+	// 	std::cout << "channels : " << *it_ << std::endl;
+	// std::cout << "command : " << command << std::endl;
+	// for (std::vector < std::string >::iterator iti_ = channels_pass.begin(); iti_ != channels_pass.end(); iti_++)
+	// 	std::cout << "passwords : " << *iti_ << std::endl;
 }
 
 void	channel::mode_parse(std::string str) {
@@ -60,7 +66,7 @@ void	channel::mode_parse(std::string str) {
 	std::vector < std::string >::iterator pos = std::find(channels.begin(), channels.end(), channel);
 	if (pos == channels.end())
 		throw ("Channel not found");
-	std::cout << "channel : " << channel << std::endl;
-	std::cout << "key : " << key << std::endl;
-	std::cout << "password : " << mode_pass << std::endl;
+	// std::cout << "channel : " << channel << std::endl;
+	// std::cout << "key : " << key << std::endl;
+	// std::cout << "password : " << mode_pass << std::endl;
 }

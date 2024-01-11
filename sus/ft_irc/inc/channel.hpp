@@ -28,6 +28,7 @@ class channel
 		~channel(void);
 		void	channel_parse(std::string str);
 		void	mode_parse(std::string str);
+		bool	duplicate_channel(std::string str);
 };
 
 #endif

@@ -17,7 +17,8 @@ void SERVSOCKET::mybind(std::string ip, int port)
     server_addr.sin_family = AF_INET;
     server_addr.sin_port = htons(port);
     server_addr.sin_addr.s_addr = inet_addr(ip.c_str());
-
+    int op = 1;
+    setsockopt(socket_server,SOL_SOCKET,SO_REUSEADDR,(void *)&op, sizeof(op));
     if (bind(socket_server, (struct sockaddr*)&server_addr, sizeof(server_addr)) == -1)
     {
         close(socket_server);
