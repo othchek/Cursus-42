@@ -1,24 +1,24 @@
+SRCS =  main.cpp \
+		./src/server/servsocket.cpp\
+		./src/commands/channel_parse.cpp\
+		
+FLAGS = -Wall -Wextra -Werror -std=c++98
+
 NAME = ircserv
+OBJ =  $(SRCS:.cpp=.o)
 
-CFLAGS = -Wall -Wextra -Werror
+%.o : %.cpp ./inc/servsocket.hpp ./inc/channel.hpp
+	@c++ $(FLAGS) -c $< -o $@
 
-INC = ./inc/channel.hpp ./inc/irc_server.hpp
-
-CPP = c++
-
-SRC = ./src/commands/channel_parse.cpp main.cpp ./src/server/irc_server.cpp
+$(NAME) : $(OBJ)
+	@c++ $(FLAGS) $(OBJ) -o $@
 
 all : $(NAME)
 
-$(NAME) : $(SRC) $(INC)
-	$(CPP) $(CFLAGS) $(SRC) -o $(NAME)
+clean :
+	rm -rf $(OBJ)
 
-clean : 
+fclean : clean
 	rm -rf $(NAME)
 
-fuck :
-	rm -rf .vscode
-
-re : clean all
-
-.PHONY : clean fclean re
+re : fclean all

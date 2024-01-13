@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <vector>
+#include <map>
 #include <sstream>
 #define JOIN "join"
 #define MODE "mode"
@@ -13,7 +14,6 @@
 #define PURPLE    "\x1b[96m"
 #define GREEN     "\x1b[32m"
 #define RED       "\x1b[1;31m"
-#define	st_			std::string
 #define CHANNEL '#'
 #define POS_KEY '+'
 #define NEG_KEY '-'
@@ -21,11 +21,12 @@
 class channel
 {
 	public :
+		std::map<std::string, std::string> channel_info;
 		std::vector < std::string > channels;
 		std::vector < std::string > channels_pass;
 	public :
-		channel(void);
-		~channel(void);
+		channel();
+		~channel();
 		void	channel_parse(std::string str);
 		void	mode_parse(std::string str);
 		bool	duplicate_channel(std::string str);
