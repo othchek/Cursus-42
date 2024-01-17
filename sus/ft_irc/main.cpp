@@ -3,20 +3,21 @@
 
 int main(int ac, char** av) 
 {
-
     if (ac != 3) {
-            std::cerr << RED"Invalid arguments"RESET << std::endl;
-            exit (1);
+        std::cerr << RED"Invalid arguments"RESET << std::endl;
+        exit (1);
     }
+    client client;
     SERVSOCKET server;
-    channel obj;
+    channel channel;
     std::string data;
     std::string port;
         
     port = av[1];
     server.servpass = av[2];
     int server_fd = server.mysocket(AF_INET, SOCK_STREAM);
-    server.mybind("127.0.0.1", std::stoi(port));
+    int value = f_stoi(port);
+    server.mybind("127.0.0.1", value);
     server.mylisten(5);
 
     std::cout << GREEN << "------- MY SERVER ------" << RESET << std::endl;
@@ -27,6 +28,7 @@ int main(int ac, char** av)
     size_t i = 0;
 
     vector.push(server_fd, POLLIN, 0);
+
     while (true)
     {
         try 
@@ -45,15 +47,17 @@ int main(int ac, char** av)
                     else
                     {
                         data = server.myrecv(1024, vector.vector[i].fd);
-                        obj.channel_parse(data);
-                        std::cout << data << std::endl;
+                        channel.join_parse(data);
+                        // client.getclient_fd(vector.vector);
+                        // std::cout << client.client_fd << std::endl;
+                        // std::cout << data << std::endl;
                     }
                 }
                 i++;
             }
         }
         catch (const char *str) {
-            std::cerr << str << std::endl;
+            std::cerr << RED << str << RESET << std::endl;
         }
         catch (std::exception &e)
         {
@@ -65,5 +69,5 @@ int main(int ac, char** av)
             }
         }
     }
-        return 0;
+    return 0;
 }

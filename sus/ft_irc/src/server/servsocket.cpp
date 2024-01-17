@@ -90,13 +90,12 @@ int SERVSOCKET::myaccept()
     mysend(socket_client, "PASSWORD: ");
     password = myrecv(1024, socket_client);
     database[username] = password;
-
-    if (password != servpass)
-    {
-        mysend(socket_client, RED"INCORRECT PASSWORD"RESET);
-        close(socket_client);
-        throw ErrorOnPassword();
-    }
+    // if (password != servpass)
+    // {
+    //     mysend(socket_client, RED"INCORRECT PASSWORD"RESET);
+    //     close(socket_client);
+    //     throw ErrorOnPassword();
+    // }
 
     mysend(socket_client, GREEN"------- WELCOME TO THE SERVER ------\n"RESET);
     return socket_client;
@@ -141,4 +140,18 @@ void POLLFD::push(int fd, short events, short revents)
     sock_fd.events = events;
     sock_fd.revents = revents;
     vector.push_back(sock_fd);
+}
+
+channel *SERVSOCKET::add_channel(std::string name, channel *Channel) {
+    Channel = new channel(name);
+        channel_vec.push_back(Channel);
+    return Channel;
+}
+
+std::vector<int> POLLFD::getFds() const {
+    std::vector<int> fds;
+    for (std::vector<struct pollfd>::const_iterator it = this->vector.begin(); it != vector.end(); ++it) {
+        fds.push_back(it->fd);
+    }
+    return fds;
 }

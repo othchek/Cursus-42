@@ -1,5 +1,6 @@
 #pragma once
 
+#include "channel.hpp"
 #include <iostream>
 #include <sys/socket.h>
 #include <netinet/in.h>
@@ -9,15 +10,13 @@
 #include <vector>
 #include <poll.h>
 #include <map>
-
+class channel;
 class POLLFD
 {
     public:
         std::vector<struct pollfd> vector;
-    
-    public:
         void push(int fd, short events, short revents);
-
+        std::vector<int> getFds() const;
 };
 
 class SERVSOCKET
@@ -29,6 +28,7 @@ class SERVSOCKET
         sockaddr_in client_addr;
         int socket_client;
         std::map<std::string, std::string> database;
+        std::vector <channel *> channel_vec;
 
     public:
         int mysocket(int ipvs, const int type);
@@ -38,6 +38,7 @@ class SERVSOCKET
         std::string myrecv(unsigned int size, int fd);
         void mysend(int fd, std::string data_send);
         void show();
+        channel    *add_channel(std::string name, channel *Channel);
 
         class ErrorOnMySocket : public std::exception
         {
