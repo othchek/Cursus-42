@@ -10,4 +10,6 @@ int main() {
 	std::cout << ptr << std::endl;
 	obj = *ser.deserialize(ptr);
 	std::cout << obj.str << std::endl;
+	printf("- > %lu\n", sizeof(Data *));
+	printf(" - > %lu\n", sizeof(uintptr_t));
 }

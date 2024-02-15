@@ -16,9 +16,14 @@ ScalarConverter const	&ScalarConverter::operator = (ScalarConverter const &rhs) 
 }
 
 bool	Floatcheck(std::string number) {
-	for (int index = 0; number[index]; index++) {
-		if (number[index] == 'f')
-			return (true);
+	size_t pos = 0;
+	size_t rpos = 0;
+	if (number[number.length() - 1] == 'f') {
+		pos = number.find('f');
+		rpos = number.rfind('f');
+		if (pos != rpos)
+			throw ("Invalid arguments");
+		return (true);
 	}
 	return (false);
 }
@@ -72,7 +77,7 @@ void	ScalarConverter::castfun(std::string convert) {
 		for (int index = 0; convert[index]; index++) {
 			if (convert[index] && (isdigit(convert[index]) || convert[index] == '-')) {
 				while (convert[index]) {
-					if (convert[index] == '.') {
+					if (convert[index] == '.' || convert[convert.length() - 1] == 'f') {
 						pos = convert.find('.');
 						rpos = convert.rfind('.');
 						if (pos != rpos)
@@ -87,6 +92,11 @@ void	ScalarConverter::castfun(std::string convert) {
 			}
 			else if (convert.length() == 1)
 				throw ('c');
+			else
+			{
+				std::cerr << "Invalid arguments" << std::endl;
+				exit (1);
+			}
 		}
 	}
 	catch(int) {
