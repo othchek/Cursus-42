@@ -31,6 +31,7 @@ void Harl::complain(std::string level) {
     if (purpose >= 1 && purpose <= 4)
     {
         (this->*ptr[purpose])();
+        std::cout << purpose << std::endl;
         return;
     }
     std::cout << RED << "Invalid level: " << level << RESET << std::endl;

@@ -63,6 +63,8 @@ bool	specialcases(std::string special) {
 
 void	ScalarConverter::castfun(std::string convert) {
 	
+	size_t pos = 0;
+	size_t rpos = 0;
 	if (specialcases(convert))
 		return ;
 	std::stringstream strim(convert);
@@ -71,6 +73,10 @@ void	ScalarConverter::castfun(std::string convert) {
 			if (convert[index] && (isdigit(convert[index]) || convert[index] == '-')) {
 				while (convert[index]) {
 					if (convert[index] == '.') {
+						pos = convert.find('.');
+						rpos = convert.rfind('.');
+						if (pos != rpos)
+							throw ("Invalid arguments");
 						if (!Floatcheck(convert))
 							throw (99.99);
 						throw (99.99f);

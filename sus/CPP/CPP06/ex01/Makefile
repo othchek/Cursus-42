@@ -1,12 +1,12 @@
-NAME = convert
+NAME = Serialization
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
-INC = ScalarConverter.hpp
+INC = Serializer.hpp
 
 CPP = c++
 
-SRC = main.cpp ScalarConverter.cpp
+SRC = main.cpp Serializer.cpp
 
 all : $(NAME)
 

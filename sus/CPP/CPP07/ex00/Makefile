@@ -1,12 +1,12 @@
-NAME = convert
+NAME = whatever
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
-INC = ScalarConverter.hpp
+INC = whatever.hpp
 
 CPP = c++
 
-SRC = main.cpp ScalarConverter.cpp
+SRC = main.cpp 
 
 all : $(NAME)
 
