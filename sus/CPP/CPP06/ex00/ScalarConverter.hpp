@@ -13,11 +13,12 @@
 
 class ScalarConverter
 {
-	public :
+	private :
 		ScalarConverter(void);
 		ScalarConverter(ScalarConverter const &copy);
-		~ScalarConverter(void);
 		ScalarConverter const &operator = (ScalarConverter const &rhs);
+	public :
+		~ScalarConverter(void);
 		static void castfun(std::string thing);
 };
 

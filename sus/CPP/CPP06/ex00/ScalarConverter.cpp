@@ -22,7 +22,7 @@ bool	Floatcheck(std::string number) {
 		pos = number.find('f');
 		rpos = number.rfind('f');
 		if (pos != rpos)
-			throw ("Invalid arguments");
+			throw ("Invalid arguments\n");
 		return (true);
 	}
 	return (false);
@@ -81,7 +81,7 @@ void	ScalarConverter::castfun(std::string convert) {
 						pos = convert.find('.');
 						rpos = convert.rfind('.');
 						if (pos != rpos)
-							throw ("Invalid arguments");
+							throw ("Invalid arguments\n");
 						if (!Floatcheck(convert))
 							throw (99.99);
 						throw (99.99f);

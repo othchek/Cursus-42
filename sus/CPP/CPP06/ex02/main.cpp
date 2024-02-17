@@ -8,5 +8,4 @@ int main() {
 
 	obj.identify(obj.generate());
 	obj.identify(*obj.generate());
-	char *ptr;
 }

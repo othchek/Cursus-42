@@ -8,13 +8,14 @@ struct Data {
 
 class Serializer
 {
-	public :
+	private :
 		Serializer(void);
 		Serializer(Serializer const &copy);
-		~Serializer(void);
 		Serializer const &operator = (Serializer const &rhs);
-		uintptr_t serialize(Data* ptr);
-		Data* deserialize(uintptr_t raw);
+	public :
+		~Serializer(void);
+		static uintptr_t serialize(Data* ptr);
+		static Data* deserialize(uintptr_t raw);
 };
 
 #endif
