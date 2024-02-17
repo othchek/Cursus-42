@@ -15,7 +15,6 @@ all : $(NAME)
 $(NAME) : $(SRC) $(INC) $(OBJ)
 	$(CPP) $(CFLAGS) $(SRC) -o $(NAME)
 
-
 fclean :
 	rm -rf $(NAME)
 
