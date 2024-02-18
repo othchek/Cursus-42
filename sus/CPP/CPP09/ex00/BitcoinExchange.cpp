@@ -1,6 +1,16 @@
 #include "BitcoinExchange.hpp"
 #include <unistd.h>
 
+int BitcoinExchange::f_stoi(std::string numb)
+{
+	int ret;
+
+	std::stringstream var(numb);
+	if (!(var >> ret))
+		throw ("Error: Overflow\n");
+	return ret;
+}
+
 std::string& BitcoinExchange::ltrim(std::string& str) {
     size_t start = str.find_first_not_of(" \t\n\r");
     if (start != std::string::npos) {
@@ -49,21 +59,22 @@ void BitcoinExchange::read_input(std::string Name) {
 		file.open(Name);
 		getline(file, str);
 		if (file.eof() || str.compare("date | value"))
-			throw (std::invalid_argument("Invalid file"));
+			throw (std::invalid_argument("Invalid file!!"));
 		while (std::getline(file, str)) 
 		{
 			if (str.length() < 14)
-				throw (std::invalid_argument("Invalid Date and Value!!"));
+				throw (std::invalid_argument("Invalid Date/Value!!"));
 			size_t pos = str.find('|');
 			size_t rpos = str.rfind('|');
 			if (pos != rpos)
-				throw (std::invalid_argument("Invalid data[multiple Pipes]"));
+				throw (std::invalid_argument("Invalid data[multiple Pipes!!]"));
 			date = str.substr(0, pos);
 			if (date.length() != 11)
 				throw (std::invalid_argument("Error: Invalid Date!!"));
 			value = str.substr(pos + 1);
-			parse_date(date);
+			store_date(date);
 			parse_value(value);
+			parse_date();
 		}
 	}
 	catch (std::exception &e) {
@@ -71,8 +82,9 @@ void BitcoinExchange::read_input(std::string Name) {
 	}
 }
 
-void BitcoinExchange::parse_date(std::string Date) {
+void BitcoinExchange::store_date(std::string Date) {
 	char *p;
+	hiphen_check(Date);
 	p = std::strtok(const_cast<char *>(Date.c_str()), "-");
 	int count = 0;
 	
@@ -103,8 +115,30 @@ void BitcoinExchange::parse_value(std::string Value) {
             throw std::invalid_argument("Error: Invalid Value!!");
     }
     if (!(var >> ret))
-        throw std::invalid_argument("Error: Overflow");
+        throw std::invalid_argument("Error: Overflow!!");
 	if (ret < 0 || ret > 1000)
 		throw std::invalid_argument("Error: Invalid Value!!");
 	this->Value = Value;
+}
+
+void BitcoinExchange::hiphen_check(std::string Date) {
+	int count = 0;
+	for (int i = 0; Date[i]; i++) {
+		if (Date[i] == '-' && std::isdigit(Date[i - 1]) && std::isdigit(Date[i + 1]))
+			count++;
+	}
+	if (count != 2)
+		throw std::invalid_argument("Error: Invalid Date!!");
+}
+
+void BitcoinExchange::parse_date() {
+	int year = f_stoi(Year);
+	int month = f_stoi(Month);
+	int day = f_stoi(Day);
+	if (year < 2009)
+		throw std::invalid_argument("Error: Invalid Year!!");
+	if (month < 01 || month > 12)
+		throw std::invalid_argument("Error: Invalid Month!!");
+	if (day < 01)
+		throw std::invalid_argument("Error: Invalid Day!!");
 }
