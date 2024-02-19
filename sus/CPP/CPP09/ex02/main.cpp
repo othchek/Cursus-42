@@ -11,6 +11,8 @@ int main(int ac, char **av)
 		PmergeMe obj;
 		for (int i = 1; av[i]; i++)
 			obj.store_numbers(av[i], ac);
+		obj.makePairs();
+		obj.SortMainChain();
 	}
 	catch (std::exception &e) {
 		std::cout << e.what() << std::endl;
