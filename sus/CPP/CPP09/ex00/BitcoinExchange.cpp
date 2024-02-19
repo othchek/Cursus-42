@@ -1,6 +1,28 @@
 #include "BitcoinExchange.hpp"
 #include <unistd.h>
 
+int BitcoinExchange::isLeapYear(int year)
+{
+    return ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0);
+}
+
+void BitcoinExchange::isValidDate()
+{
+	int year = f_stoi(Year);
+	int month = f_stoi(Month);
+	int day = f_stoi(Day);
+    if (year < 0 || year < 2009 || month < 1 || month > 12 || day < 1)
+		throw std::invalid_argument("Error: Invalid Date!!");
+
+    int daysInMonth[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+
+    if (isLeapYear(year))
+        daysInMonth[1] = 29;
+
+    if (day > daysInMonth[(int)month - 1])
+        throw std::invalid_argument("Error: Invalid Date!!");
+}
+
 int BitcoinExchange::f_stoi(std::string numb)
 {
 	int ret;
@@ -51,34 +73,38 @@ void	BitcoinExchange::read_file() {
 }
 
 void BitcoinExchange::read_input(std::string Name) {
-	try {
-		std::string str;
-		std::string date;
-		std::string value;
-		std::ifstream file;
-		file.open(Name);
-		getline(file, str);
-		if (file.eof() || str.compare("date | value"))
-			throw (std::invalid_argument("Invalid file!!"));
-		while (std::getline(file, str)) 
-		{
+	std::string str;
+	std::string date;
+	std::string value;
+	std::ifstream file;
+	file.open(Name);
+	getline(file, str);
+	if (file.eof() || str.compare("date | value"))
+		throw (std::invalid_argument("Invalid file!!"));
+	while (std::getline(file, str))
+	{
+		try {
 			if (str.length() < 14)
-				throw (std::invalid_argument("Invalid Date/Value!!"));
+				throw (std::invalid_argument("Error: Invalid Date/Value!!"));
 			size_t pos = str.find('|');
 			size_t rpos = str.rfind('|');
 			if (pos != rpos)
-				throw (std::invalid_argument("Invalid data[multiple Pipes!!]"));
+				throw (std::invalid_argument("Error: Invalid data[multiple Pipes!!]"));
 			date = str.substr(0, pos);
 			if (date.length() != 11)
 				throw (std::invalid_argument("Error: Invalid Date!!"));
 			value = str.substr(pos + 1);
 			store_date(date);
 			parse_value(value);
-			parse_date();
+			isValidDate();
+			std::map < std::string, std::string >::iterator it = data.lower_bound(date);
+			if (it != data.end())
+				std::cout << date << "=>" << value << " = " << f_atof(value.c_str()) * f_atof(it->second.c_str()) << std::endl;
 		}
-	}
-	catch (std::exception &e) {
-		std::cout << e.what() << std::endl;
+		catch (std::exception &e) {
+			std::cout << e.what() << std::endl;
+			continue;
+		}
 	}
 }
 
@@ -106,19 +132,30 @@ void BitcoinExchange::store_date(std::string Date) {
 	}
 }
 
-void BitcoinExchange::parse_value(std::string Value) {
-	int ret = 0;
-	Value = trim(Value);
+float BitcoinExchange::f_atof(std::string Value) {
+	float ret = 0.0f;
+    Value = trim(Value);
     std::stringstream var(Value);
-	for (int i = 0; (size_t)i < Value.length(); i++) {
-        if (isdigit(Value[i]) == 0)
+	if (!(var >> ret))
+        throw std::invalid_argument("Error: Overflow!!");
+	return ret;
+}
+
+void BitcoinExchange::parse_value(std::string Value) {
+    float ret = 0.0f;
+    Value = trim(Value);
+    std::stringstream var(Value);
+    if (std::count(Value.begin(), Value.end(), '.') > 1)
+        throw std::invalid_argument("Error: Invalid Value!!");
+    for (int i = 0; (size_t)i < Value.length(); i++) {
+        if ((std::isdigit(Value[i]) == 0 && Value[i] != '.') || typeid(Value) == typeid(float))
             throw std::invalid_argument("Error: Invalid Value!!");
     }
     if (!(var >> ret))
         throw std::invalid_argument("Error: Overflow!!");
-	if (ret < 0 || ret > 1000)
-		throw std::invalid_argument("Error: Invalid Value!!");
-	this->Value = Value;
+    if (ret < 0.0f || ret >= 1000.1f)
+        throw std::invalid_argument("Error: Invalid Value!!");
+    this->Value = Value;
 }
 
 void BitcoinExchange::hiphen_check(std::string Date) {
@@ -131,14 +168,14 @@ void BitcoinExchange::hiphen_check(std::string Date) {
 		throw std::invalid_argument("Error: Invalid Date!!");
 }
 
-void BitcoinExchange::parse_date() {
-	int year = f_stoi(Year);
-	int month = f_stoi(Month);
-	int day = f_stoi(Day);
-	if (year < 2009)
-		throw std::invalid_argument("Error: Invalid Year!!");
-	if (month < 01 || month > 12)
-		throw std::invalid_argument("Error: Invalid Month!!");
-	if (day < 01)
-		throw std::invalid_argument("Error: Invalid Day!!");
-}
+// void BitcoinExchange::parse_date() {
+// 	int year = f_stoi(Year);
+// 	int month = f_stoi(Month);
+// 	int day = f_stoi(Day);
+// 	if (year < 2009)
+// 		throw std::invalid_argument("Error: Invalid Year!!");
+// 	if (month < 01 || month > 12)
+// 		throw std::invalid_argument("Error: Invalid Month!!");
+// 	if (day < 01)
+// 		throw std::invalid_argument("Error: Invalid Day!!");
+// }

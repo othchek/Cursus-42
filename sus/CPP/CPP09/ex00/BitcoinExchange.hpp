@@ -24,4 +24,7 @@ class BitcoinExchange {
 		void			hiphen_check(std::string Date);
 		void			parse_date();
 		int				f_stoi(std::string numb);
+		int				isLeapYear(int year);
+		void			isValidDate();
+		float			f_atof(std::string Value);
 };
