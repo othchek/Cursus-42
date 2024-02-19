@@ -1,6 +1,24 @@
 #include "BitcoinExchange.hpp"
 #include <unistd.h>
 
+BitcoinExchange const	&BitcoinExchange::operator = (BitcoinExchange const &rhs)
+{
+	if (this == &rhs) {
+		this->data = rhs.data;
+		this->Day = rhs.Day;
+		this->Month = rhs.Month;
+		this->Year = rhs.Year;
+		this->Value = rhs.Value;
+        return *this;
+    }	
+	return (*this);
+}
+
+BitcoinExchange::BitcoinExchange(BitcoinExchange const &copy)
+{
+	*this = copy;
+}
+
 int BitcoinExchange::isLeapYear(int year)
 {
     return ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0);

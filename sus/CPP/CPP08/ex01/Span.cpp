@@ -2,6 +2,7 @@
 
 Span::Span(void) {
 	N = 0;
+	vec.reserve(0);
 }
 
 Span::Span(unsigned int N) {
@@ -17,20 +18,20 @@ Span::~Span(void) {}
 
 Span const	&Span::operator = (Span const &rhs) {
 	if (this == &rhs) {
-        return *this;
+        this->vec = rhs.vec;
+		this->N = rhs.N;
     }
 	return (*this);
 }
 
 void Span::addNumber(int i) {
-	if (vec.size() > N)
+	if (vec.size() >= N)
 		throw(sub());
 	vec.push_back(i);
 }
 
 void Span::addNumbers(std::vector<int>::iterator begin, std::vector<int>::iterator end) {
 	if (vec.size() + std::distance(begin, end) > N) {
-		std::cout << "vec size " << vec.size() << " N " << N << " vecsize + distance "<< vec.size() + std::distance(begin, end) << std::endl;
 		throw (sub());
 	}
 	vec.insert(vec.end(), begin, end);

@@ -3,12 +3,13 @@
 int main()
 {
 	try {
-		std::vector<int> vector;
+		// std::vector<int> vector;
 
-		for (int i = 0; i < 10000; i++)
-			vector.push_back(i);
-		Span sp = Span(10000);
-		sp.addNumbers(vector.begin(), vector.end());
+		// for (int i = 0; i < 10000; i++)
+		// 	vector.push_back(i);
+		Span sp(10);
+		sp.addNumber(1);
+		// sp.addNumbers(vector.begin(), vector.end());
 		// sp.addNumber(3);
 		// sp.addNumber(9);
 		// sp.addNumber(45);

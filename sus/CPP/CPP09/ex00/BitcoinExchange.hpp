@@ -14,6 +14,10 @@ class BitcoinExchange {
 		std::string 					   Day;
 		std::string 					   Value;
 	public:
+		BitcoinExchange(void) {};
+		BitcoinExchange(BitcoinExchange const &copy);
+		~BitcoinExchange(void);
+		BitcoinExchange const &operator = (BitcoinExchange const &rhs);
         std::string&    ltrim(std::string& str);
         std::string&    rtrim(std::string& str);
         std::string&    trim(std::string& str);
