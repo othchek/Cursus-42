@@ -16,7 +16,7 @@ class BitcoinExchange {
 	public:
 		BitcoinExchange(void) {};
 		BitcoinExchange(BitcoinExchange const &copy);
-		~BitcoinExchange(void);
+		~BitcoinExchange(void) {};
 		BitcoinExchange const &operator = (BitcoinExchange const &rhs);
         std::string&    ltrim(std::string& str);
         std::string&    rtrim(std::string& str);

@@ -5,6 +5,14 @@
 #include <iostream>
 #include <exception>
 #include <sstream>
+#include <ctime>
+
+#define BLUE      "\x1b[34m"
+#define ORANGE    "\x1b[33m"
+#define RESET     "\x1b[0m"
+#define PURPLE    "\x1b[96m"
+#define GREEN     "\x1b[32m"
+#define RED       "\x1b[1;31m"
 
 class PmergeMe
 {
@@ -12,6 +20,8 @@ class PmergeMe
 		int struggler;
 		std::vector<int> vec;
 		std::vector<int> mainchain;
+		std::vector<int> jacobsthal;
+		std::vector<int> combination;
 		std::vector<int> pend;
 		std::vector<std::pair<int, int> > pairs;
 	public :
@@ -27,6 +37,7 @@ class PmergeMe
 		void	mySwap();
 		void	SortMainChain();
 		void	SeperatePairs();
+		void	Generatejacobsthal();
 };
 
 #endif

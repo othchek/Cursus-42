@@ -1,6 +1,6 @@
 NAME = PmergeMe
 
-CFLAGS = -Wall -Wextra -Werror -std=c++98
+CFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address -g 
 
 INC = PmergeMe.hpp
 
