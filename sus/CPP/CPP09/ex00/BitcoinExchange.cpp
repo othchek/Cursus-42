@@ -80,6 +80,10 @@ void	BitcoinExchange::read_file() {
 	std::string date;
 	std::ifstream file;
 	file.open("data.csv");
+	if (!file.is_open()) {
+		std::cout << "file not found!!" << std::endl;
+		exit (1);
+	}
 	getline(file, str);
 	while (std::getline(file, str)) 
 	{
@@ -96,6 +100,10 @@ void BitcoinExchange::read_input(std::string Name) {
 	std::string value;
 	std::ifstream file;
 	file.open(Name);
+	if (!file.is_open()) {
+		std::cout << "file not found!!" << std::endl;
+		exit (1); 
+	}
 	getline(file, str);
 	if (file.eof() || str.compare("date | value"))
 		throw (std::invalid_argument("Invalid file!!"));

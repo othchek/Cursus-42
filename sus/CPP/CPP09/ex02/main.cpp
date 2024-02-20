@@ -19,7 +19,7 @@ int main(int ac, char **av)
 		start = std::clock();
 		obj.Generatejacobsthal();
 		stop = std::clock();
-		duration = (stop - start) / (double) CLOCKS_PER_SEC;
+		duration = (stop - start);
 		std::cout << "Time to process a range of " << ac - 1 << " elements with std::[..] : " << duration << " us" << std::endl;
 	}
 	catch (std::exception &e) {
