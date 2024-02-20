@@ -32,6 +32,9 @@ void BitcoinExchange::isValidDate()
     if (year < 0 || year < 2009 || month < 1 || month > 12 || day < 1)
 		throw std::invalid_argument("Error: Invalid Date!!");
 
+	if (year == 2009 && day < 02)
+		throw std::invalid_argument("Error: Invalid Date!!");
+
     int daysInMonth[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 
     if (isLeapYear(year))
@@ -123,9 +126,15 @@ void BitcoinExchange::read_input(std::string Name) {
 			store_date(date);
 			parse_value(value);
 			isValidDate();
-			std::map < std::string, std::string >::iterator it = data.lower_bound(date);
+			std::map<std::string, std::string>::iterator it = data.find(date);
 			if (it != data.end())
 				std::cout << date << "=>" << value << " = " << f_atof(value.c_str()) * f_atof(it->second.c_str()) << std::endl;
+			else
+			{
+				std::map < std::string, std::string >::iterator it = data.lower_bound(date);
+				if (it != data.end())
+					std::cout << date << "=>" << value << " = " << f_atof(value.c_str()) * f_atof(it->second.c_str()) << std::endl;
+			}
 		}
 		catch (std::exception &e) {
 			std::cout << e.what() << std::endl;
@@ -193,15 +202,3 @@ void BitcoinExchange::hiphen_check(std::string Date) {
 	if (count != 2)
 		throw std::invalid_argument("Error: Invalid Date!!");
 }
-
-// void BitcoinExchange::parse_date() {
-// 	int year = f_stoi(Year);
-// 	int month = f_stoi(Month);
-// 	int day = f_stoi(Day);
-// 	if (year < 2009)
-// 		throw std::invalid_argument("Error: Invalid Year!!");
-// 	if (month < 01 || month > 12)
-// 		throw std::invalid_argument("Error: Invalid Month!!");
-// 	if (day < 01)
-// 		throw std::invalid_argument("Error: Invalid Day!!");
-// }

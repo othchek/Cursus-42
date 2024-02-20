@@ -6,23 +6,23 @@ int PmergeMe::f_stoi(std::string numb)
 
 	for (int i = 0; (size_t)i < numb.length(); i++)
 		if (!std::isdigit(numb[i]))
-			throw std::invalid_argument("Error: Not Number\n");
+			throw std::invalid_argument("Error");
 	std::stringstream var(numb);
 	if (!(var >> ret))
-		throw std::invalid_argument("Error: Overflow\n");
+		throw std::invalid_argument("Error");
 	return ret;
 }
 
-PmergeMe::PmergeMe(void) {}
+PmergeMe::PmergeMe(void) {
+	struggler = 0;
+}
 
 PmergeMe::PmergeMe(PmergeMe const &copy)
 {
 	*this = copy;
 }
 
-PmergeMe::~PmergeMe(void)
-{
-	struggler = 0;
+PmergeMe::~PmergeMe(void) {
 }
 
 PmergeMe const &PmergeMe::operator=(PmergeMe const &rhs)
@@ -48,6 +48,7 @@ void PmergeMe::store_numbers(std::string str, int size)
 	{
 		struggler = vec.back();
 		vec.pop_back();
+		flag = true;
 	}
 }
 
