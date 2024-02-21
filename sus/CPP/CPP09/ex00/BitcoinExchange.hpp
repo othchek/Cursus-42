@@ -8,7 +8,7 @@
 
 class BitcoinExchange {
 	private :
-		std::map<std::string, std::string> data;
+		std::multimap<std::string, std::string> data;
 		std::string 					   Year;
 		std::string 					   Month;
 		std::string 					   Day;

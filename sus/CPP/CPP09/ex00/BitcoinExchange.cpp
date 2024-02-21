@@ -92,7 +92,7 @@ void	BitcoinExchange::read_file() {
 	{
 		size_t pos = str.find(',');
 		if (pos != std::string::npos)
-			date = str.substr(0, pos - 1);
+			date = str.substr(0, pos);
 		data.insert(std::make_pair(date, str.substr(pos + 1)));
 	}
 }
@@ -126,12 +126,17 @@ void BitcoinExchange::read_input(std::string Name) {
 			store_date(date);
 			parse_value(value);
 			isValidDate();
-			std::map<std::string, std::string>::iterator it = data.find(date);
+			std::string result = trim(date);
+			std::multimap < std::string, std::string >::iterator it_ = data.end();
+			it_--;
+			if (f_stoi(Year) > 2022)
+				result = it_->first;
+			std::multimap<std::string, std::string>::iterator it = data.find(result);
 			if (it != data.end())
-				std::cout << date << "=>" << value << " = " << f_atof(value.c_str()) * f_atof(it->second.c_str()) << std::endl;
+				std::cout << date << " =>" << value << " = " << f_atof(value.c_str()) * f_atof(it->second.c_str()) << std::endl;
 			else
 			{
-				std::map < std::string, std::string >::iterator it = data.lower_bound(date);
+				std::multimap < std::string, std::string >::iterator it = data.lower_bound(result);
 				if (it != data.end())
 					std::cout << date << "=>" << value << " = " << f_atof(value.c_str()) * f_atof(it->second.c_str()) << std::endl;
 			}

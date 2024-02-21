@@ -233,8 +233,4 @@ void PmergeMe::d_Generatejacobsthal()
 		int index = d_binarySearch(d_mainchain, d_struggler);
         d_mainchain.insert(index + d_mainchain.begin(), d_struggler);
 	}
-	std::cout << "After :";
-	for (int i = 0; i < (int)d_mainchain.size(); i++)
-		std::cout << " " << d_mainchain[i];
-	std::cout << std::endl;
 }

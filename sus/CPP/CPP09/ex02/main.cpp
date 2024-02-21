@@ -29,12 +29,6 @@ int main(int ac, char **av)
 		std::clock_t d_start;
 		std::clock_t d_stop;
 		double d_duration;
-		std::cout << "Before :";
-		for (int i = 1; av[i]; i++) {
-			obj.d_store_numbers(av[i], ac);
-			std::cout << " " << av[i];
-		}
-		std::cout << std::endl;
 		obj.d_makePairs();
 		obj.d_SortMainChain();
 		d_start = std::clock();
