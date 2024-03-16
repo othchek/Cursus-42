@@ -221,6 +221,9 @@ void PmergeMe::d_Generatejacobsthal()
 			else if (result == d_jacobsthal[i])
 				break ;
 		}
+		for (int i = 0; i < (int)d_combination.size(); i++) {
+			std::cout << "comb " << d_combination[i] << std::endl;
+		}
 	}
 	for (int i = 0; i < (int)d_pend.size(); i++) {
 		if (d_combination[i] - 1 < (int)d_pend.size()) {
