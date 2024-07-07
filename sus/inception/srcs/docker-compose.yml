@@ -1,7 +1,60 @@
 services:
+
   nginx:
+    container_name: nginx
     build: ./requirements/nginx
-  mariadb:
-    build: ./requirements/mariadb
+    image: nginx:dawdaw
+    volumes:
+      - data_dyal_wordpress:/var/www
     env_file:
       - .env
+    ports:
+      - 443:443
+    depends_on:
+      - wordpress
+    restart: always
+    networks:
+      - ontirnit
+
+  mariadb:
+    container_name: mariadb
+    build: ./requirements/mariadb
+    image: mariadb:dawdaw
+    env_file:
+      - .env
+    volumes:
+      - data_dyal_mariadb:/var/lib/mysql
+    networks:
+      - ontirnit
+    restart: always
+
+  wordpress:
+    container_name: wordpress
+    build: ./requirements/wordpress
+    image: wordpress:dawdaw
+    volumes:
+      - data_dyal_wordpress:/var/www
+    env_file:
+      - .env
+    depends_on:
+      - mariadb
+    restart: always
+    networks:
+      - ontirnit
+
+volumes:
+  data_dyal_mariadb:
+    driver_opts:
+      o: bind
+      type: none
+      device: /Users/otchekai/data/db
+
+  data_dyal_wordpress:
+    driver_opts:
+      o: bind
+      type: none
+      device: /Users/otchekai/data/wp
+
+networks:
+  ontirnit:
+    driver: bridge
