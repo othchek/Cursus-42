@@ -1,2 +1,2 @@
 all:
-	sudo docker-compose up -d
+	sudo docker-compose -f ./srcs/docker-compose.yml up -d
